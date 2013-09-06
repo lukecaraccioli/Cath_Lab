@@ -4,6 +4,5 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="scriptManager" runat ="server"></asp:ScriptManager>
         <telerik:RadGrid ID ="RadGrid1" runat="server" AutoGenerateColumns="true" OnNeedDataSource="RadGrid1_NeedDataSource" AllowSorting="true">
-
         </telerik:RadGrid>
 </asp:Content>

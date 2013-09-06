@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="cathlabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="cathlabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="cathlabModelStoreContainer">
           <EntitySet Name="Location" EntityType="cathlabModel.Store.Location" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Login" EntityType="cathlabModel.Store.Login" store:Type="Tables" store:Schema="dbo" store:Name="Login">
@@ -163,11 +163,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+        <Function Name="GetProductsUsed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="startDate" Type="datetime" Mode="In" />
+          <Parameter Name="endDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="GetSoonExpiring" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="days" Type="int" Mode="In" />
+        </Function>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'cathlab.dbo.Duplicates' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Duplicates">
+        <Property Name="PartNum" Type="varchar" MaxLength="50" />
+        <Property Name="NameSize" Type="varchar" MaxLength="50" />
+      </EntityType>-->
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cathlabModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="cathlabEntities1" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="cathlabEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Locations" EntityType="cathlabModel.Location" />
           <EntitySet Name="Logins" EntityType="cathlabModel.Login" />
           <EntitySet Name="Manufacturers" EntityType="cathlabModel.Manufacturer" />
@@ -192,6 +207,13 @@
             <End Role="PartNumber" EntitySet="PartNumbers" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
+          <FunctionImport Name="GetProductsUsed" ReturnType="Collection(cathlabModel.GetProductsUsed_Result)">
+            <Parameter Name="startDate" Mode="In" Type="DateTime" />
+            <Parameter Name="endDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetSoonExpiring" ReturnType="Collection(cathlabModel.GetSoonExpiring_Result)">
+            <Parameter Name="days" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Location">
           <Key>
@@ -324,12 +346,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="GetProductsUsed_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="DateTime" Name="DateUsed" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Cost" Nullable="true" />
+          <Property Type="String" Name="NameSize" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetSoonExpiring_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="NameSize" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LocationName" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="true" Precision="23" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="cathlabModelStoreContainer" CdmEntityContainer="cathlabEntities1">
+        <EntityContainerMapping StorageEntityContainer="cathlabModelStoreContainer" CdmEntityContainer="cathlabEntities">
           <EntitySetMapping Name="Locations">
             <EntityTypeMapping TypeName="cathlabModel.Location">
               <MappingFragment StoreEntitySet="Location">
@@ -411,6 +446,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetProductsUsed" FunctionName="cathlabModel.Store.GetProductsUsed">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cathlabModel.GetProductsUsed_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateUsed" ColumnName="DateUsed" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="NameSize" ColumnName="NameSize" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSoonExpiring" FunctionName="cathlabModel.Store.GetSoonExpiring">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cathlabModel.GetSoonExpiring_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NameSize" ColumnName="NameSize" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

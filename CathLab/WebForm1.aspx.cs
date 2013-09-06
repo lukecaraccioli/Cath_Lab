@@ -16,7 +16,7 @@ namespace CathLab
 
         protected void RadGrid1_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            using (var context = new cathlabEntities1())
+            using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products
                             where prod.ID < 100

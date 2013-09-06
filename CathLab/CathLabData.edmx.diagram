@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="32c7a4326c4647328a6733904c53140b" Name="Diagram1">
+      <Diagram DiagramId="349492fd618741c48cab8e77b159df1b" Name="Diagram1">
         <EntityTypeShape EntityType="cathlabModel.Location" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.Login" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.Manufacturer" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
