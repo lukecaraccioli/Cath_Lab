@@ -4,10 +4,12 @@
 <%--big balls little ballls--%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <title>Cath Lab</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">    
+                
     </asp:ContentPlaceHolder>
 </head>
+    <h1>Cath Lab</h1>
 <body>
     <form id="form1" runat="server">
     <div>

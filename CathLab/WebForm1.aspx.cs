@@ -19,8 +19,8 @@ namespace CathLab
             using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products
-                            where prod.ID < 100
-                            select prod);
+                            where prod.ExpirationDate == DateTime.Today
+                            select new { prod.ExpirationDate, prod.Location.LocationName , prod.PartNumber1.NameSize});
                 RadGrid1.DataSource = temp.ToList();
             } 
         }
