@@ -13,6 +13,15 @@ namespace CathLab {
     public partial class WebForm1 {
         
         /// <summary>
+        /// RadAJAXPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAJAXPanel;
+        
+        /// <summary>
         /// scriptManager control.
         /// </summary>
         /// <remarks>
