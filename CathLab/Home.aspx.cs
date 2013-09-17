@@ -13,5 +13,15 @@ namespace CathLab
         {
 
         }
+
+        protected void aspLogin_LoggedIn(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void aspLogin_LoggingIn(object sender, LoginCancelEventArgs e)
+        {
+
+        }
     }
 }
