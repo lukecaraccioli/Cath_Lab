@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Cath Lab</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">    
-                
+    <link type="text/css" rel="stylesheet" href="variant-multi.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">                    
     </asp:ContentPlaceHolder>
 </head>
     <h1>Cath Lab</h1>
