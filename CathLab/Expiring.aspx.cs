@@ -18,7 +18,7 @@ namespace CathLab
             {
                 var temp = (from prod in context.Products
                             where prod.ExpirationDate == DateTime.Today
-                            select new { prod.ExpirationDate, prod.Location.LocationName , prod.PartNumber1.NameSize}).AsEnumerable();
+                            select new { prod.ExpirationDate, prod.Location.LocationName, prod.PartNumber1.NameSize }).AsEnumerable();
                 RadGrid1.DataSource = temp.ToList();
             } 
         }

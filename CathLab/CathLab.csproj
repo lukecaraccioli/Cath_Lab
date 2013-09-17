@@ -107,6 +107,7 @@
     <Content Include="App_Data\RadCaptcha\Z.wav" />
     <Content Include="Home.aspx" />
     <Content Include="images\SJCHlogo.jpg" />
+    <Content Include="images\SJCH logo.jpg" />
     <Content Include="Inventory.aspx" />
     <Content Include="Reports.aspx" />
     <Content Include="variant-multi.css" />

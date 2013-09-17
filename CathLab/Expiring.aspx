@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
-    <asp:ScriptManager ID="scriptManager" runat ="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>
         View products expiring in:  
         <telerik:RadButton runat="server" ID="btn10" Text="10 Days" OnClick="btn10_Click"></telerik:RadButton>
         <telerik:RadButton runat="server" ID="btn30" Text="30 Days" OnClick="btn30_Click"></telerik:RadButton> <br />

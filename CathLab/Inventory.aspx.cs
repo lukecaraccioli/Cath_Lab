@@ -11,7 +11,15 @@ namespace CathLab
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+            using (var context = new cathlabEntities())
+            {
+                var temp = (from prodtype in context.ProductTypes
+                            select prodtype).ToList();
+                lbProdType.DataSource = temp;
+                lbProdType.DataValueField = "ID";
+                lbProdType.DataTextField = "Type";
+                lbProdType.DataBind();
+            }
+        }        
     }
 }
