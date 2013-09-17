@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Cath Lab</title>
-    <link type="text/css" rel="stylesheet" href="variant-multi.css" />
+       <link type="text/css" rel="stylesheet" href="variant-multi.css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">   
                          
@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <h1>
+        <img src="images/SJCHlogo.jpg" />
+    </h1>
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
