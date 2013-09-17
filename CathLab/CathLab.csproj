@@ -108,7 +108,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebForm1.aspx" />
+    <Content Include="Expiring.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CathLabData.Context.cs">
@@ -164,12 +164,12 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>CathLabData.tt</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Expiring.aspx.cs">
+      <DependentUpon>Expiring.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Expiring.aspx.designer.cs">
+      <DependentUpon>Expiring.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -228,7 +228,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
