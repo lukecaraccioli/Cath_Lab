@@ -6,15 +6,18 @@
     <table>
         <tr>
             <td>
-                <telerik:RadListBox runat="server" ID="lbProdType" ></telerik:RadListBox>
+                <telerik:RadListBox runat="server" ID="lbxProdType" Height="180" DataValueField="Int" ></telerik:RadListBox>
             </td>
             <td>
-                <telerik:RadButton runat="server" ID="btnApply" ></telerik:RadButton>
+                <telerik:RadListBox runat="server" ID="lbxManufacturer" Height="180"></telerik:RadListBox>
+            </td>
+            <td>
+                <telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>
             </td>
         </tr>
         <tr>
             <td>
-                <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true">
+                <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true" OnNeedDataSource="rgInventory_NeedDataSource">
                 </telerik:RadGrid>
             </td>
         </tr>
