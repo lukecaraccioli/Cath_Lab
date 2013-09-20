@@ -10,7 +10,7 @@
                     <telerik:RadGrid ID="RadGrid1" runat="server" AutoGenerateColumns="true" OnNeedDataSource="RadGrid1_NeedDataSource" AllowSorting="true"
                         Width="500px" Skin="WebBlue">
                     </telerik:RadGrid>
-                </td valign="top">
+                </td >
                 <td>View products expiring in: 
                 <br />
                     <telerik:RadButton runat="server" ID="btn10" Text="10 Days" OnClick="btn10_Click"></telerik:RadButton>
