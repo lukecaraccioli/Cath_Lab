@@ -7,10 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace CathLab
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Expiring : System.Web.UI.Page
     {
+        public static int days;
+
         protected void Page_Load(object sender, EventArgs e)
-        { }
+        {
+
+        }
 
         protected void RadGrid1_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
@@ -18,9 +22,10 @@ namespace CathLab
             {
                 var temp = (from prod in context.Products
                             where prod.ExpirationDate == DateTime.Today
-                            select new { prod.ExpirationDate, prod.Location.LocationName, prod.PartNumber1.NameSize }).AsEnumerable();
+                            select new { prod.ExpirationDate, prod.Location.LocationName, prod.PartNumber1.NameSize }).AsEnumerable()
+                            .Select(a => new { ExpirationDate = a.ExpirationDate.Value.ToLongDateString(), a.NameSize, a.LocationName });
                 RadGrid1.DataSource = temp.ToList();
-            } 
+            }
         }
 
         protected void btn10_Click(object sender, EventArgs e)

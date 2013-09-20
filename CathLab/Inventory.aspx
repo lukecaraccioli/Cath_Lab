@@ -1,10 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.master" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="CathLab.Inventory" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
-        <table>
+        <table style="width:100px">
             <tr>
                 <td>
                     <telerik:RadListBox runat="server" ID="lbxProdType" Height="180" DataValueField="Int" AutoPostBack="True"></telerik:RadListBox>
