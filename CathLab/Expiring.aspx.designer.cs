@@ -10,16 +10,25 @@
 namespace CathLab {
     
     
-    public partial class WebForm1 {
+    public partial class Expiring {
         
         /// <summary>
-        /// RadAJAXPanel control.
+        /// scriptmanager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel RadAJAXPanel;
+        protected global::Telerik.Web.UI.RadScriptManager scriptmanager;
+        
+        /// <summary>
+        /// AJAXPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel AJAXPanel;
         
         /// <summary>
         /// RadGrid1 control.
@@ -29,6 +38,15 @@ namespace CathLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid RadGrid1;
+        
+        /// <summary>
+        /// btnToday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnToday;
         
         /// <summary>
         /// btn10 control.
@@ -47,14 +65,5 @@ namespace CathLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btn30;
-        
-        /// <summary>
-        /// scriptManager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager scriptManager;
     }
 }
