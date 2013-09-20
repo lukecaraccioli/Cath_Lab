@@ -22,13 +22,22 @@ namespace CathLab {
         protected global::System.Web.UI.ScriptManager scriptManager;
         
         /// <summary>
-        /// lbProdType control.
+        /// lbxProdType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadListBox lbProdType;
+        protected global::Telerik.Web.UI.RadListBox lbxProdType;
+        
+        /// <summary>
+        /// lbxManufacturer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadListBox lbxManufacturer;
         
         /// <summary>
         /// btnApply control.

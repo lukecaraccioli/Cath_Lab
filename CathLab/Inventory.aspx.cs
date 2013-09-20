@@ -11,15 +11,60 @@ namespace CathLab
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            loadManufacturers();
+            loadTypes();
+        }
+
+        protected void loadTypes()
+        {
             using (var context = new cathlabEntities())
             {
                 var temp = (from prodtype in context.ProductTypes
-                            select prodtype).ToList();
-                lbProdType.DataSource = temp;
-                lbProdType.DataValueField = "ID";
-                lbProdType.DataTextField = "Type";
-                lbProdType.DataBind();
+                            select prodtype);
+                
+                lbxProdType.DataSource = temp.ToList();
+                lbxProdType.DataValueField = "ID";
+                lbxProdType.DataTextField = "Type";
+                lbxProdType.DataBind();
             }
+        }
+
+        protected void loadManufacturers()
+        {
+            using (var context = new cathlabEntities())
+            {
+                var temp = (from man in context.Manufacturers
+                            select new { man.ID, man.Name });
+                lbxManufacturer.DataSource = temp.ToList();
+                lbxManufacturer.DataValueField = "ID";
+                lbxManufacturer.DataTextField = "Name";
+                lbxManufacturer.DataBind();
+            }
+        }
+
+        protected void rgInventory_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        {
+            //using (var context = new cathlabEntities())
+            //{
+            //    var temp = (from prodtype in context.ProductTypes
+            //                select prodtype).ToList();
+            //    rgInventory.DataSource = temp;
+            //}
+        }
+
+        protected void btnApply_Click(object sender, EventArgs e)
+        {
+            int typeId;
+            int.TryParse(lbxProdType.SelectedValue, out typeId);
+            int manId = int.Parse(lbxManufacturer.SelectedValue);
+            using (var context = new cathlabEntities())
+            {
+                var temp = (from prod in context.Products
+                            where prod.PartNumber1.ManufacturerID == manId && prod.PartNumber1.ProductTypeID == typeId
+                            select prod);
+                rgInventory.DataSource = temp.ToList();
+            }
+
         }        
     }
 }

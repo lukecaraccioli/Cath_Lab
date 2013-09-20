@@ -22,13 +22,13 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadAjaxPanel RadAJAXPanel;
         
         /// <summary>
-        /// scriptManager control.
+        /// RadGrid1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scriptManager;
+        protected global::Telerik.Web.UI.RadGrid RadGrid1;
         
         /// <summary>
         /// btn10 control.
@@ -49,12 +49,12 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadButton btn30;
         
         /// <summary>
-        /// RadGrid1 control.
+        /// scriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid RadGrid1;
+        protected global::System.Web.UI.ScriptManager scriptManager;
     }
 }
