@@ -21,10 +21,10 @@ namespace CathLab
             {
                 var temp = (from prodtype in context.ProductTypes
                             select prodtype);
-                
-                lbxProdType.DataSource = temp.ToList();
+
                 lbxProdType.DataValueField = "ID";
                 lbxProdType.DataTextField = "Type";
+                lbxProdType.DataSource = temp.ToList();                
                 lbxProdType.DataBind();
             }
         }
@@ -35,9 +35,9 @@ namespace CathLab
             {
                 var temp = (from man in context.Manufacturers
                             select new { man.ID, man.Name });
-                lbxManufacturer.DataSource = temp.ToList();
                 lbxManufacturer.DataValueField = "ID";
                 lbxManufacturer.DataTextField = "Name";
+                lbxManufacturer.DataSource = temp.ToList();                
                 lbxManufacturer.DataBind();
             }
         }
