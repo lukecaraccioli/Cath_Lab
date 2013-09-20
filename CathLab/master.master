@@ -6,11 +6,6 @@
 <head runat="server">
     <title>Cath Lab</title>
        <link type="text/css" rel="stylesheet" href="variant-multi.css" />
-
-   
-
-
-
    
     <%-- Start of the test code --%>
    
@@ -23,7 +18,7 @@
 </head>
 
 <body>
-<div id="containerfull"><!-- Use"containerfull" for 100% width. For fixed width, use "container980", "container760" or "container600" (the number is the layout width in pixels). -->
+<div id="containerfull"> <!-- Use"containerfull" for 100% width. For fixed width, use "container980", "container760" or "container600" (the number is the layout width in pixels). -->
 	<div id="header">
          <h1>
         <img src="images/SJCHlogo.jpg" />
@@ -33,7 +28,7 @@
 	</div>
 	<div id="Div1"> 
 		<ul>     
-			<li><a href="./Expiration.aspx">Expiration page</a></li>
+			<li><a href="/Expiration.aspx">Expiration page</a></li>
 			<li><a href="760px.html">760px width</a></li>
 			<li><a href="600px.html">600px width</a></li>
 			<li><a class="current" href="full.html">100% width</a></li>
@@ -79,7 +74,14 @@
 		</div>
 
 		<div id="content">
-			<h2>About this template</h2>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">   
+            <div id="menu"> 
+
+
+
+	</div>     
+        </asp:ContentPlaceHolder>
+			<%--<h2>About this template</h2>
 			<p>This is Variant Multi, a free website template by Andreas Viklund. It was designed to provide a quite popular design (header with horizontal menu, feature area, 2- or 3-column content area with sidebar and a multi-column footer area) with a number of layout options for both the different areas of the site and for the layout width. The default style is 980 pixels wide. Pre-defined styles are available for fixed widths of 760 and 600 pixels, as well as a full-width (100%) layout, use the navigation menu to see the different widths.</p>
 
 			<div class="left">			
@@ -92,7 +94,7 @@
 				<h3>Built for speed</h3>
                 <p>The code is all valid XHTML 1.5 Strict, and since no images have been used in this template it loads fast even on slower connections. The template has been tested in all major browsers including on mobile devices, and it should work well no matter where it is displayed.</p>
 			</div>
-			<div class="clear">&nbsp;</div>
+			<div class="clear">&nbsp;</div>--%>
 		</div>
 		<div class="clear">&nbsp;</div>
 	</div>
@@ -131,13 +133,7 @@
    
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">   
-            <div id="menu"> 
 
-
-
-	</div>     
-        </asp:ContentPlaceHolder>
     </div>
     </form>
 </body>
