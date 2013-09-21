@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="CathLab.master" %>
 
 <!DOCTYPE html>
-<%--big balls little ballls--%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Cath Lab</title>
@@ -18,20 +17,22 @@
 </head>
 
 <body>
+    <form runat="server">
 <div id="containerfull"> <!-- Use"containerfull" for 100% width. For fixed width, use "container980", "container760" or "container600" (the number is the layout width in pixels). -->
 	<div id="header">
          <h1>
         <img src="images/SJCHlogo.jpg" />
     </h1>
-		<h1><a href="index.html"></a></h1>
-		<h2>When you want more than just a single layout...</h2>
+		<h1><a href="Home.aspx"></a></h1>
+		<h2>Cath Lab Inventory Management</h2>
 	</div>
 	<div id="Div1"> 
 		<ul>     
-			<li><a href="/Expiration.aspx">Expiration page</a></li>
-			<li><a href="760px.html">760px width</a></li>
-			<li><a href="600px.html">600px width</a></li>
-			<li><a class="current" href="full.html">100% width</a></li>
+            <%-- Need buttons for the links --%>
+            <li><a href="Home.aspx">Home</a></li>
+			<li><a href="Expiring.aspx">Expiring Products</a></li>
+			<li><a href="Inventory.aspx">Inventory</a></li>
+			<li><a href="Reports.aspx">Reports</a></li>
 		</ul>
 	</div>
 	
@@ -56,8 +57,8 @@
 					<li><a href="index.html">Sidebar link</a></li>
 					<li><a href="#">Subpages supported</a>
 						<ul>
-							<li><a href="index.html">Subpage one</a></li>
-							<li><a href="examples.html">Subpage two</a></li>
+							<%--<li><a href="index.html">Subpage one</a></li>
+							<li><a href="examples.html">Subpage two</a></li>--%>
 						</ul></li>
 					<li><a href="#">Last page</a></li>
 				</ul>
@@ -67,21 +68,16 @@
 				<h2>Text box</h2>
 				<p>This is a sidebar text box. It can be used for regular links:</p>
 				<ul>
-					<li><a href="http://andreasviklund.com/templates/">More free templates</a></li>
-					<li><a href="http://andreasviklund.com/tag/tutorials/">Template tutorials</a></li>
+					<%--<li><a href="http://andreasviklund.com/templates/">More free templates</a></li>
+					<li><a href="http://andreasviklund.com/tag/tutorials/">Template tutorials</a></li>--%>
 				</ul>
 			</div>
 		</div>
 
-		<div id="content">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">   
-            <div id="menu"> 
-
-
-
-	</div>     
+		<div id="content" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-			<%--<h2>About this template</h2>
+        <%--<h2>About this template</h2>
 			<p>This is Variant Multi, a free website template by Andreas Viklund. It was designed to provide a quite popular design (header with horizontal menu, feature area, 2- or 3-column content area with sidebar and a multi-column footer area) with a number of layout options for both the different areas of the site and for the layout width. The default style is 980 pixels wide. Pre-defined styles are available for fixed widths of 760 and 600 pixels, as well as a full-width (100%) layout, use the navigation menu to see the different widths.</p>
 
 			<div class="left">			
@@ -95,7 +91,7 @@
                 <p>The code is all valid XHTML 1.5 Strict, and since no images have been used in this template it loads fast even on slower connections. The template has been tested in all major browsers including on mobile devices, and it should work well no matter where it is displayed.</p>
 			</div>
 			<div class="clear">&nbsp;</div>--%>
-		</div>
+    </div>
 		<div class="clear">&nbsp;</div>
 	</div>
 
@@ -129,12 +125,6 @@
 	</div>  
 </div>
 
-
-   
-    <form id="form1" runat="server">
-    <div>
-
-    </div>
-    </form>
+        </form>
 </body>
 </html>

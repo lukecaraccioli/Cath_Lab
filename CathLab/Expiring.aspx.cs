@@ -48,7 +48,7 @@ namespace CathLab
                             select new { prod.ExpirationDate, prod.Location.LocationName, prod.PartNumber1.NameSize }).AsEnumerable();
                 RadGrid1.DataSource = temp.ToList();
                 RadGrid1.DataBind();
-            } 
+            }
         }
     }
 }

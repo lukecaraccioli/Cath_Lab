@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.master" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="CathLab.Inventory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
         <table style="width:100px">

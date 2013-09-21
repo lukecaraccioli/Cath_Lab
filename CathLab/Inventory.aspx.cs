@@ -44,12 +44,12 @@ namespace CathLab
 
         protected void rgInventory_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            //using (var context = new cathlabEntities())
-            //{
-            //    var temp = (from prodtype in context.ProductTypes
-            //                select prodtype).ToList();
-            //    rgInventory.DataSource = temp;
-            //}
+            using (var context = new cathlabEntities())
+            {
+                var temp = (from prodtype in context.ProductTypes
+                            select prodtype).ToList();
+                rgInventory.DataSource = temp;
+            }
         }
 
         protected void btnApply_Click(object sender, EventArgs e)
