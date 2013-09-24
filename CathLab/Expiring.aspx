@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <telerik:RadScriptManager runat="server" ID="scriptmanager" ></telerik:RadScriptManager>
+    <%--<telerik:RadScriptManager runat="server" ID="scriptmanager" ></telerik:RadScriptManager>--%>
     <telerik:RadAjaxPanel runat="server" ID="AJAXPanel">
         <telerik:RadGrid runat="server" ID="RadGrid1" OnNeedDataSource="RadGrid1_NeedDataSource" AllowPaging="true" PageSize="15" Width="550"
             AllowSorting="true">
