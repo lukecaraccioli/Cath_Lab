@@ -36,13 +36,13 @@
 
             <div id="feature">
                 <div class="left">
-                    <h2>Feature #1</h2>
-                    <p>This area can be used to put something special in focus. Products, a presentation or anything you may want to highlight. If not needed, this area can be removed completely.</p>
+                    <h2>Features</h2>
+                    <p>The home page is a Welcome/login page. The menu items are the </p>
                 </div>
 
                 <div class="right">
                     <h2>Feature #2</h2>
-                    <p>Use div class="left" and "right" for two columns, or remove the two extra div:s to use a single column here.</p>
+                   <p></p>
                 </div>
                 <div class="clear">&nbsp;</div>
             </div>
@@ -50,22 +50,23 @@
             <div id="main">
                 <div id="sidebar">
                     <div class="sidebarbox">
-                        <h2>Sidebar menu</h2>
+                        <h2>Page Options</h2>
                         <ul class="sidemenu">
-                            <li><a href="index.html">Sidebar link</a></li>
-                            <li><a href="#">Subpages supported</a>
+                            <li><a href="Reports/Reports.aspx">Reports</a></li>
+                            <li><a href="Inventory/Expiring.aspx">Expiring</a></li>
+                            <li><a href="Inventory/Inventory.aspx">Inventory</a>
                                 <ul>
                                     <%--<li><a href="index.html">Subpage one</a></li>
 							<li><a href="examples.html">Subpage two</a></li>--%>
                                 </ul>
                             </li>
-                            <li><a href="#">Last page</a></li>
+                            <li><a href="Home.aspx">Home</a></li>
                         </ul>
                     </div>
 
                     <div class="sidebarbox">
-                        <h2>Text box</h2>
-                        <p>This is a sidebar text box. It can be used for regular links:</p>
+                        <h2>Instruction box</h2>
+                        <p>This will be an Instruction/explination box for the buttons located on the side of the rad grid</p>
                         <ul>
                             <%--<li><a href="http://andreasviklund.com/templates/">More free templates</a></li>
 					<li><a href="http://andreasviklund.com/tag/tutorials/">Template tutorials</a></li>--%>
