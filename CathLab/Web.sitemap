@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode title="Home">
-    <siteMapNode url="~/Home.aspx" description="Homepage"></siteMapNode>
-    <siteMapNode></siteMapNode>
-    <!--<siteMapNode url="Expiring.aspx" title="Expiring"  description="View/Manage soon Expiring Products" > </siteMapNode>-->
-    <siteMapNode url="Expiring.aspx" title="Expiring"  description="View/Manage soon Expiring Products" ></siteMapNode>
-  </siteMapNode>  
+  <siteMapNode>
+    <siteMapNode url="~/Home.aspx" title="Home" description="Homepage"></siteMapNode>
+    <siteMapNode title="Inventory" >
+      <siteMapNode url="~/Inventory/Inventory.aspx" title="Inventory" description="View current Inventory"></siteMapNode>
+      <siteMapNode url="~/Expiring/Inventory.aspx" title="Expiring" description="View/Manage soon Expiring Products" ></siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="~/" title="Reports">
+      <siteMapNode url="~/Reports.aspx" title="Report" description="Report1"></siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
 </siteMap>

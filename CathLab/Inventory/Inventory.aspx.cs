@@ -11,8 +11,12 @@ namespace CathLab
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadManufacturers();
-            loadTypes();
+            if (!Page.IsPostBack)
+            {
+                loadManufacturers();
+                loadTypes();
+                loadLocations();
+            }
         }
 
         protected void loadTypes()
@@ -34,11 +38,24 @@ namespace CathLab
             using (var context = new cathlabEntities())
             {
                 var temp = (from man in context.Manufacturers
-                            select new { man.ID, man.Name });
+                            select new { man.ID, man.Name }).ToList();
                 lbxManufacturer.DataValueField = "ID";
                 lbxManufacturer.DataTextField = "Name";
-                lbxManufacturer.DataSource = temp.ToList();                
+                lbxManufacturer.DataSource = temp;                
                 lbxManufacturer.DataBind();
+            }
+        }
+
+        protected void loadLocations()
+        {
+            using (var context = new cathlabEntities())
+            {
+                var temp = (from loc in context.Locations
+                            select new { loc.ID, loc.LocationName });
+                lbxLocation.DataValueField = "ID";
+                lbxLocation.DataTextField = "LocationName";
+                lbxLocation.DataSource = temp.ToList();
+                lbxLocation.DataBind();
             }
         }
 
@@ -54,9 +71,9 @@ namespace CathLab
 
         protected void btnApply_Click(object sender, EventArgs e)
         {
-            int typeId;
-            int.TryParse(lbxProdType.SelectedValue, out typeId);
+            int typeId = int.Parse(lbxProdType.SelectedValue);
             int manId = int.Parse(lbxManufacturer.SelectedValue);
+
             using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products
@@ -64,7 +81,6 @@ namespace CathLab
                             select prod);
                 rgInventory.DataSource = temp.ToList();
             }
-
-        }        
+        }
     }
 }

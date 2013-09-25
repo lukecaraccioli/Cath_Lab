@@ -108,13 +108,13 @@
     <Content Include="Home.aspx" />
     <Content Include="images\SJCHlogo.jpg" />
     <Content Include="images\SJCH logo.jpg" />
-    <Content Include="Inventory.aspx" />
+    <Content Include="Inventory\Inventory.aspx" />
     <Content Include="Reports\Reports.aspx" />
     <Content Include="Stylesheets\variant-multi.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Expiring.aspx" />
+    <Content Include="Inventory\Expiring.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CathLabData.Context.cs">
@@ -145,11 +145,11 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.aspx.cs">
+    <Compile Include="Inventory\Inventory.aspx.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inventory.aspx.designer.cs">
+    <Compile Include="Inventory\Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">
@@ -191,11 +191,11 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>CathLabData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Expiring.aspx.cs">
+    <Compile Include="Inventory\Expiring.aspx.cs">
       <DependentUpon>Expiring.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Expiring.aspx.designer.cs">
+    <Compile Include="Inventory\Expiring.aspx.designer.cs">
       <DependentUpon>Expiring.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

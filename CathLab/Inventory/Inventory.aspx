@@ -2,15 +2,22 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%--<asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>--%>
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
+        <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
         <table style="width:100px">
             <tr>
                 <td>
-                    <telerik:RadListBox runat="server" ID="lbxProdType" Height="180" DataValueField="Int" AutoPostBack="True"></telerik:RadListBox>
+                    <telerik:RadListBox runat="server" ID="lbxProdType" Height="150" AutoPostBack="True">
+                        <%--<Items> <telerik:RadListBoxItem runat="server" Text="All" Value="0" /> </Items>--%>
+                    </telerik:RadListBox>
                 </td>
                 <td>
-                    <telerik:RadListBox runat="server" ID="lbxManufacturer" Height="180" AutoPostBack="True"></telerik:RadListBox>
+                    <telerik:RadListBox runat="server" ID="lbxManufacturer" Height="150" AutoPostBack="True">
+                    </telerik:RadListBox>
+                </td>
+                <td>
+                    <telerik:RadListBox runat="server" ID="lbxLocation" Height="150" AutoPostBack="True">
+                    </telerik:RadListBox>
                 </td>
                 <td>
                     <telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>
@@ -18,7 +25,7 @@
             </tr>
             <tr>
                 <td>
-                    <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true" OnNeedDataSource="rgInventory_NeedDataSource">
+                    <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true">
                     </telerik:RadGrid>
                 </td>
             </tr>

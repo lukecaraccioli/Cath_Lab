@@ -2,12 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%--<telerik:RadScriptManager runat="server" ID="scriptmanager" ></telerik:RadScriptManager>--%>
     <telerik:RadAjaxPanel runat="server" ID="AJAXPanel">
         <telerik:RadGrid runat="server" ID="RadGrid1" OnNeedDataSource="RadGrid1_NeedDataSource" AllowPaging="true" PageSize="15" Width="550"
             AllowSorting="true">
         </telerik:RadGrid>
-        <telerik:RadButton runat="server" ID="btnToday" CommandName="GetExpiredRange(days)" CommandArgument="0" Text="Today"></telerik:RadButton>
+        <telerik:RadButton runat="server" ID="btnToday" Text="Today"></telerik:RadButton>
         <telerik:RadButton runat="server" ID="btn10" OnClick="btn10_Click" Text="10 Days"></telerik:RadButton>
         <telerik:RadButton runat="server" ID="btn30" OnClick="btn30_Click" Text="30 Days"></telerik:RadButton>
     </telerik:RadAjaxPanel>

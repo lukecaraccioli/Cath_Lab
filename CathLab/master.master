@@ -30,14 +30,8 @@
             </div>
             <div id="Div1">
                 <telerik:RadScriptManager runat="server" ID="radScriptManager"></telerik:RadScriptManager>
-                <telerik:RadMenu runat="server" ID="mnuMenu" DataSourceID="SiteMapDataSource"></telerik:RadMenu>
-                <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource" />
-                <%--<ul>                 
-            <li><a href="Home.aspx">Home</a></li>
-			<li><a href="Expiring.aspx">Expiring Products</a></li>
-			<li><a href="Inventory.aspx">Inventory</a></li>
-			<li><a href="Reports.aspx">Reports</a></li>
-		</ul>--%>
+                <telerik:RadMenu runat="server" ID="mnuMenu" DataSourceID="SiteMapDataSource" Height="60px"  ></telerik:RadMenu>
+                <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource" ShowStartingNode="False"/>
             </div>
 
             <div id="feature">
