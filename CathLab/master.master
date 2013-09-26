@@ -28,7 +28,7 @@
                 <%--<h1><a href="Home.aspx"></a></h1>--%>
                 <h2>Cath Lab Inventory Management</h2>
             </div>
-            <div id="Div1">
+            <div id="Div1" class="right">
                 <telerik:RadScriptManager runat="server" ID="radScriptManager"></telerik:RadScriptManager>
                 <telerik:RadMenu runat="server" ID="mnuMenu" DataSourceID="SiteMapDataSource" Height="60px"  ></telerik:RadMenu>
                 <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource" ShowStartingNode="False"/>
