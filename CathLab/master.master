@@ -52,15 +52,15 @@
                     <div class="sidebarbox">
                         <h2>Page Options</h2>
                         <ul class="sidemenu">
-                            <li><a href="Reports/Reports.aspx">Reports</a></li>
-                            <li><a href="Inventory/Expiring.aspx">Expiring</a></li>
-                            <li><a href="Inventory/Inventory.aspx">Inventory</a>
+                            <li><a href="~/Reports/Reports.aspx">Reports</a></li>
+                            <li><a href="~/Inventory/Expiring.aspx">Expiring</a></li>
+                            <li><a href="~/Inventory/Inventory.aspx">Inventory</a>
                                 <ul>
                                     <%--<li><a href="index.html">Subpage one</a></li>
 							<li><a href="examples.html">Subpage two</a></li>--%>
                                 </ul>
                             </li>
-                            <li><a href="Home.aspx">Home</a></li>
+                            <li><a href="~/Home.aspx">Home</a></li>
                         </ul>
                     </div>
 

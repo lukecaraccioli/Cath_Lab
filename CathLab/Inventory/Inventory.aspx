@@ -4,11 +4,10 @@
 
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
-        <table style="width:100px">
+        <table style="width: 100px">
             <tr>
                 <td>
                     <telerik:RadListBox runat="server" ID="lbxProdType" Height="150" AutoPostBack="True">
-                        <%--<Items> <telerik:RadListBoxItem runat="server" Text="All" Value="0" /> </Items>--%>
                     </telerik:RadListBox>
                 </td>
                 <td>
@@ -23,12 +22,8 @@
                     <telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true">
-                    </telerik:RadGrid>
-                </td>
-            </tr>
         </table>
+        <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true" Visible="true">
+        </telerik:RadGrid>
     </telerik:RadAjaxPanel>
 </asp:Content>

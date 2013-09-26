@@ -9,6 +9,16 @@ namespace CathLab
 {
     public partial class Inventory : System.Web.UI.Page
     {
+        public class lbxResult
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public lbxResult(int id, string name)
+            {
+                ID = id;
+                Name = name;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -23,12 +33,15 @@ namespace CathLab
         {
             using (var context = new cathlabEntities())
             {
-                var temp = (from prodtype in context.ProductTypes
-                            select prodtype);
-
+                List<ProductType> temp = (from prodtype in context.ProductTypes
+                                                   select prodtype).ToList();
+                ProductType a = new ProductType();
+                a.ID = 0;
+                a.Type = "ALL";
+                temp.Insert(0,a);
                 lbxProdType.DataValueField = "ID";
                 lbxProdType.DataTextField = "Type";
-                lbxProdType.DataSource = temp.ToList();                
+                lbxProdType.DataSource = temp;                
                 lbxProdType.DataBind();
             }
         }
@@ -37,8 +50,12 @@ namespace CathLab
         {
             using (var context = new cathlabEntities())
             {
-                var temp = (from man in context.Manufacturers
-                            select new { man.ID, man.Name }).ToList();
+                List<Manufacturer> temp = (from man in context.Manufacturers
+                            select man).ToList();
+                Manufacturer a = new Manufacturer();
+                a.ID = 0;
+                a.Name = "All";
+                temp.Insert(0, a);
                 lbxManufacturer.DataValueField = "ID";
                 lbxManufacturer.DataTextField = "Name";
                 lbxManufacturer.DataSource = temp;                
@@ -50,11 +67,15 @@ namespace CathLab
         {
             using (var context = new cathlabEntities())
             {
-                var temp = (from loc in context.Locations
-                            select new { loc.ID, loc.LocationName });
+                List<Location> temp = (from loc in context.Locations
+                            select loc).ToList();
+                Location a = new Location();
+                a.ID = 0;
+                a.LocationName = "All";
+                temp.Insert(0, a);
                 lbxLocation.DataValueField = "ID";
                 lbxLocation.DataTextField = "LocationName";
-                lbxLocation.DataSource = temp.ToList();
+                lbxLocation.DataSource = temp;
                 lbxLocation.DataBind();
             }
         }
@@ -71,15 +92,17 @@ namespace CathLab
 
         protected void btnApply_Click(object sender, EventArgs e)
         {
-            int typeId = int.Parse(lbxProdType.SelectedValue);
-            int manId = int.Parse(lbxManufacturer.SelectedValue);
+            int typeId; int.TryParse(lbxProdType.SelectedValue, out typeId);
+            int manId; int.TryParse(lbxManufacturer.SelectedValue, out manId);
+            int locId; int.TryParse(lbxLocation.SelectedValue, out locId);
 
             using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products
                             where prod.PartNumber1.ManufacturerID == manId && prod.PartNumber1.ProductTypeID == typeId
-                            select prod);
-                rgInventory.DataSource = temp.ToList();
+                            select prod).ToList();
+                rgInventory.DataSource = temp;
+                rgInventory.DataBind();
             }
         }
     }

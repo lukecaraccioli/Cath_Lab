@@ -4,10 +4,10 @@
     <siteMapNode url="~/Home.aspx" title="Home" description="Homepage"></siteMapNode>
     <siteMapNode title="Inventory" >
       <siteMapNode url="~/Inventory/Inventory.aspx" title="Inventory" description="View current Inventory"></siteMapNode>
-      <siteMapNode url="~/Expiring/Inventory.aspx" title="Expiring" description="View/Manage soon Expiring Products" ></siteMapNode>
+      <siteMapNode url="~/Inventory/Expiring.aspx" title="Expiring" description="View/Manage soon Expiring Products" ></siteMapNode>
     </siteMapNode>
     <siteMapNode url="~/" title="Reports">
-      <siteMapNode url="~/Reports.aspx" title="Report" description="Report1"></siteMapNode>
+      <siteMapNode url="~/Reports/Reports.aspx" title="Report" description="Report1"></siteMapNode>
     </siteMapNode>
   </siteMapNode>
 </siteMap>
