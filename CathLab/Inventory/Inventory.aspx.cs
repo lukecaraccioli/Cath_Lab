@@ -95,7 +95,6 @@ namespace CathLab
             int typeId; int.TryParse(lbxProdType.SelectedValue, out typeId);
             int manId; int.TryParse(lbxManufacturer.SelectedValue, out manId);
             int locId; int.TryParse(lbxLocation.SelectedValue, out locId);
-
             using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products

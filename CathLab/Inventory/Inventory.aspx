@@ -23,7 +23,7 @@
                 </td>
             </tr>
         </table>
-        <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true" Visible="true">
+        <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true" Visible="true" AllowPaging="true">
         </telerik:RadGrid>
     </telerik:RadAjaxPanel>
 </asp:Content>
