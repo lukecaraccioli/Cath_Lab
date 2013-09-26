@@ -22,10 +22,9 @@
             <!-- Use"containerfull" for 100% width. For fixed width, use "container980", "container760" or "container600" (the number is the layout width in pixels). -->
             <div id="header">
                 <h1>
-                    <img src="images/SJCHlogo.jpg" />
-                    <a href="Home.aspx"></a>
+                <img src="images/SJCHlogo.jpg" />
+                 
                 </h1>
-                <%--<h1><a href="Home.aspx"></a></h1>--%>
                 <h2>Cath Lab Inventory Management</h2>
             </div>
             <div id="Div1" class="right">
@@ -40,10 +39,7 @@
                     <p>The home page is a Welcome/login page. The menu items are the </p>
                 </div>
 
-                <div class="right">
-                    <h2>Feature #2</h2>
-                   <p></p>
-                </div>
+              
                 <div class="clear">&nbsp;</div>
             </div>
 
@@ -111,8 +107,8 @@
                     <div class="lastquarter">
                         <h2>Footer menu</h2>
                         <ul>
-                            <li><a href="index.html">Link #1</a></li>
-                            <li><a href="index.html">Link #2</a></li>
+                            <li><a href="Home.aspx">Home</a></li>
+                            <li><a href="http://cs.csub.edu">CS Dept</a></li>
                         </ul>
                     </div>
                     <div class="clear">&nbsp;</div>
@@ -121,9 +117,9 @@
 
             <div id="credits">
                 <p>
-                    &copy; 2012 Your Name<br />
-                    <span class="small">Template design by <a href="http://andreasviklund.com/">Andreas Viklund</a><br />
-                        Best hosted at <a href="https://www.svenskadomaner.se/?ref=mall&amp;ling=en" title="Svenska Domäner AB">www.svenskadomaner.se</a></span>
+                    &copy; 2013 Big Swim Shanondoah<br />
+                    <%--<span class="small">Template design by <a href="http://andreasviklund.com/">Andreas Viklund</a><br />
+                        Best hosted at <a href="https://www.svenskadomaner.se/?ref=mall&amp;ling=en" title="Svenska Domäner AB">www.svenskadomaner.se</a></span>--%>
                 </p>
             </div>
         </div>
