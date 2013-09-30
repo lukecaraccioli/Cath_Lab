@@ -31,6 +31,15 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel loadingPanel;
         
         /// <summary>
+        /// lblProdType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProdType;
+        
+        /// <summary>
         /// lbxProdType control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadListBox lbxProdType;
         
         /// <summary>
+        /// lblManufacturer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManufacturer;
+        
+        /// <summary>
         /// lbxManufacturer control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace CathLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadListBox lbxManufacturer;
+        
+        /// <summary>
+        /// lblLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLocation;
         
         /// <summary>
         /// lbxLocation control.
