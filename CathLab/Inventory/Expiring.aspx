@@ -26,7 +26,15 @@
                     </div>
                 </div>
             </div>
-         <telerik:RadGrid runat="server" ID="RadGrid1" OnNeedDataSource="RadGrid1_NeedDataSource" AllowPaging="true" PageSize="15" Width="900" AllowSorting="true">
+         <telerik:RadGrid runat="server" ID="RadGrid1" OnNeedDataSource="RadGrid1_NeedDataSource" AllowPaging="true" PageSize="15" Width="900" 
+             AllowSorting="true" AutoGenerateColumns="false">
+             <MasterTableView>
+                 <Columns>
+                     <telerik:GridBoundColumn DataField="ExpirationDate" HeaderText="Expiration Date"></telerik:GridBoundColumn>
+                     <telerik:GridBoundColumn DataField="NameSize" HeaderText="Name/Size"></telerik:GridBoundColumn>
+                     <telerik:GridBoundColumn DataField="LocationName" HeaderText="Location"></telerik:GridBoundColumn>
+                 </Columns>
+             </MasterTableView>
         </telerik:RadGrid>
        
         

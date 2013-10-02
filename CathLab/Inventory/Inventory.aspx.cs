@@ -112,14 +112,14 @@ namespace CathLab
             }
         }
 
-        protected void rgInventory_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
-        {
-            LoadData();
-        }
-
         protected void lbxLocation_TextChanged(object sender, EventArgs e)
         {
             int.TryParse(lbxLocation.SelectedValue, out locId);
+        }
+
+        protected void rgInventory_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        {
+            LoadData();
         }
 
         protected void LoadData()
@@ -127,7 +127,8 @@ namespace CathLab
             using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products
-                            select new { prod.ID, prod.PartNumber, prod.PartNumber1, prod.SerialNumber, prod.ExpirationDate, prod.Location.LocationName, prod.LocationID, prod.PartNumber1.NameSize });
+                            select new { prod.ID, prod.PartNumber, prod.PartNumber1, prod.SerialNumber, 
+                                prod.ExpirationDate, prod.Location.LocationName, prod.LocationID, prod.PartNumber1.NameSize });
                 if (typeId != 0)
                     temp = temp.Where(a => a.PartNumber1.ProductTypeID == typeId);
                 if (manId != 0)
