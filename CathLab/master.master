@@ -22,7 +22,7 @@
             <!-- Use"containerfull" for 100% width. For fixed width, use "container980", "container760" or "container600" (the number is the layout width in pixels). -->
             <div id="header">
                 <h1>
-                <img src="images/SJCHlogo.jpg" />
+                <img src="/images/SJCHlogo.jpg" />
                  
                 </h1>
                 <h2>Cath Lab Inventory Management</h2>
