@@ -57,6 +57,7 @@ namespace CathLab
                     lbxManufacturer.DataBind();
                 }
             }
+            lbxManufacturer.SelectedIndex = 0;
         }
 
         protected void loadManufacturers()
@@ -93,6 +94,7 @@ namespace CathLab
                     lbxLocation.DataBind();
                 }
             }
+            lbxLocation.SelectedIndex = 0;
         }
 
         protected void loadLocations()
@@ -118,8 +120,6 @@ namespace CathLab
         protected void lbxLocation_TextChanged(object sender, EventArgs e)
         {
             int.TryParse(lbxLocation.SelectedValue, out locId);
-            //int.TryParse(lbxProdType.SelectedValue, out typeId);
-            //int.TryParse(lbxManufacturer.SelectedValue, out manId);            
         }
 
         protected void LoadData()
@@ -127,13 +127,13 @@ namespace CathLab
             using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products
-                            select prod);
+                            select new { prod.ID, prod.PartNumber, prod.PartNumber1, prod.SerialNumber, prod.ExpirationDate, prod.Location.LocationName, prod.LocationID, prod.PartNumber1.NameSize });
                 if (typeId != 0)
                     temp = temp.Where(a => a.PartNumber1.ProductTypeID == typeId);
                 if (manId != 0)
                     temp = temp.Where(a => a.PartNumber1.ManufacturerID == manId);
-                //if (locId != 0)
-                //    temp = temp.Where(a => a.LocationID == locId);
+                if (locId != 0)
+                    temp = temp.Where(a => a.LocationID == locId);
                 rgInventory.DataSource = temp.ToList();
             }
         }
@@ -141,17 +141,6 @@ namespace CathLab
         protected void btnApply_Click(object sender, EventArgs e)
         {
             rgInventory.Rebind();
-            //int typeId; int.TryParse(lbxProdType.SelectedValue, out typeId);
-            //int manId; int.TryParse(lbxManufacturer.SelectedValue, out manId);
-            //int locId; int.TryParse(lbxLocation.SelectedValue, out locId);
-            //using (var context = new cathlabEntities())
-            //{
-            //    var temp = (from prod in context.Products
-            //                where prod.PartNumber1.ManufacturerID == manId && prod.PartNumber1.ProductTypeID == typeId && prod.LocationID == locId
-            //                select prod).ToList();
-            //    rgInventory.MasterTableView.DataSource = temp;
-            //    rgInventory.DataBind();
-            //}
         }
 
         protected void btnEntry_Click(object sender, EventArgs e)

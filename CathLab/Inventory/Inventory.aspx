@@ -31,11 +31,21 @@
                     </td>
                 </tr>
             </table>
-            <telerik:RadGrid runat="server" ID="rgInventory" AutoGenerateColumns="true" Visible="true" AllowPaging="true" OnNeedDataSource="rgInventory_NeedDataSource">
+            <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">
+                <MasterTableView>
+                    <Columns>
+                        <telerik:GridBoundColumn DataField="ID" HeaderText="CathLab ID"></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="PartNumber" HeaderText="Part Number"></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="NameSize" HeaderText="Name & Size"></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="SerialNumber" HeaderText="Serial Number"></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="ExpirationDate" HeaderText="Expiration Date"></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="Location" HeaderText="Location"></telerik:GridBoundColumn>
+                    </Columns>
+                </MasterTableView>
             </telerik:RadGrid>
         </asp:Panel>
 
-        <asp:Panel runat="server" ID="pnlEntry">
+        <asp:Panel runat="server" ID="pnlEntry" Visible="false">
             <table>
                 <tr>
                     <td>
