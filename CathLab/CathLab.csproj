@@ -106,8 +106,14 @@
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
     <Content Include="Home.aspx" />
+    <Content Include="images\CancerCen.jpg" />
+    <Content Include="images\ExpSrch.jpg" />
+    <Content Include="images\SJCH %281%29.jpg" />
+    <Content Include="images\SJCH.jpg" />
     <Content Include="images\SJCHlogo.jpg" />
     <Content Include="images\SJCH logo.jpg" />
+    <Content Include="images\sjchLOGO.png" />
+    <Content Include="images\WELCOME_Banner.jpg" />
     <Content Include="Inventory\Inventory.aspx" />
     <Content Include="Reports\Reports.aspx" />
     <Content Include="Stylesheets\variant-multi.css" />
@@ -258,7 +264,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
