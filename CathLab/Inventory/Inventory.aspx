@@ -1,29 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.master" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="CathLab.Inventory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div id="main">
-                <div id="sidebar">
-                    <div class="sidebarbox">
-                        <h2>Page Options</h2>
-                        <ul class="sidemenu">
-                            <li><telerik:RadButton runat="server" ID="btnView" OnClick="btnView_Click" Text="View Products"></telerik:RadButton> &nbsp;</li>
-                            <li> <telerik:RadButton runat="server" ID="btnEntry" OnClick="btnEntry_Click" Text="Product Entry"></telerik:RadButton></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebarbox">
-                        <h2>Instruction box</h2>
-                        <p>This will be an Instruction/explination box for the buttons located on the side of the rad grid</p>
-                        <ul>
-                            <%--<li><a href="http://andreasviklund.com/templates/">More free templates</a></li>
-					<li><a href="http://andreasviklund.com/tag/tutorials/">Template tutorials</a></li>--%>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
         <div style="height:30px">
+             <telerik:RadButton runat="server" ID="btnView" OnClick="btnView_Click" Text="View Products"></telerik:RadButton> &nbsp;
+             <telerik:RadButton runat="server" ID="btnEntry" OnClick="btnEntry_Click" Text="Product Entry"></telerik:RadButton>
         </div>
         <asp:Panel runat="server" ID="pnlView">
             <table style="width: 100px">

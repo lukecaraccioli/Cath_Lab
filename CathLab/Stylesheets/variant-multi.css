@@ -81,3 +81,5 @@ li{padding-bottom:5px;}
 .right{float:right;width:48%;}
 .clear{clear:both;visibility:hidden;}
 .small{font-size:0.8em;}
+.rbSkinnedButton {color:blue}
+EnableEmbeddedSkins = false;
