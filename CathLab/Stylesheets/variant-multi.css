@@ -1,12 +1,8 @@
 /* 
    This is the style sheet for the web page Cath Lab Inventory
     Database
-    */
+  */
 
-/*
-Original design: Variant Multi (v1.5 - Sep 15, 2012) - A free xhtml/css website template by Andreas Viklund.
-For more information, see http://andreasviklund.com/templates/variant-multi/
-*/
 
 *{margin:0;padding:0;}
 body{background:#1a1a1a;color:#444;font:76% Verdana,Helvetica,sans-serif;}
@@ -19,7 +15,7 @@ h3{color:#467aa7;font-family:Candara,serif;font-size:1.6em;font-weight:400;margi
 ul,ol,dl{margin:0 0 20px 20px; padding:0;}
 li{padding-bottom:5px;}
 
-#containerfull,#container980,#container760,#container600{margin:0 auto;padding:0;overflow:hidden;border-left:1px solid #ddd;border-right:1px solid #ddd;}
+#containerfull{margin:0 auto;padding:0;overflow:hidden;border-left:1px solid #ddd;border-right:1px solid #ddd;}
 #containerfull{width:100%;border:0;}
 
 
@@ -48,13 +44,13 @@ li{padding-bottom:5px;}
 #sidebar ul{list-style:none;margin:10px 0 10px 10px;padding:0;}
 #sidebar ul li{margin:0 0 5px 0;}
 #sidebar ul li a{color:#467aa7;font-weight:400;}
-#sidebar ul.sidemenu {margin:0;}
+#sidebar ul.sidemenu {margin:20px;}
 #sidebar ul.sidemenu li{display:inline;padding:0;margin:0;}
 #sidebar ul.sidemenu li a{display:block;padding:7px 5px 6px 10px;font-size:1.2em; font-weight:400;text-decoration:none;border-bottom:1px solid #ddd;}
 #sidebar ul.sidemenu li a:hover{background-color:#eee;color:#333;border-bottom:1px solid #ccc;}
 #sidebar ul.sidemenu ul{margin:0;padding:0;font-size:0.9em;border-bottom:1px solid #ccc;}
 #sidebar ul.sidemenu ul li a{padding:5px 5px 5px 25px;border:0;font-weight:400;}
-#sidebar ul.sidemenu ul li a:hover{border:0;}
+#sidebar ul.sidemenu ul li a:hover{border:0px;}
 #sidebar ul li a:hover{color:#333;}
 #sidebar h2{background-color:#467aa7;color:#fff;font-size:1.5em;margin:0 0 0 0;padding:10px;}
 #sidebar h3{font-size:1.4em; padding:10px 10px 0 10px;}
@@ -81,5 +77,10 @@ li{padding-bottom:5px;}
 .right{float:right;width:48%;}
 .clear{clear:both;visibility:hidden;}
 .small{font-size:0.8em;}
-.rbSkinnedButton {color:blue}
-EnableEmbeddedSkins = false;
+
+/*This is the slide show .css code. container is for the div containing the 
+    slide show. */
+.container {float:left;width:49%;}
+#slideshow {border:1px #000 solid;box-shadow:4px 6px 6px #444444;display:block;margin:0 auto;height:300px;width:900px;}
+.container .slides {display:none;}
+

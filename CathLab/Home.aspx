@@ -14,6 +14,77 @@
                         </ul>
                     </div>
 
+                    <%--This section is the code for the slide show --%>
+                                 <div class="rotatorBackground">
+                    <%-- ItemWidth and ItemHeight include 2x5(pixels) margin and 1x2(pixels) border --
+                    <telerik:RadRotator ID="RadRotator1" runat="server" Width="224px" Height="112px"
+                         CssClass="rotatorStyle" ItemHeight="112" ItemWidth="112" ScrollDuration="500">
+                         <Items>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/ANATR.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image1" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/ANTON.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image2" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/BOTTM.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image3" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/CACTU.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image3" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/CENTC.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image3" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/ERNSH.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image3" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/LAUGB.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image3" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/MAISD.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image3" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/MEREP.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                              <telerik:RadRotatorItem>
+                                   <ItemTemplate>
+                                        <asp:Image runat="server" ID="Image3" ImageUrl='~/Rotator/Img/Northwind/Customers/Thumbs/OCEAN.jpg'
+                                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
+                                   </ItemTemplate>
+                              </telerik:RadRotatorItem>
+                         </Items>
+                    </telerik:RadRotator>
+               </div>
+ <%--END--%>
+
                     <div class="sidebarbox">
                         <h2>Instruction box</h2>
                         <p>This will be an Instruction/explination box for the buttons located on the side of the rad grid</p>

@@ -12,7 +12,6 @@
                             <li><telerik:RadButton runat="server" ID="btnToday" Text="Today" Height="35px" Skin="WebBlue" CssClass="rbPrimaryButton" ></telerik:RadButton></li>
                             <li><telerik:RadButton runat="server" ID="btn10" OnClick="btn10_Click" Text="10 Days" Height="35px" Skin="WebBlue" CssClass="rbSecondaryButton"></telerik:RadButton></li>
                             <li><telerik:RadButton runat="server" ID="btn30" OnClick="btn30_Click" Text="30 Days" Height="35px" Skin="WebBlue" CssClass="rbPrimaryButton"></telerik:RadButton></li>
-                            <%-- %><li><telerik:RadButton runat="server" ID="RadButton1" OnClick="btn30_Click" Text="30 Days" Height="35px" Skin="WebBlue" CssClass="rbPrimaryButton" href="/Home.aspx">Home></telerik:RadButton> </li>--%>
                         </ul>
                     </div>
 
