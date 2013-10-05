@@ -31,7 +31,11 @@
                     </td>
                 </tr>
             </table>
-            <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">
+            <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">
+                 <AlternatingItemStyle BackColor="LightSteelBlue" />
+                <AlternatingItemStyle BorderWidth="1px" />
+                <ItemStyle BackColor="WhiteSmoke" />
+                <ItemStyle BorderWidth="1px" />
                 <MasterTableView>
                     <Columns>
                         <telerik:GridBoundColumn DataField="ID" HeaderText="CathLab ID"></telerik:GridBoundColumn>

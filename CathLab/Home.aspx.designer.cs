@@ -11,5 +11,14 @@ namespace CathLab {
     
     
     public partial class Home {
+        
+        /// <summary>
+        /// RadRotator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadRotator RadRotator1;
     }
 }
