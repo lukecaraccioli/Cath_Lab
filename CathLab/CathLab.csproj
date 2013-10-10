@@ -115,6 +115,8 @@
     <Content Include="images\sjchLOGO.png" />
     <Content Include="images\WELCOME_Banner.jpg" />
     <Content Include="Inventory\Inventory.aspx" />
+    <Content Include="Inventory\ProductEntry.aspx" />
+    <Content Include="Inventory\Types.aspx" />
     <Content Include="Reports\Reports.aspx" />
     <Content Include="Stylesheets\variant-multi.css" />
     <Content Include="Web.config">
@@ -151,6 +153,20 @@
     </Compile>
     <Compile Include="Inventory\Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\ProductEntry.aspx.cs">
+      <DependentUpon>ProductEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\ProductEntry.aspx.designer.cs">
+      <DependentUpon>ProductEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Types.aspx.cs">
+      <DependentUpon>Types.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\Types.aspx.designer.cs">
+      <DependentUpon>Types.aspx</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">
       <DependentUpon>CathLabData.tt</DependentUpon>
@@ -255,7 +271,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

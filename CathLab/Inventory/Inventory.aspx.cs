@@ -17,8 +17,7 @@ namespace CathLab
         {
             if (!Page.IsPostBack)
             {
-                loadTypes();
-                loadLocs();
+                loadTypes();                
                 rgInventory.Rebind();
             }
         }
@@ -142,64 +141,6 @@ namespace CathLab
         protected void btnApply_Click(object sender, EventArgs e)
         {
             rgInventory.Rebind();
-        }
-
-        protected void btnEntry_Click(object sender, EventArgs e)
-        {
-            pnlView.Visible = false;
-            pnlEntry.Visible = true;
-        }
-
-        protected void btnView_Click(object sender, EventArgs e)
-        {
-            pnlView.Visible = true;
-            pnlEntry.Visible = false;
-        }
-
-        protected void autopopulate()
-        {
-            //string[] parts = txtPartNum.Text.Split(',');
-            string part = txtPartNum.Text;
-            using (var context = new cathlabEntities())
-            {
-                var temp = (from pnum in context.PartNumbers
-                            where pnum.PartNum == part
-                            select new { pnum.Manufacturer.Name, pnum.NameSize, pnum.ProductType.Type }).SingleOrDefault();
-                txtManufacturer.Text = temp.Name;
-                txtNameSize.Text = temp.NameSize;
-                txtProdType.Text = temp.Type;
-            }
-        }
-
-        protected void loadLocs()
-        {
-            using (var context = new cathlabEntities())
-            {
-                List<Location> temp = (from loc in context.Locations select loc).ToList();
-                lbxLoc.DataValueField = "ID";
-                lbxLoc.DataTextField = "LocationName";
-                lbxLoc.DataSource = temp;
-                lbxLoc.DataBind();
-            }
-        }
-
-        protected void btnInsertProduct_Click(object sender, EventArgs e)
-        {
-            using (var context = new cathlabEntities())
-            {
-                Product prod = new Product();
-                prod.PartNumber = txtPartNum.Text;
-                prod.LotNumber = int.Parse(txtLotNumber.Text);
-                prod.ExpirationDate = rdpExpiration.SelectedDate;
-                prod.LocationID = int.Parse(lbxLoc.SelectedValue);
-                context.Products.Add(prod);
-                context.SaveChanges();
-            }
-        }
-
-        protected void btnAutopopulate_Click(object sender, EventArgs e)
-        {
-            autopopulate();
         }
     }
 }
