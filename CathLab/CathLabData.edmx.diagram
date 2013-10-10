@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="349492fd618741c48cab8e77b159df1b" Name="Diagram1">
+      <Diagram DiagramId="d7081b1cb40540048cb6e336b0d2a2c3" Name="Diagram1">
         <EntityTypeShape EntityType="cathlabModel.Location" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.Login" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.Manufacturer" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="cathlabModel.Product" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.ProductName" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.ProductType" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="cathlabModel.sysdiagram" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="cathlabModel.FK_Product_Location" ManuallyRouted="false" />
         <AssociationConnector Association="cathlabModel.FK_PartNumber_Manufacturer" ManuallyRouted="false" />
         <AssociationConnector Association="cathlabModel.FK_PartNumber_ProductType" ManuallyRouted="false" />

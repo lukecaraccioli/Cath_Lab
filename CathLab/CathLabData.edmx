@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="cathlabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="cathlabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="cathlabModelStoreContainer">
           <EntitySet Name="Location" EntityType="cathlabModel.Store.Location" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Login" EntityType="cathlabModel.Store.Login" store:Type="Tables" store:Schema="dbo" store:Name="Login">
@@ -19,7 +19,6 @@
           <EntitySet Name="Product" EntityType="cathlabModel.Store.Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProductName" EntityType="cathlabModel.Store.ProductName" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProductType" EntityType="cathlabModel.Store.ProductType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="cathlabModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_PartNumber_Manufacturer" Association="cathlabModel.Store.FK_PartNumber_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="PartNumber" EntitySet="PartNumber" />
@@ -105,16 +104,6 @@
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <Association Name="FK_PartNumber_Manufacturer">
           <End Role="Manufacturer" Type="cathlabModel.Store.Manufacturer" Multiplicity="0..1" />
           <End Role="PartNumber" Type="cathlabModel.Store.PartNumber" Multiplicity="*" />
@@ -163,14 +152,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="GetProductsUsed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="startDate" Type="datetime" Mode="In" />
-          <Parameter Name="endDate" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="GetSoonExpiring" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="days" Type="int" Mode="In" />
-        </Function>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cathlabModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -182,7 +165,6 @@
           <EntitySet Name="Products" EntityType="cathlabModel.Product" />
           <EntitySet Name="ProductNames" EntityType="cathlabModel.ProductName" />
           <EntitySet Name="ProductTypes" EntityType="cathlabModel.ProductType" />
-          <EntitySet Name="sysdiagrams" EntityType="cathlabModel.sysdiagram" />
           <AssociationSet Name="FK_Product_Location" Association="cathlabModel.FK_Product_Location">
             <End Role="Location" EntitySet="Locations" />
             <End Role="Product" EntitySet="Products" />
@@ -199,13 +181,6 @@
             <End Role="PartNumber" EntitySet="PartNumbers" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
-          <FunctionImport Name="GetProductsUsed" ReturnType="Collection(cathlabModel.GetProductsUsed_Result)">
-            <Parameter Name="startDate" Mode="In" Type="DateTime" />
-            <Parameter Name="endDate" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="GetSoonExpiring" ReturnType="Collection(cathlabModel.GetSoonExpiring_Result)">
-          <Parameter Name="days" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Location">
           <Key>
@@ -280,16 +255,6 @@
           <Property Name="Type" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="PartNumbers" Relationship="cathlabModel.FK_PartNumber_ProductType" FromRole="ProductType" ToRole="PartNumber" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <Association Name="FK_Product_Location">
           <End Role="Location" Type="cathlabModel.Location" Multiplicity="0..1" />
           <End Role="Product" Type="cathlabModel.Product" Multiplicity="*" />
@@ -338,19 +303,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="GetProductsUsed_Result">
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="DateTime" Name="DateUsed" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="Cost" Nullable="true" />
-          <Property Type="String" Name="NameSize" Nullable="false" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="GetSoonExpiring_Result">
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="NameSize" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="LocationName" Nullable="false" MaxLength="30" />
-          <Property Type="DateTime" Name="ExpirationDate" Nullable="true" Precision="23" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -427,38 +379,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="cathlabModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GetProductsUsed" FunctionName="cathlabModel.Store.GetProductsUsed">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="cathlabModel.GetProductsUsed_Result">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DateUsed" ColumnName="DateUsed" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="NameSize" ColumnName="NameSize" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetSoonExpiring" FunctionName="cathlabModel.Store.GetSoonExpiring">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="cathlabModel.GetSoonExpiring_Result">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NameSize" ColumnName="NameSize" />
-                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
-                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

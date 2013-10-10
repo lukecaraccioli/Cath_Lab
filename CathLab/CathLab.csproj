@@ -138,12 +138,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CathLabData.edmx</DependentUpon>
     </Compile>
-    <Compile Include="GetProductsUsed_Result.cs">
-      <DependentUpon>CathLabData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GetSoonExpiring_Result.cs">
-      <DependentUpon>CathLabData.tt</DependentUpon>
-    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -193,9 +187,6 @@
     </Compile>
     <Compile Include="Reports\Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>CathLabData.tt</DependentUpon>
     </Compile>
     <Compile Include="Inventory\Expiring.aspx.cs">
       <DependentUpon>Expiring.aspx</DependentUpon>
