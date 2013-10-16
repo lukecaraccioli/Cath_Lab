@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CathLab.Home" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
                         <%--This section is the code for the slide show --%>
                   <div class="rotatorBackground">

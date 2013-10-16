@@ -8,11 +8,12 @@
     </div>
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
         <asp:Panel runat="server" ID="pnlManufacturers">
-            <telerik:RadGrid runat="server" ID="rgStuffs" AllowPaging="true" Width="500px" PageSize="20">
+            <telerik:RadGrid runat="server" ID="rgStuffs" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgStuffs_NeedDataSource">
                 <MasterTableView AutoGenerateColumns="true">
                     <Columns>
                         <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID"></telerik:GridButtonColumn>
                     </Columns>
+                    <EditItemTemplate></EditItemTemplate>
                 </MasterTableView>
             </telerik:RadGrid>
         </asp:Panel>
