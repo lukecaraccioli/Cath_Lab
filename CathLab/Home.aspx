@@ -30,8 +30,8 @@
                   <div class="rotatorBackground">
 
                     <%-- ItemWidth and ItemHeight include 2x5(pixels) margin and 1x2(pixels) border --%>
-                    <telerik:RadRotator ID="RadRotator1" runat="server" Width="950px" Height="650px"
-                         CssClass="rotatorStyle" ItemHeight="650" ItemWidth="950" ScrollDuration="500">
+                    <telerik:RadRotator ID="RadRotator1" runat="server" Width="900px" Height="650px"
+                         CssClass="rotatorStyle" ItemHeight="650" ItemWidth="1100" ScrollDuration="500">
 
                          <Items>
                               <telerik:RadRotatorItem>
