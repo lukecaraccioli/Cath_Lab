@@ -8,12 +8,38 @@
     </div>
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
         <asp:Panel runat="server" ID="pnlManufacturers">
-            <telerik:RadGrid runat="server" ID="rgStuffs" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgStuffs_NeedDataSource">
+            <telerik:RadGrid runat="server" ID="rgManufacturers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgManufacturers_NeedDataSource">
                 <MasterTableView AutoGenerateColumns="true">
                     <Columns>
-                        <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID"></telerik:GridButtonColumn>
+                        <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
                     </Columns>
-                    <EditItemTemplate></EditItemTemplate>
+                    <EditFormSettings>
+                        <EditColumn ButtonType="ImageButton"></EditColumn>
+                    </EditFormSettings>
+                </MasterTableView>
+            </telerik:RadGrid>
+        </asp:Panel>
+        <asp:Panel runat="server" ID="pnlProdType" Visible="false">
+            <telerik:RadGrid runat="server" ID="rgProdType" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgProdType_NeedDataSource">
+                <MasterTableView AutoGenerateColumns="true">
+                    <Columns>
+                        <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
+                    </Columns>
+                    <%--<EditFormSettings>
+                        <EditColumn ButtonType="ImageButton"></EditColumn>
+                    </EditFormSettings>--%>
+                </MasterTableView>
+            </telerik:RadGrid>
+        </asp:Panel>
+        <asp:Panel runat="server" ID="pnlPartNumbers" Visible="false">
+            <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource">
+                <MasterTableView AutoGenerateColumns="true">
+                    <Columns>
+                        <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
+                    </Columns>
+                    <%--<EditFormSettings>
+                        <EditColumn ButtonType="ImageButton"></EditColumn>
+                    </EditFormSettings>--%>
                 </MasterTableView>
             </telerik:RadGrid>
         </asp:Panel>

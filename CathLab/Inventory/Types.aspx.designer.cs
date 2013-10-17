@@ -58,12 +58,48 @@ namespace CathLab {
         protected global::System.Web.UI.WebControls.Panel pnlManufacturers;
         
         /// <summary>
-        /// rgStuffs control.
+        /// rgManufacturers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid rgStuffs;
+        protected global::Telerik.Web.UI.RadGrid rgManufacturers;
+        
+        /// <summary>
+        /// pnlProdType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlProdType;
+        
+        /// <summary>
+        /// rgProdType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid rgProdType;
+        
+        /// <summary>
+        /// pnlPartNumbers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPartNumbers;
+        
+        /// <summary>
+        /// rgPartNumbers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid rgPartNumbers;
     }
 }

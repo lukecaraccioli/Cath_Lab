@@ -9,7 +9,7 @@ namespace CathLab
 {
     public partial class Types : System.Web.UI.Page
     {
-        public string mode;
+        //public string mode;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,77 +21,80 @@ namespace CathLab
 
         protected void loadManufacturers()
         {
-            mode = "manu";
+            //mode = "manu";
             using (var context = new cathlabEntities())
             {
                 var temp = (from man in context.Manufacturers select new { man.Name, man.Email, man.PhoneNumber, man.Address }).ToList();
-                rgStuffs.DataSource = temp;
-                rgStuffs.Rebind();
+                rgManufacturers.DataSource = temp;
+                //rgManufacturers.DataBind();
             }
         }
 
         protected void loadProductTypes()
         {
-            mode = "type";
+            //mode = "type";
             using (var context = new cathlabEntities())
             {
                 var temp = (from types in context.ProductTypes select new { types.PartNumbers, types.Type }).ToList();
-                rgStuffs.DataSource = temp;
-                rgStuffs.Rebind();
+                rgProdType.DataSource = temp;
+                //rgProdType.DataBind();
             }
         }
 
         protected void loadPartNums()
         {
-            mode = "pnum";
+            //mode = "pnum";
             using (var context = new cathlabEntities())
             {
                 var temp = (from pnum in context.PartNumbers select new { pnum.NameSize, pnum.ProductType, pnum.Cost, pnum.Manufacturer }).ToList();
-                rgStuffs.DataSource = temp;
-                rgStuffs.Rebind();
+                rgManufacturers.DataSource = temp;
+                //rgManufacturers.DataBind();
             }
         }
 
         protected void btnPartNums_Click(object sender, EventArgs e)
         {
-            mode = "pnum";
+            pnlPartNumbers.Visible = true;
+            pnlProdType.Visible = false;
+            pnlManufacturers.Visible = false;
+            //mode = "pnum";
+            rgPartNumbers.Rebind();
             //loadPartNums();
         }
 
         protected void btnProdTypes_Click(object sender, EventArgs e)
         {
-            mode = "type";
+            pnlProdType.Visible = true;
+            pnlManufacturers.Visible = false;
+            pnlProdType.Visible = false;
+            //mode = "type";
+            rgProdType.Rebind();
             //loadProductTypes();
         }
 
         protected void btnManufacturers_Click(object sender, EventArgs e)
         {
-            mode = "manu";
+            pnlManufacturers.Visible = true;
+            pnlPartNumbers.Visible = false;
+            pnlProdType.Visible = false;
+            //mode = "manu";
+            rgManufacturers.Rebind();
             //loadManufacturers();
         }
 
-        protected void rgStuffs_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        protected void rgManufacturers_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            using (var context = new cathlabEntities())
-            {                
-                switch (mode)
-                {
-                    case "manu":
-                        rgStuffs.DataSource = (from man in context.Manufacturers select new { man.Name, man.Email, man.PhoneNumber, man.Address }).ToList();                        
-                        //loadManufacturers();
-                        break;
-                    case "type":
-                        rgStuffs.DataSource = (from types in context.ProductTypes select new { types.PartNumbers, types.Type }).ToList();
-                        //loadProductTypes();
-                        break;
-                    case "pnum":
-                        rgStuffs.DataSource = (from pnum in context.PartNumbers select new { pnum.NameSize, pnum.ProductType, pnum.Cost, pnum.Manufacturer }).ToList();
-                        //loadPartNums();
-                        break;
-                    default:
-                        break;
-                }
-            }
+            loadManufacturers();
+        }
+
+        protected void rgProdType_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        {
+            loadProductTypes();
+        }
+
+        protected void rgPartNumbers_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        {
+            loadPartNums();
         }
     }
 }
