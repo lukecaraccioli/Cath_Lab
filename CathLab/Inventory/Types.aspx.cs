@@ -12,8 +12,7 @@ namespace CathLab
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-            {
-            }
+            { }
         }
 
         protected void loadManufacturers()

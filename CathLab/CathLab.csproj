@@ -117,6 +117,7 @@
     <Content Include="images\sjchLOGO.png" />
     <Content Include="images\WELCOME_Banner.jpg" />
     <Content Include="Inventory\Inventory.aspx" />
+    <Content Include="Inventory\Par.aspx" />
     <Content Include="Inventory\ProductEntry.aspx" />
     <Content Include="Inventory\Types.aspx" />
     <Content Include="Login.aspx" />
@@ -156,6 +157,13 @@
     </Compile>
     <Compile Include="Inventory\Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Par.aspx.cs">
+      <DependentUpon>Par.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\Par.aspx.designer.cs">
+      <DependentUpon>Par.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory\ProductEntry.aspx.cs">
       <DependentUpon>ProductEntry.aspx</DependentUpon>
@@ -281,7 +289,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

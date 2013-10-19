@@ -47,7 +47,7 @@
             <div id="main">
 
                 <div id="content" runat="server">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
                     </asp:ContentPlaceHolder>
                     <%--<h2>About this template</h2>
 			<p>This is Variant Multi, a free website template by Andreas Viklund. It was designed to provide a quite popular design (header with horizontal menu, feature area, 2- or 3-column content area with sidebar and a multi-column footer area) with a number of layout options for both the different areas of the site and for the layout width. The default style is 980 pixels wide. Pre-defined styles are available for fixed widths of 760 and 600 pixels, as well as a full-width (100%) layout, use the navigation menu to see the different widths.</p>
