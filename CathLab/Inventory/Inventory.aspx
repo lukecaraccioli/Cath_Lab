@@ -26,6 +26,10 @@
                 </div>
     </div>
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
+         <AlternatingItemStyle BackColor="LightSteelBlue" />
+                <AlternatingItemStyle BorderWidth="1px" />
+                <ItemStyle BackColor="WhiteSmoke" />
+                <ItemStyle BorderWidth="1px" />
         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
         <%--<div style="height:30px">
              <telerik:RadButton runat="server" ID="btnView" OnClick="btnView_Click" Text="View Products"></telerik:RadButton> &nbsp;
@@ -54,7 +58,7 @@
                     </td>
                 </tr>
             </table>
-            <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">
+            <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">
                  <AlternatingItemStyle BackColor="LightSteelBlue" />
                 <AlternatingItemStyle BorderWidth="1px" />
                 <ItemStyle BackColor="WhiteSmoke" />
