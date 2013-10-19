@@ -9,22 +9,18 @@ namespace CathLab
 {
     public partial class Types : System.Web.UI.Page
     {
-        //public string mode;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                //loadManufacturers();
             }
         }
 
         protected void loadManufacturers()
         {
-            //mode = "manu";
             using (var context = new cathlabEntities())
             {
-                var temp = (from man in context.Manufacturers select new { man.Name, man.Email, man.PhoneNumber, man.Address }).ToList();
+                var temp = (from man in context.Manufacturers select new { man.ID, man.Name, man.Email, man.PhoneNumber}).ToList();
                 rgManufacturers.DataSource = temp;
                 //rgManufacturers.DataBind();
             }
@@ -32,10 +28,9 @@ namespace CathLab
 
         protected void loadProductTypes()
         {
-            //mode = "type";
             using (var context = new cathlabEntities())
             {
-                var temp = (from types in context.ProductTypes select new { types.PartNumbers, types.Type }).ToList();
+                var temp = (from types in context.ProductTypes select new { types.ID, types.Type }).ToList();
                 rgProdType.DataSource = temp;
                 //rgProdType.DataBind();
             }
@@ -43,10 +38,9 @@ namespace CathLab
 
         protected void loadPartNums()
         {
-            //mode = "pnum";
             using (var context = new cathlabEntities())
             {
-                var temp = (from pnum in context.PartNumbers select new { pnum.NameSize, pnum.ProductType, pnum.Cost, pnum.Manufacturer }).ToList();
+                var temp = (from pnum in context.PartNumbers select new { pnum.PartNum, pnum.NameSize, pnum.ProductType.Type, pnum.Cost, pnum.Manufacturer.Name }).ToList();
                 rgManufacturers.DataSource = temp;
                 //rgManufacturers.DataBind();
             }
@@ -57,9 +51,7 @@ namespace CathLab
             pnlPartNumbers.Visible = true;
             pnlProdType.Visible = false;
             pnlManufacturers.Visible = false;
-            //mode = "pnum";
             rgPartNumbers.Rebind();
-            //loadPartNums();
         }
 
         protected void btnProdTypes_Click(object sender, EventArgs e)
@@ -67,7 +59,6 @@ namespace CathLab
             pnlProdType.Visible = true;
             pnlManufacturers.Visible = false;
             pnlProdType.Visible = false;
-            //mode = "type";
             rgProdType.Rebind();
             //loadProductTypes();
         }
@@ -77,7 +68,6 @@ namespace CathLab
             pnlManufacturers.Visible = true;
             pnlPartNumbers.Visible = false;
             pnlProdType.Visible = false;
-            //mode = "manu";
             rgManufacturers.Rebind();
             //loadManufacturers();
         }

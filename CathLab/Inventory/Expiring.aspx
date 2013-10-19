@@ -9,7 +9,7 @@
                     <div class="sidebarbox">
                         <h2>Page Options</h2>
                         <ul class="sidemenu">
-                            <li><telerik:RadButton runat="server" ID="btnToday" Text="Today" Height="35px" Skin="WebBlue" CssClass="rbPrimaryButton" ></telerik:RadButton></li>
+                            <li><telerik:RadButton runat="server" ID="btnToday" OnClick="btnToday_Click" Text="Today" Height="35px" Skin="WebBlue" CssClass="rbPrimaryButton" ></telerik:RadButton></li>
                             <li><telerik:RadButton runat="server" ID="btn10" OnClick="btn10_Click" Text="10 Days" Height="35px" Skin="WebBlue" CssClass="rbSecondaryButton"></telerik:RadButton></li>
                             <li><telerik:RadButton runat="server" ID="btn30" OnClick="btn30_Click" Text="30 Days" Height="35px" Skin="WebBlue" CssClass="rbPrimaryButton"></telerik:RadButton></li>
                         </ul>

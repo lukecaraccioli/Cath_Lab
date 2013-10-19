@@ -28,6 +28,11 @@ namespace CathLab
             }
         }
 
+        protected void btnToday_Click(object sender, EventArgs e)
+        {
+            GetExpiredRange(0);
+        }
+
         protected void btn10_Click(object sender, EventArgs e)
         {
             this.GetExpiredRange(10);
@@ -40,7 +45,7 @@ namespace CathLab
 
         protected void GetExpiredRange(int days)
         {
-            DateTime upper = DateTime.Now.AddDays(days);
+            DateTime upper = DateTime.Today.AddDays(days).AddHours(23).AddMinutes(59);
             using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products
