@@ -86,10 +86,14 @@ namespace CathLab
                 {
                     var temp = (from prod in context.Products
                                 where prod.PartNumber1.ManufacturerID == manId
-                                select new { ID = prod.LocationID, Name = prod.Location.LocationName }).Distinct();
+                                select new { ID = prod.LocationID, Name = prod.Location.LocationName }).Distinct().ToList();
+                    //int? ID = 0;
+                    //string Name = "All";
+                    //var item = new { ID, Name};
+                    //temp.Insert(0, item );
                     lbxLocation.DataTextField = "Name";
                     lbxLocation.DataValueField = "ID";
-                    lbxLocation.DataSource = temp.ToList();
+                    lbxLocation.DataSource = temp;
                     lbxLocation.DataBind();
                 }
             }
