@@ -18,10 +18,7 @@
                     <div class="sidebarbox">
                         <h2>Instruction box</h2>
                         <p>This will be an Instruction/explination box for the buttons located on the side of the rad grid</p>
-                        <ul>
-                            <%--<li><a href="http://andreasviklund.com/templates/">More free templates</a></li>
-					<li><a href="http://andreasviklund.com/tag/tutorials/">Template tutorials</a></li>--%>
-                        </ul>
+                      
                     </div>
                 </div>
     </div>
@@ -48,7 +45,7 @@
                               </telerik:RadRotatorItem>
                               <telerik:RadRotatorItem>
                                    <ItemTemplate>
-                                        <asp:Image runat="server" ID="Image2" ImageUrl="~/images/ExpSrch.jpg"
+                                        <asp:Image runat="server" ID="Image2" ImageUrl="~/images/CathLab.jpg"
                                              CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
                                    </ItemTemplate>
                               </telerik:RadRotatorItem>
@@ -66,7 +63,7 @@
                               </telerik:RadRotatorItem>
                               <telerik:RadRotatorItem>
                                    <ItemTemplate>
-                                        <asp:Image runat="server" ID="Image5" ImageUrl="~/images/SJCHlogo.jpg"
+                                        <asp:Image runat="server" ID="Image5" ImageUrl="~/images/inventory.png"
                                              CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
                                    </ItemTemplate>
                               </telerik:RadRotatorItem>
