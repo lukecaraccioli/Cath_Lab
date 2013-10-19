@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-         <telerik:RadGrid runat="server" ID="RadGrid1" OnNeedDataSource="RadGrid1_NeedDataSource" AllowPaging="true" PageSize="15" Width="900" Skin="Outlook" AllowSorting="true" AutoGenerateColumns="false">
+         <telerik:RadGrid runat="server" ID="RadGrid1" OnNeedDataSource="RadGrid1_NeedDataSource" AllowPaging="true" PageSize="15" Width="800" Skin="Outlook" AllowSorting="true" AutoGenerateColumns="false">
             <AlternatingItemStyle BackColor="LightSteelBlue" />
                 <AlternatingItemStyle BorderWidth="1px" />
                 <ItemStyle BackColor="WhiteSmoke" />
