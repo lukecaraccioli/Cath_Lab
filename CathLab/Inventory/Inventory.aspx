@@ -8,8 +8,8 @@
                         <ul class="sidemenu">
                             <li><a href="/Reports/Reports.aspx">Reports</a></li>
                             <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
-                            <li><a href="/Inventory/Inventory.aspx">Inventory</a></li>
-                            <li><a href="/Home.aspx">Home</a></li>
+                            <li><a href="/Inventory/Inventory.aspx">Re-Order Report</a></li>
+                            <li><a href="/Par.aspx">Explore Inventory</a></li>
                         </ul>
                     </div>
 
@@ -17,19 +17,15 @@
 
                     <div class="sidebarbox">
                         <h2>Instruction box</h2>
-                        <p>This will be an Instruction/explination box for the buttons located on the side of the rad grid</p>
+                        
                         <ul>
-                            <%--<li><a href="http://andreasviklund.com/templates/">More free templates</a></li>
-					<li><a href="http://andreasviklund.com/tag/tutorials/">Template tutorials</a></li>--%>
+                         <li><a href="/Home.aspx">Home</a></li>
                         </ul>
                     </div>
                 </div>
     </div>
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
-         <AlternatingItemStyle BackColor="LightSteelBlue" />
-                <AlternatingItemStyle BorderWidth="1px" />
-                <ItemStyle BackColor="WhiteSmoke" />
-                <ItemStyle BorderWidth="1px" />
+         
         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
         <%--<div style="height:30px">
              <telerik:RadButton runat="server" ID="btnView" OnClick="btnView_Click" Text="View Products"></telerik:RadButton> &nbsp;
