@@ -37,7 +37,6 @@ namespace CathLab
             }
         }
 
-        // Populate the manufacturer listbox
         protected void lbxProdType_TextChanged(object sender, EventArgs e)
         {
             int.TryParse(lbxProdType.SelectedValue, out typeId);
@@ -74,7 +73,6 @@ namespace CathLab
             }
         }
 
-        // Populate the location listbox
         protected void lbxManufacturer_TextChanged(object sender, EventArgs e)
         {
             int.TryParse(lbxManufacturer.SelectedValue, out manId);
@@ -86,11 +84,7 @@ namespace CathLab
                 {
                     var temp = (from prod in context.Products
                                 where prod.PartNumber1.ManufacturerID == manId
-                                select new { ID = prod.LocationID, Name = prod.Location.LocationName }).Distinct().ToList();
-                    //int? ID = 0;
-                    //string Name = "All";
-                    //var item = new { ID, Name};
-                    //temp.Insert(0, item );
+                                select new { ID = prod.LocationID, Name = prod.Location.LocationName }).Distinct().ToList();                   
                     lbxLocation.DataTextField = "Name";
                     lbxLocation.DataValueField = "ID";
                     lbxLocation.DataSource = temp;

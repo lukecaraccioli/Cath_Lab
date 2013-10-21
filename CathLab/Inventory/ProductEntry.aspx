@@ -40,5 +40,8 @@
                     </td>
                 </tr>
             </table>
+
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" >            
+        </telerik:RadWindow>
     </telerik:RadAjaxPanel>
 </asp:Content>

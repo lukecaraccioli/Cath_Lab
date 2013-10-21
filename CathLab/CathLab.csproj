@@ -123,6 +123,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Reports\Reports.aspx" />
     <Content Include="Stylesheets\variant-multi.css" />
+    <Content Include="UserControls\NewPartNumber.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -229,6 +230,13 @@
     <Compile Include="Inventory\Expiring.aspx.designer.cs">
       <DependentUpon>Expiring.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\NewPartNumber.ascx.cs">
+      <DependentUpon>NewPartNumber.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\NewPartNumber.ascx.designer.cs">
+      <DependentUpon>NewPartNumber.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\RadSpell\de-DE.tdf" />
@@ -289,7 +297,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

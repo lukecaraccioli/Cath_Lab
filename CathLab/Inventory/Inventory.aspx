@@ -13,8 +13,6 @@
                         </ul>
                     </div>
 
-
-
                     <div class="sidebarbox">
                         <h2>Instruction box</h2>
                         
@@ -25,12 +23,7 @@
                 </div>
     </div>
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
-         
         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
-        <%--<div style="height:30px">
-             <telerik:RadButton runat="server" ID="btnView" OnClick="btnView_Click" Text="View Products"></telerik:RadButton> &nbsp;
-             <telerik:RadButton runat="server" ID="btnEntry" OnClick="btnEntry_Click" Text="Product Entry"></telerik:RadButton>
-        </div>--%>
         <asp:Panel runat="server" ID="pnlView">
             <table style="width: 100px">
                 <tr>
@@ -55,13 +48,12 @@
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">
-                 <AlternatingItemStyle BackColor="LightSteelBlue" />
+                <AlternatingItemStyle BackColor="LightSteelBlue" />
                 <AlternatingItemStyle BorderWidth="1px" />
                 <ItemStyle BackColor="WhiteSmoke" />
                 <ItemStyle BorderWidth="1px" />
                 <MasterTableView>
                     <Columns>
-                        <%-- ><telerik:GridBoundColumn DataField="ID" HeaderText="CathLab ID"></telerik:GridBoundColumn>--%>
                         <telerik:GridBoundColumn DataField="PartNumber" HeaderText="Part Number"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="NameSize" HeaderText="Name & Size"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="SerialNumber" HeaderText="Serial Number"></telerik:GridBoundColumn>
