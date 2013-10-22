@@ -21,6 +21,7 @@ namespace CathLab
             {
                 var temp = (from man in context.Manufacturers select new { man.ID, man.Name, man.Email, man.PhoneNumber}).ToList();
                 rgManufacturers.DataSource = temp;
+                //rgManufacturers.DataBind();
             }
         }
 
@@ -30,6 +31,7 @@ namespace CathLab
             {
                 var temp = (from types in context.ProductTypes select new { types.ID, types.Type }).ToList();
                 rgProdType.DataSource = temp;
+                //rgProdType.DataBind();
             }
         }
 
@@ -39,6 +41,7 @@ namespace CathLab
             {
                 var temp = (from pnum in context.PartNumbers select new { pnum.PartNum, pnum.NameSize, pnum.ProductType.Type, pnum.Cost, pnum.Manufacturer.Name }).ToList();
                 rgManufacturers.DataSource = temp;
+                //rgManufacturers.DataBind();
             }
         }
 

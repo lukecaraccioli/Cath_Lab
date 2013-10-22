@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cathlabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="cathlabModelStoreContainer">
+          <EntitySet Name="Location" EntityType="cathlabModel.Store.Location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Login" EntityType="cathlabModel.Store.Login" store:Type="Tables" store:Schema="dbo" store:Name="Login">
+            <DefiningQuery>SELECT 
+      [Login].[Id] AS [Id], 
+      [Login].[UserName] AS [UserName], 
+      [Login].[Password] AS [Password]
+      FROM [dbo].[Login] AS [Login]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Manufacturer" EntityType="cathlabModel.Store.Manufacturer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PartNumber" EntityType="cathlabModel.Store.PartNumber" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product" EntityType="cathlabModel.Store.Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductName" EntityType="cathlabModel.Store.ProductName" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductType" EntityType="cathlabModel.Store.ProductType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_PartNumber_Manufacturer" Association="cathlabModel.Store.FK_PartNumber_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="PartNumber" EntitySet="PartNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartNumber_ProductType" Association="cathlabModel.Store.FK_PartNumber_ProductType">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="PartNumber" EntitySet="PartNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Location" Association="cathlabModel.Store.FK_Product_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_PartNumber" Association="cathlabModel.Store.FK_Product_PartNumber">
+            <End Role="PartNumber" EntitySet="PartNumber" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LocationName" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'cathlab.dbo.Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="11" />
+          <Property Name="Email" Type="varchar" MaxLength="60" />
+          <Property Name="Address" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="PartNumber">
+          <Key>
+            <PropertyRef Name="PartNum" />
+          </Key>
+          <Property Name="PartNum" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NameSize" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ManufacturerID" Type="int" />
+          <Property Name="ProductTypeID" Type="int" />
+          <Property Name="Cost" Type="int" />
+          <Property Name="MediClick" Type="nchar" MaxLength="10" />
+          <Property Name="Par" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PartNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="20" />
+          <Property Name="ExpirationDate" Type="datetime" />
+          <Property Name="LocationID" Type="int" />
+          <Property Name="DateUsed" Type="datetime" />
+          <Property Name="LotNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductName">
+          <Key>
+            <PropertyRef Name="PartNum" />
+          </Key>
+          <Property Name="PartNum" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name/Size" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_PartNumber_Manufacturer">
+          <End Role="Manufacturer" Type="cathlabModel.Store.Manufacturer" Multiplicity="0..1" />
+          <End Role="PartNumber" Type="cathlabModel.Store.PartNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PartNumber">
+              <PropertyRef Name="ManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartNumber_ProductType">
+          <End Role="ProductType" Type="cathlabModel.Store.ProductType" Multiplicity="0..1" />
+          <End Role="PartNumber" Type="cathlabModel.Store.PartNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PartNumber">
+              <PropertyRef Name="ProductTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Location">
+          <End Role="Location" Type="cathlabModel.Store.Location" Multiplicity="0..1" />
+          <End Role="Product" Type="cathlabModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_PartNumber">
+          <End Role="PartNumber" Type="cathlabModel.Store.PartNumber" Multiplicity="1" />
+          <End Role="Product" Type="cathlabModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartNumber">
+              <PropertyRef Name="PartNum" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="PartNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cathlabModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="cathlabEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Locations" EntityType="cathlabModel.Location" />
+          <EntitySet Name="Logins" EntityType="cathlabModel.Login" />
+          <EntitySet Name="Manufacturers" EntityType="cathlabModel.Manufacturer" />
+          <EntitySet Name="PartNumbers" EntityType="cathlabModel.PartNumber" />
+          <EntitySet Name="Products" EntityType="cathlabModel.Product" />
+          <EntitySet Name="ProductNames" EntityType="cathlabModel.ProductName" />
+          <EntitySet Name="ProductTypes" EntityType="cathlabModel.ProductType" />
+          <AssociationSet Name="FK_Product_Location" Association="cathlabModel.FK_Product_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartNumber_Manufacturer" Association="cathlabModel.FK_PartNumber_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="PartNumber" EntitySet="PartNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartNumber_ProductType" Association="cathlabModel.FK_PartNumber_ProductType">
+            <End Role="ProductType" EntitySet="ProductTypes" />
+            <End Role="PartNumber" EntitySet="PartNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_PartNumber" Association="cathlabModel.FK_Product_PartNumber">
+            <End Role="PartNumber" EntitySet="PartNumbers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="cathlabModel.FK_Product_Location" FromRole="Location" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PartNumbers" Relationship="cathlabModel.FK_PartNumber_Manufacturer" FromRole="Manufacturer" ToRole="PartNumber" />
+        </EntityType>
+        <EntityType Name="PartNumber">
+          <Key>
+            <PropertyRef Name="PartNum" />
+          </Key>
+          <Property Name="PartNum" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NameSize" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ManufacturerID" Type="Int32" />
+          <Property Name="ProductTypeID" Type="Int32" />
+          <Property Name="Cost" Type="Int32" />
+          <Property Name="MediClick" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Par" Type="Int32" />
+          <NavigationProperty Name="Manufacturer" Relationship="cathlabModel.FK_PartNumber_Manufacturer" FromRole="PartNumber" ToRole="Manufacturer" />
+          <NavigationProperty Name="ProductType" Relationship="cathlabModel.FK_PartNumber_ProductType" FromRole="PartNumber" ToRole="ProductType" />
+          <NavigationProperty Name="Products" Relationship="cathlabModel.FK_Product_PartNumber" FromRole="PartNumber" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PartNumber" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SerialNumber" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Precision="3" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="DateUsed" Type="DateTime" Precision="3" />
+          <Property Name="LotNumber" Type="Int32" />
+          <NavigationProperty Name="Location" Relationship="cathlabModel.FK_Product_Location" FromRole="Product" ToRole="Location" />
+          <NavigationProperty Name="PartNumber1" Relationship="cathlabModel.FK_Product_PartNumber" FromRole="Product" ToRole="PartNumber" />
+        </EntityType>
+        <EntityType Name="ProductName">
+          <Key>
+            <PropertyRef Name="PartNum" />
+          </Key>
+          <Property Name="PartNum" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Name_Size" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PartNumbers" Relationship="cathlabModel.FK_PartNumber_ProductType" FromRole="ProductType" ToRole="PartNumber" />
+        </EntityType>
+        <Association Name="FK_Product_Location">
+          <End Role="Location" Type="cathlabModel.Location" Multiplicity="0..1" />
+          <End Role="Product" Type="cathlabModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartNumber_Manufacturer">
+          <End Role="Manufacturer" Type="cathlabModel.Manufacturer" Multiplicity="0..1" />
+          <End Role="PartNumber" Type="cathlabModel.PartNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PartNumber">
+              <PropertyRef Name="ManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartNumber_ProductType">
+          <End Role="ProductType" Type="cathlabModel.ProductType" Multiplicity="0..1" />
+          <End Role="PartNumber" Type="cathlabModel.PartNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PartNumber">
+              <PropertyRef Name="ProductTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_PartNumber">
+          <End Role="PartNumber" Type="cathlabModel.PartNumber" Multiplicity="1" />
+          <End Role="Product" Type="cathlabModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartNumber">
+              <PropertyRef Name="PartNum" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="PartNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cathlabModelStoreContainer" CdmEntityContainer="cathlabEntities">
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="cathlabModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="cathlabModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="cathlabModel.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartNumbers">
+            <EntityTypeMapping TypeName="cathlabModel.PartNumber">
+              <MappingFragment StoreEntitySet="PartNumber">
+                <ScalarProperty Name="PartNum" ColumnName="PartNum" />
+                <ScalarProperty Name="NameSize" ColumnName="NameSize" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="MediClick" ColumnName="MediClick" />
+                <ScalarProperty Name="Par" ColumnName="Par" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="cathlabModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="DateUsed" ColumnName="DateUsed" />
+                <ScalarProperty Name="LotNumber" ColumnName="LotNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductNames">
+            <EntityTypeMapping TypeName="cathlabModel.ProductName">
+              <MappingFragment StoreEntitySet="ProductName">
+                <ScalarProperty Name="PartNum" ColumnName="PartNum" />
+                <ScalarProperty Name="Name_Size" ColumnName="Name/Size" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="cathlabModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

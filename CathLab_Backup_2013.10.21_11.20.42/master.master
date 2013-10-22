@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="CathLab.master" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Cath Lab</title>
+       <link type="text/css" rel="stylesheet" href="~/Stylesheets/variant-multi.css" />
+   
+    <%-- Start of the test code --%>
+   
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Your description goes here" />
+	<meta name="keywords" content="your,keywords,goes,here" />
+	<meta name="author" content="Your Name / Original design by andreasviklund.com" />
+	<link rel="stylesheet" type="text/css" href="variant-multi.css" title="Variant Multi" media="all" />
+	
+</head>
+
+<body>
+    <form runat="server">
+        <div id="containerfull">
+            <!-- Use"containerfull" for 100% width. For fixed width, use "container980", "container760" or "container600" (the number is the layout width in pixels). -->
+            <div id="header">
+                <h1>
+                <img src="/images/SJCHlogo.jpg" />
+                 
+                </h1>
+                <h2>Cath Lab Inventory Management</h2>
+            </div>
+            <div id="Div1" class="right">
+                <telerik:RadScriptManager runat="server" ID="radScriptManager"></telerik:RadScriptManager>
+                <telerik:RadMenu runat="server" ID="mnuMenu" DataSourceID="SiteMapDataSource" Height="60px">
+                </telerik:RadMenu>
+                <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource" ShowStartingNode="False"/>
+            </div>
+
+            <div id="feature">
+                <div class="left">
+                    <h2>Features</h2>
+                    <p>The home page is a Welcome/login page. The menu items are the </p>
+                </div>
+
+              
+                <div class="clear">&nbsp;</div>
+            </div>
+
+            <div id="main">
+
+                <div id="content" runat="server">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+                    </asp:ContentPlaceHolder>
+                    <%--<h2>About this template</h2>
+			<p>This is Variant Multi, a free website template by Andreas Viklund. It was designed to provide a quite popular design (header with horizontal menu, feature area, 2- or 3-column content area with sidebar and a multi-column footer area) with a number of layout options for both the different areas of the site and for the layout width. The default style is 980 pixels wide. Pre-defined styles are available for fixed widths of 760 and 600 pixels, as well as a full-width (100%) layout, use the navigation menu to see the different widths.</p>
+
+			<div class="left">			
+				<h3>A free template</h3>
+				<p>Like all templates from andreasviklund.com, Variant Wide is free to use for any purpose.</p>
+				<p>For more information, tips and additional resources, visit <a href="http://andreasviklund.com/">andreasviklund.com</a>.</p>
+			</div>
+
+			<div class="right">
+				<h3>Built for speed</h3>
+                <p>The code is all valid XHTML 1.5 Strict, and since no images have been used in this template it loads fast even on slower connections. The template has been tested in all major browsers including on mobile devices, and it should work well no matter where it is displayed.</p>
+			</div>
+			<div class="clear">&nbsp;</div>--%>
+                </div>
+                <div class="clear">&nbsp;</div>
+            </div>
+
+            <div id="footer">
+                <div id="footersections">
+                    <div class="half">
+                        <h2>Footer area #1</h2>
+                        <p>This area uses the div class="half". You can replace it with two div:s if you give them class="quarter" to get a 4-column footer, or replace the two following div:s with one div with class="lasthalf" to get a 2-column footer. In this file, I have combined the "half", "quarter" and "lastquarter" classes.</p>
+                    </div>
+
+                    <div class="quarter">
+                        <h2>Footer area #2</h2>
+                        <p>This area uses the div class="quarter".</p>
+                        <p>Paragraphs and <a href="#">links</a> work here too.</p>
+                    </div>
+
+                    <div class="lastquarter">
+                        <h2>Footer menu</h2>
+                        <ul>
+                            <li><a href="Home.aspx">Home</a></li>
+                            <li><a href="http://cs.csubak.edu">CS Dept</a></li>
+                        </ul>
+                    </div>
+                    <div class="clear">&nbsp;</div>
+                </div>
+            </div>
+
+            <div id="credits">
+                <p>
+                    &copy; 2013 Big Swim Shanondoah<br />
+                    <%--<span class="small">Template design by <a href="http://andreasviklund.com/">Andreas Viklund</a><br />
+                        Best hosted at <a href="https://www.svenskadomaner.se/?ref=mall&amp;ling=en" title="Svenska Domäner AB">www.svenskadomaner.se</a></span>--%>
+                </p>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
