@@ -82,5 +82,10 @@ namespace CathLab
         {
             loadPartNums();
         }
+
+        protected void rgManufacturers_UpdateCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
+        {
+
+        }
     }
 }

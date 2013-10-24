@@ -35,22 +35,23 @@
         &nbsp;
     </div>
 
-        <telerik:RadGrid runat="server" ID="rgManufacturers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgManufacturers_NeedDataSource">
-            <MasterTableView AutoGenerateColumns="true" DataKeyNames="ID">
+        <telerik:RadGrid runat="server" ID="rgManufacturers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgManufacturers_NeedDataSource" 
+            OnUpdateCommand="rgManufacturers_UpdateCommand">
+            <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
                 <Columns>
                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
-                    <telerik:GridBoundColumn DataField="ID"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="Name"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="Email"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="PhoneNumber"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="Name" HeaderText="Name"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="Email" HeaderText="Email Address"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="PhoneNumber" HeaderText="Phone Number"></telerik:GridBoundColumn>
                 </Columns>
                 <EditFormSettings>
-                    <EditColumn ButtonType="ImageButton"></EditColumn>
+                    <%--<EditColumn ButtonType="ImageButton"></EditColumn>--%>
                 </EditFormSettings>
             </MasterTableView>
         </telerik:RadGrid>
 
-        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource" Visible="false">
+        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource"
+            Visible="false">
             <MasterTableView AutoGenerateColumns="false" DataKeyNames="PartNum">
                 <Columns>
                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="PartNum" ButtonType="ImageButton"></telerik:GridButtonColumn>
@@ -66,7 +67,8 @@
             </MasterTableView>
         </telerik:RadGrid>
 
-        <telerik:RadGrid runat="server" ID="rgProdType" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgProdType_NeedDataSource" Visible="false">
+        <telerik:RadGrid runat="server" ID="rgProdType" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgProdType_NeedDataSource"
+            Visible="false">
             <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
                 <Columns>
                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
