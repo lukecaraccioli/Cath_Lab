@@ -34,8 +34,9 @@
         <telerik:RadButton runat="server" ID="btnProdTypes" OnClick="btnProdTypes_Click" Text="Edit Product Types"></telerik:RadButton>
         &nbsp;
     </div>
+
     <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource"
-        OnUpdateCommand="rgPartNumbers_UpdateCommand">
+        OnUpdateCommand="rgPartNumbers_UpdateCommand" OnEditCommand="rgPartNumbers_EditCommand" OnInsertCommand="rgPartNumbers_InsertCommand">
         <MasterTableView AutoGenerateColumns="False" DataKeyNames="PartNum">
             <Columns>
                 <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="PartNum" ButtonType="ImageButton"></telerik:GridButtonColumn>
