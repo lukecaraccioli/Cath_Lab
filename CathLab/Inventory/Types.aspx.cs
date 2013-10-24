@@ -44,26 +44,26 @@ namespace CathLab
 
         protected void btnPartNums_Click(object sender, EventArgs e)
         {
-            pnlPartNumbers.Visible = true;
-            pnlProdType.Visible = false;
-            pnlManufacturers.Visible = false;
+            rgPartNumbers.Visible = true;
+            rgProdType.Visible = false;
+            rgManufacturers.Visible = false;
             rgPartNumbers.Rebind();
         }
 
         protected void btnProdTypes_Click(object sender, EventArgs e)
         {
-            pnlProdType.Visible = true;
-            pnlManufacturers.Visible = false;
-            pnlProdType.Visible = false;
+            rgProdType.Visible = true;
+            rgManufacturers.Visible = false;
+            rgProdType.Visible = false;
             rgProdType.Rebind();
             //loadProductTypes();
         }
 
         protected void btnManufacturers_Click(object sender, EventArgs e)
         {
-            pnlManufacturers.Visible = true;
-            pnlPartNumbers.Visible = false;
-            pnlProdType.Visible = false;
+            rgManufacturers.Visible = true;
+            rgPartNumbers.Visible = false;
+            rgProdType.Visible = false;
             rgManufacturers.Rebind();
             //loadManufacturers();
         }

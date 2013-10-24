@@ -5,31 +5,22 @@
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="btnManufacturers">
                 <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="pnlManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="pnlProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="pnlPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnProdTypes">
                 <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="pnlManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="pnlProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="pnlPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnPartNums">
                 <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="pnlManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="pnlProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="pnlPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="rgPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                 </UpdatedControls>
             </telerik:AjaxSetting>
@@ -44,7 +35,6 @@
         &nbsp;
     </div>
 
-    <asp:Panel runat="server" ID="pnlManufacturers">
         <telerik:RadGrid runat="server" ID="rgManufacturers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgManufacturers_NeedDataSource">
             <MasterTableView AutoGenerateColumns="true" DataKeyNames="ID">
                 <Columns>
@@ -59,10 +49,8 @@
                 </EditFormSettings>
             </MasterTableView>
         </telerik:RadGrid>
-    </asp:Panel>
 
-    <asp:Panel runat="server" ID="pnlPartNumbers">
-        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource">
+        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource" Visible="false">
             <MasterTableView AutoGenerateColumns="false" DataKeyNames="PartNum">
                 <Columns>
                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="PartNum" ButtonType="ImageButton"></telerik:GridButtonColumn>
@@ -77,10 +65,8 @@
                     </EditFormSettings>
             </MasterTableView>
         </telerik:RadGrid>
-    </asp:Panel>
 
-    <asp:Panel runat="server" ID="pnlProdType">
-        <telerik:RadGrid runat="server" ID="rgProdType" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgProdType_NeedDataSource">
+        <telerik:RadGrid runat="server" ID="rgProdType" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgProdType_NeedDataSource" Visible="false">
             <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
                 <Columns>
                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
@@ -92,6 +78,5 @@
                     </EditFormSettings>
             </MasterTableView>
         </telerik:RadGrid>
-    </asp:Panel>
 
 </asp:Content>
