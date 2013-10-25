@@ -42,6 +42,7 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -62,12 +63,14 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Telerik.Reporting, Version=7.0.13.228, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
-    <Reference Include="Telerik.ReportViewer.WebForms, Version=7.0.13.228, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Web.UI">
       <HintPath>C:\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q1 2013\Bin45\Telerik.Web.UI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Web.UI.Skins">
       <HintPath>C:\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q1 2013\Bin45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=7.0.13.228, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -299,7 +302,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
