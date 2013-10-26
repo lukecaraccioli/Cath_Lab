@@ -28,7 +28,7 @@
 
                     <%-- ItemWidth and ItemHeight include 2x5(pixels) margin and 1x2(pixels) border --%>
                     <telerik:RadRotator ID="RadRotator1" runat="server" Width="900px" Height="650px"
-                         CssClass="rotatorStyle" ItemHeight="650" ItemWidth="1100" ScrollDuration="500">
+                         CssClass="rotatorStyle" ItemHeight="650" ItemWidth="1100" ScrollDuration="1200">
 
                          <Items>
                               <telerik:RadRotatorItem>

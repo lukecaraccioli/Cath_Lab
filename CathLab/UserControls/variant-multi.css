@@ -40,7 +40,9 @@ li{padding-bottom:5px;}
 #main{clear:both;margin:0;background-color:#fff;padding:25px 25px 5px;}
 #content{width:72%;}
 
-#sidebar{background:transparent url('images/sidebar-top.jpg') no-repeat scroll top left;float:right;width:25%;}
+#sidebar{background:url('../Stylesheets/images/sidebar-top.jpg') no-repeat left top;
+float:right;width:25%;
+}
 #sidebar .sidebarbox {margin:0 0 25px 0;background-color:#fff; border:1px solid #467aa7;}
 #sidebar p{margin:10px 0 10px 10px;}
 #sidebar ul{list-style:none;margin:10px 0 10px 10px;padding:0;}
