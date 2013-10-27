@@ -13,13 +13,13 @@ namespace CathLab {
     public partial class Types {
         
         /// <summary>
-        /// radAJAXManager control.
+        /// RadAJAXPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxManager radAJAXManager;
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAJAXPanel;
         
         /// <summary>
         /// btnPartNums control.
@@ -74,5 +74,23 @@ namespace CathLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid rgProdType;
+        
+        /// <summary>
+        /// RadNotification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadNotification RadNotification;
+        
+        /// <summary>
+        /// rnLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label rnLabel;
     }
 }

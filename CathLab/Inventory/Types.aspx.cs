@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Infrastructure;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -81,6 +82,66 @@ namespace CathLab
         protected void rgPartNumbers_InsertCommand(object sender, GridCommandEventArgs e)
         {
 
+        }
+
+        protected void rgPartNumbers_DeleteCommand(object sender, GridCommandEventArgs e)
+        {
+            GridDataItem item = (GridDataItem)e.Item;
+            string PartNum = item.GetDataKeyValue("PartNum").ToString();
+            using (var context = new cathlabEntities())
+            {
+                PartNumber pn = context.PartNumbers.Find(PartNum);
+                try
+                {
+                    context.PartNumbers.Remove(pn);
+                    context.SaveChanges();
+                }
+                catch (DbUpdateException)
+                {
+                    rnLabel.Text = "ERROR! Cannot delete, there are products<br/> in the database of that part number.";
+                    RadNotification.Show();
+                }
+            }
+        }
+
+        protected void rgManufacturers_DeleteCommand(object sender, GridCommandEventArgs e)
+        {
+            GridDataItem item = (GridDataItem)e.Item;
+            int ID = (int)item.GetDataKeyValue("ID");
+            using (var context = new cathlabEntities())
+            {
+                Manufacturer m = context.Manufacturers.Find(ID);
+                try
+                {
+                    context.Manufacturers.Remove(m);
+                    context.SaveChanges();
+                }
+                catch (DbUpdateException)
+                {
+                    rnLabel.Text = "ERROR! Can't delete manufacturer. Products in database rely on this entry.";
+                    RadNotification.Show();
+                }
+            }
+        }
+
+        protected void rgProdType_DeleteCommand(object sender, GridCommandEventArgs e)
+        {
+            GridDataItem item = (GridDataItem)e.Item;
+            int ID = (int)item.GetDataKeyValue("ID");
+            using (var context = new cathlabEntities())
+            {
+                ProductType pt = context.ProductTypes.Find(ID);
+                try
+                {
+                    context.ProductTypes.Remove(pt);
+                    context.SaveChanges();
+                }
+                catch (DbUpdateException)
+                {
+                    rnLabel.Text = "ERROR! Can't delete product type. Products in database rely on this entry.";
+                    RadNotification.Show();
+                }
+            }
         }
     }
 }
