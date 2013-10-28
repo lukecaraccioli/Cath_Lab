@@ -17,12 +17,12 @@ namespace CathLab
         {
             if (!Page.IsPostBack)
             {
-                loadTypes();                
-                rgInventory.Rebind();
+                loadProductTypes();                
+                //rgInventory.Rebind();
             }
         }
 
-        protected void loadTypes()
+        protected void loadProductTypes()
         {
             using (var context = new cathlabEntities())
             {
@@ -55,7 +55,9 @@ namespace CathLab
                     lbxManufacturer.DataBind();
                 }
             }
-            lbxManufacturer.SelectedIndex = 0;
+            lbxLocation.DataSource = null;
+            lbxLocation.DataBind();
+            //lbxManufacturer.SelectedIndex = 0;
         }
 
         protected void loadManufacturers()
@@ -83,7 +85,7 @@ namespace CathLab
                 using (var context = new cathlabEntities())
                 {
                     var temp = (from prod in context.Products
-                                where prod.PartNumber1.ManufacturerID == manId
+                                where prod.PartNumber1.ManufacturerID == manId && prod.PartNumber1.ProductTypeID == typeId
                                 select new { ID = prod.LocationID, Name = prod.Location.LocationName }).Distinct().ToList();                   
                     lbxLocation.DataTextField = "Name";
                     lbxLocation.DataValueField = "ID";
@@ -91,7 +93,7 @@ namespace CathLab
                     lbxLocation.DataBind();
                 }
             }
-            lbxLocation.SelectedIndex = 0;
+            //lbxLocation.SelectedIndex = 0;
         }
 
         protected void loadLocations()
@@ -112,6 +114,7 @@ namespace CathLab
         protected void lbxLocation_TextChanged(object sender, EventArgs e)
         {
             int.TryParse(lbxLocation.SelectedValue, out locId);
+            rgInventory.Rebind();
         }
 
         protected void rgInventory_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
@@ -136,9 +139,9 @@ namespace CathLab
             }
         }
 
-        protected void btnApply_Click(object sender, EventArgs e)
-        {
-            rgInventory.Rebind();
-        }
+        //protected void btnApply_Click(object sender, EventArgs e)
+        //{
+        //    rgInventory.Rebind();
+        //}
     }
 }

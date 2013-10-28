@@ -15,31 +15,9 @@ namespace CathLab
         {
             if (!Page.IsPostBack)
             { }
-        }            
-
-        protected void btnPartNums_Click(object sender, EventArgs e)
-        {
-            rgPartNumbers.Visible = true;
-            rgProdType.Visible = false;
-            rgManufacturers.Visible = false;
-            rgPartNumbers.Rebind();
         }
 
-        protected void btnProdTypes_Click(object sender, EventArgs e)
-        {
-            rgProdType.Visible = true;
-            rgManufacturers.Visible = false;
-            rgPartNumbers.Visible = false;
-            rgProdType.Rebind();
-        }
-
-        protected void btnManufacturers_Click(object sender, EventArgs e)
-        {
-            rgManufacturers.Visible = true;
-            rgPartNumbers.Visible = false;
-            rgProdType.Visible = false;
-            rgManufacturers.Rebind();
-        }
+        #region Data Load
 
         protected void rgManufacturers_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
@@ -58,6 +36,8 @@ namespace CathLab
             using (var context = new cathlabEntities())
                 rgPartNumbers.DataSource = (from pnum in context.PartNumbers select new { pnum.PartNum, pnum.NameSize, pnum.ProductType.Type, pnum.Cost, pnum.Manufacturer.Name }).ToList();
         }
+
+        #endregion Data Load
 
         protected void rgManufacturers_UpdateCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
@@ -83,6 +63,8 @@ namespace CathLab
         {
 
         }
+
+        #region Delete
 
         protected void rgPartNumbers_DeleteCommand(object sender, GridCommandEventArgs e)
         {
@@ -143,5 +125,34 @@ namespace CathLab
                 }
             }
         }
+
+        #endregion Delete
+
+        #region Visibility
+        protected void btnPartNums_Click(object sender, EventArgs e)
+        {
+            rgPartNumbers.Visible = true;
+            rgProdType.Visible = false;
+            rgManufacturers.Visible = false;
+            rgPartNumbers.Rebind();
+        }
+
+        protected void btnProdTypes_Click(object sender, EventArgs e)
+        {
+            rgProdType.Visible = true;
+            rgManufacturers.Visible = false;
+            rgPartNumbers.Visible = false;
+            rgProdType.Rebind();
+        }
+
+        protected void btnManufacturers_Click(object sender, EventArgs e)
+        {
+            rgManufacturers.Visible = true;
+            rgPartNumbers.Visible = false;
+            rgProdType.Visible = false;
+            rgManufacturers.Rebind();
+        }
+
+        #endregion Visibility
     }
 }

@@ -28,6 +28,7 @@
             <table style="width: 100px">
                 <tr>
                     <td>
+                        <%-- Select multiple of each attribute in easch list box??? --%>
                         <asp:Label runat="server" ID="lblProdType" Text="Product Type:"></asp:Label><br />
                         <telerik:RadListBox runat="server" ID="lbxProdType" Height="150" AutoPostBack="True" OnTextChanged="lbxProdType_TextChanged">
                         </telerik:RadListBox>
@@ -42,9 +43,9 @@
                         <telerik:RadListBox runat="server" ID="lbxLocation" Height="150" AutoPostBack="True" OnTextChanged="lbxLocation_TextChanged">
                         </telerik:RadListBox>
                     </td>
-                    <td>
+                    <%--<td>
                         <telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>
-                    </td>
+                    </td>--%>
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">

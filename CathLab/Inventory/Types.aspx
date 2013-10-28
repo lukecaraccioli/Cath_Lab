@@ -2,32 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%--<telerik:RadAjaxManager runat="server" ID="radAJAXManager">
-        <AjaxSettings>
-            <telerik:AjaxSetting AjaxControlID="btnManufacturers">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="rgManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="rgProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="rgPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="btnProdTypes">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="rgManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="rgProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="rgPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="btnPartNums">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="rgManufacturers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="rgProdType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    <telerik:AjaxUpdatedControl ControlID="rgPartNumbers" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-        </AjaxSettings>
-    </telerik:RadAjaxManager>--%>
-
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
         <div style="height: 40px">
             <telerik:RadButton runat="server" ID="btnPartNums" OnClick="btnPartNums_Click" Text="Edit Part Numbers"></telerik:RadButton>
@@ -38,9 +12,10 @@
             &nbsp;
         </div>
 
-        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource"
+        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="670px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource" AllowAutomaticInserts="true"
             OnUpdateCommand="rgPartNumbers_UpdateCommand" OnEditCommand="rgPartNumbers_EditCommand" OnInsertCommand="rgPartNumbers_InsertCommand" OnDeleteCommand="rgPartNumbers_DeleteCommand">
-            <MasterTableView AutoGenerateColumns="False" DataKeyNames="PartNum" AllowAutomaticInserts="true">
+            <PagerStyle Mode="NextPrevAndNumeric" />
+            <MasterTableView AutoGenerateColumns="False" DataKeyNames="PartNum">
                 <Columns>
                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="PartNum" ButtonType="ImageButton"></telerik:GridButtonColumn>
                     <telerik:GridBoundColumn DataField="PartNum" HeaderText="Part Number"></telerik:GridBoundColumn>
@@ -49,10 +24,13 @@
                     <telerik:GridBoundColumn DataField="Type" HeaderText="Product Type"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="Cost" HeaderText="Cost"></telerik:GridBoundColumn>
                     <telerik:GridButtonColumn Text="Delete" CommandName="Delete" CommandArgument="PartNum" ButtonType="ImageButton" ConfirmDialogType="RadWindow"
-                        ConfirmText="Pernanently delete Part Number?">
+                        ConfirmText="Permanently delete Part Number?">
                     </telerik:GridButtonColumn>
                 </Columns>
                 <EditFormSettings>
+                    <FormTemplate>
+                                                
+                    </FormTemplate>
                     <EditColumn ButtonType="ImageButton"></EditColumn>
                 </EditFormSettings>
             </MasterTableView>
@@ -67,7 +45,7 @@
                     <telerik:GridBoundColumn DataField="Email" HeaderText="Email Address"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="PhoneNumber" HeaderText="Phone Number"></telerik:GridBoundColumn>
                     <telerik:GridButtonColumn Text="Delete" CommandName="Delete" ButtonType="ImageButton" ConfirmDialogType="RadWindow"
-                        ConfirmText="Pernanently delete Manufacturer?">
+                        ConfirmText="Permanently delete Manufacturer?">
                     </telerik:GridButtonColumn>
                 </Columns>
                 <EditFormSettings>
@@ -83,11 +61,11 @@
                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
                     <telerik:GridBoundColumn DataField="Type" HeaderText="Product Type"></telerik:GridBoundColumn>
                     <telerik:GridButtonColumn Text="Delete" CommandName="Delete" CommandArgument="ID" ButtonType="ImageButton" ConfirmDialogType="RadWindow"
-                        ConfirmText="Pernanently delete Product Type?">
+                        ConfirmText="Permanently delete Product Type?">
                     </telerik:GridButtonColumn>
                 </Columns>
                 <EditFormSettings>
-                    <EditColumn ButtonType="ImageButton"></EditColumn>
+                    <%--<EditColumn ButtonType="ImageButton"></EditColumn>--%>
                 </EditFormSettings>
             </MasterTableView>
         </telerik:RadGrid>
@@ -108,5 +86,4 @@
         </Windows>
     </telerik:RadWindowManager>--%>
     </telerik:RadAjaxPanel>
-
 </asp:Content>
