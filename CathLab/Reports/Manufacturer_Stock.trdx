@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report Width="6.5in" Name="CathLab" SnapGridSize="0.1in" xmlns="http://schemas.telerik.com/reporting/2012/3">
   <DataSources>
-    <SqlDataSource ConnectionString="cathlab2" SelectCommand="dbo.getManufacturerStock" SelectCommandType="StoredProcedure" Name="sqlDataSource1">
+    <SqlDataSource ConnectionString="sqlDataSource1" SelectCommand="dbo.getManufacturerStock" SelectCommandType="StoredProcedure" Name="sqlDataSource1">
       <DefaultValues>
         <SqlDataSourceParameter DbType="DateTime" Name="@StartTime">
           <Value>
