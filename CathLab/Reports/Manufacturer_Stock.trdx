@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report Width="6.5in" Name="CathLab" SnapGridSize="0.1in" xmlns="http://schemas.telerik.com/reporting/2012/3">
   <DataSources>
-    <SqlDataSource ConnectionString="sqlDataSource1" SelectCommand="dbo.getManufacturerStock" SelectCommandType="StoredProcedure" Name="sqlDataSource1">
-      <DefaultValues>
-        <SqlDataSourceParameter DbType="DateTime" Name="@StartTime">
-          <Value>
-            <String>01/01/2011</String>
-          </Value>
-        </SqlDataSourceParameter>
-        <SqlDataSourceParameter DbType="DateTime" Name="@EndTime">
-          <Value>
-            <String>12/31/2013</String>
-          </Value>
-        </SqlDataSourceParameter>
-      </DefaultValues>
-    </SqlDataSource>
+    <SqlDataSource ConnectionString="cathlab" SelectCommand="dbo.getManufacturerStock" SelectCommandType="StoredProcedure" Name="sqlDataSource1" />
   </DataSources>
   <Items>
     <PageHeaderSection Height="0.9in" Name="pageHeaderSection1" />
