@@ -266,8 +266,12 @@
       <DependentUpon>CathLabData.edmx</DependentUpon>
       <LastGenOutput>CathLabData.cs</LastGenOutput>
     </Content>
-    <Content Include="Reports\Manufacturer_Stock.trdx" />
-    <Content Include="Reports\TestReport.trdx" />
+    <Content Include="Reports\Manufacturer_Stock.trdx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\TestReport.trdx">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -307,7 +311,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

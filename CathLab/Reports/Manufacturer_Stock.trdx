@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report Width="6.5in" Name="CathLab" SnapGridSize="0.1in" xmlns="http://schemas.telerik.com/reporting/2012/3">
   <DataSources>
-    <SqlDataSource ConnectionString="cathlab" SelectCommand="dbo.getManufacturerStock" SelectCommandType="StoredProcedure" Name="sqlDataSource1" />
+    <SqlDataSource ConnectionString="cathlabReport" SelectCommand="dbo.getManufacturerStock" SelectCommandType="StoredProcedure" Name="sqlDataSource1" />
   </DataSources>
   <Items>
     <PageHeaderSection Height="0.9in" Name="pageHeaderSection1" />
