@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik.ReportViewer;
 using Telerik;
+using Telerik.Reporting;
 
 namespace CathLab
 {
@@ -13,7 +14,23 @@ namespace CathLab
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            UriReportSource rs = new UriReportSource();
+            rs.Uri = "Reports\\Manufacturer_Stock.trdx";
+            ReportViewer1.ReportSource = rs;
+        }
+
+        protected void btnManuStock_Click(object sender, EventArgs e)
+        {
+            UriReportSource rs = new UriReportSource();
+            rs.Uri = "Reports\\Manufacturer_Stock.trdx";
+            ReportViewer1.ReportSource = rs;
+        }
+
+        protected void btnTest_Click(object sender, EventArgs e)
+        {
+            UriReportSource rs = new UriReportSource();
+            rs.Uri = "Reports\\TestReport.trdx";
+            ReportViewer1.ReportSource = rs;
         }
     }
 }
