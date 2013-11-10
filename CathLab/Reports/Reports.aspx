@@ -5,10 +5,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <telerik:ReportViewer ID="ReportViewer1" runat="server" Width="856px">
        <urireportsource uri="Reports\Manufacturer_Stock.trdx"></urireportsource>
     </telerik:ReportViewer>
 =======
+=======
+>>>>>>> f67038ea7ba5cb1b2e845ac1c5861ecea1584865
 =======
 >>>>>>> f67038ea7ba5cb1b2e845ac1c5861ecea1584865
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
@@ -17,6 +20,9 @@
         <telerik:ReportViewer ID="ReportViewer1" runat="server" Width="900px" Height="700px"></telerik:ReportViewer>
     </telerik:RadAjaxPanel>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> f67038ea7ba5cb1b2e845ac1c5861ecea1584865
+=======
 >>>>>>> f67038ea7ba5cb1b2e845ac1c5861ecea1584865
 =======
 >>>>>>> f67038ea7ba5cb1b2e845ac1c5861ecea1584865
