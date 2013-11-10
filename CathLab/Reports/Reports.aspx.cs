@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Telerik.ReportViewer;
 using Telerik;
+using Telerik.ReportViewer;
 using Telerik.Reporting;
 
 namespace CathLab
@@ -30,6 +30,17 @@ namespace CathLab
         {
             UriReportSource rs = new UriReportSource();
             rs.Uri = "Reports\\TestReport.trdx";
+
+            Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
+            paramStartDate.Name = "StartDate";
+            paramStartDate.Value = rdpStartDate.SelectedDate;
+            rs.Parameters.Add(paramStartDate);
+
+            Telerik.Reporting.Parameter paramEndDate = new Telerik.Reporting.Parameter();
+            paramEndDate.Name = "EndDate";
+            paramEndDate.Value = rdpEndDate.SelectedDate;
+            rs.Parameters.Add(paramEndDate);
+
             ReportViewer1.ReportSource = rs;
         }
     }

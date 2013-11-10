@@ -36,22 +36,22 @@ namespace CathLab
         protected void btnToday_Click(object sender, EventArgs e)
         {
             days = 0;
-            RadGrid1.Rebind();
-            //GetExpiredRange();
+            //RadGrid1.Rebind();
+            GetExpiredRange();
         }
 
         protected void btn10_Click(object sender, EventArgs e)
         {
             days = 10;
-            RadGrid1.Rebind();
-            //GetExpiredRange();
+            //RadGrid1.Rebind();
+            GetExpiredRange();
         }
 
         protected void btn30_Click(object sender, EventArgs e)
         {
             days = 30;
-            RadGrid1.Rebind();
-            //GetExpiredRange();
+            //RadGrid1.Rebind();
+            GetExpiredRange();
         }
 
         protected void GetExpiredRange()
@@ -70,8 +70,8 @@ namespace CathLab
         protected void dpEnd_SelectedDateChanged(object sender, Telerik.Web.UI.Calendar.SelectedDateChangedEventArgs e)
         {
             days = dpEnd.SelectedDate.Value.Subtract(DateTime.Now).Days + 1;
-            RadGrid1.Rebind();
-            //GetExpiredRange();
+            //RadGrid1.Rebind();
+            GetExpiredRange();
         }
     }
 }
