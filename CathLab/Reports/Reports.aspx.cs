@@ -14,9 +14,9 @@ namespace CathLab
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UriReportSource rs = new UriReportSource();
-            rs.Uri = "Reports\\Manufacturer_Stock.trdx";
-            ReportViewer1.ReportSource = rs;
+            //UriReportSource rs = new UriReportSource();
+            //rs.Uri = "Reports\\Manufacturer_Stock.trdx";
+            //ReportViewer1.ReportSource = rs;
         }
 
         protected void btnManuStock_Click(object sender, EventArgs e)

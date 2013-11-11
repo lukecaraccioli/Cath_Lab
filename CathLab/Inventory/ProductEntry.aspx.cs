@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 
 namespace CathLab
 {
@@ -22,9 +23,14 @@ namespace CathLab
                 var temp = (from pnum in context.PartNumbers
                             where pnum.PartNum == part
                             select new { pnum.Manufacturer.Name, pnum.NameSize, pnum.ProductType.Type }).SingleOrDefault();
-                txtManufacturer.Text = temp.Name;
-                txtNameSize.Text = temp.NameSize;
-                txtProdType.Text = temp.Type;
+                if (temp != null)
+                {
+                    txtManufacturer.Text = temp.Name;
+                    txtNameSize.Text = temp.NameSize;
+                    txtProdType.Text = temp.Type;
+                }
+                //else
+                    
             }
         }
 
@@ -46,7 +52,7 @@ namespace CathLab
             {
                 Product prod = new Product();
                 prod.PartNumber = txtPartNum.Text;
-                prod.LotNumber = int.Parse(txtLotNumber.Text);
+                prod.LotNumber = (txtLotNumber.Text != null) ? int.Parse(txtLotNumber.Text) : -1;
                 prod.ExpirationDate = rdpExpiration.SelectedDate;
                 prod.LocationID = int.Parse(lbxLoc.SelectedValue);
                 context.Products.Add(prod);

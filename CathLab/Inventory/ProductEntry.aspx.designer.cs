@@ -166,6 +166,15 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadButton btnInsertProduct;
         
         /// <summary>
+        /// RadWindowManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadWindowManager RadWindowManager;
+        
+        /// <summary>
         /// rwNewEntry control.
         /// </summary>
         /// <remarks>
