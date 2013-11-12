@@ -29,8 +29,13 @@ namespace CathLab
                     txtNameSize.Text = temp.NameSize;
                     txtProdType.Text = temp.Type;
                 }
-                //else
+                else
+                {
+                    //RadWindow rw = (RadWindow)Page.FindControl("");
+                    RadWindowManager.Windows.Add(rwNewEntry);                    
+                        
                     
+                }
             }
         }
 

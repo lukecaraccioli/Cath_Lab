@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.master" AutoEventWireup="true" CodeBehind="ProductEntry.aspx.cs" Inherits="CathLab.ProductEntry" %>
 
 <%@ Register TagPrefix="uc1" TagName="NewPartNumber" Src="~/UserControls/NewPartNumber.ascx"%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
         <table>
@@ -41,14 +42,16 @@
                     </td>
                 </tr>
             </table>
-        <telerik:RadWindowManager runat="server" ID="RadWindowManager" Height="500px" Width="600px">
+
+        <telerik:RadWindowManager runat="server" ID="RadWindowManager" Height="500px" Width="600px" Animation="Fade" RenderMode="Classic">
         <Windows>
             <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true">
                 <ContentTemplate>
-                    <uc1:NewPartNumber runat="server"></uc1:NewPartNumber>
+                    <uc1:NewPartNumber runat="server""></uc1:NewPartNumber>
                 </ContentTemplate>
             </telerik:RadWindow>
         </Windows>
     </telerik:RadWindowManager>
+
     </telerik:RadAjaxPanel>
 </asp:Content>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="cathlabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="cathlabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="cathlabModelStoreContainer">
           <EntitySet Name="Location" EntityType="cathlabModel.Store.Location" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Login" EntityType="cathlabModel.Store.Login" store:Type="Tables" store:Schema="dbo" store:Name="Login">
@@ -17,8 +17,8 @@
           <EntitySet Name="Manufacturer" EntityType="cathlabModel.Store.Manufacturer" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PartNumber" EntityType="cathlabModel.Store.PartNumber" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product" EntityType="cathlabModel.Store.Product" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProductName" EntityType="cathlabModel.Store.ProductName" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProductType" EntityType="cathlabModel.Store.ProductType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Status" EntityType="cathlabModel.Store.Status" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_PartNumber_Manufacturer" Association="cathlabModel.Store.FK_PartNumber_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="PartNumber" EntitySet="PartNumber" />
@@ -33,6 +33,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Product_PartNumber" Association="cathlabModel.Store.FK_Product_PartNumber">
             <End Role="PartNumber" EntitySet="PartNumber" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Status" Association="cathlabModel.Store.FK_Product_Status">
+            <End Role="Status" EntitySet="Status" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
         </EntityContainer>
@@ -89,13 +93,7 @@
           <Property Name="LocationID" Type="int" />
           <Property Name="DateUsed" Type="datetime" />
           <Property Name="LotNumber" Type="int" />
-        </EntityType>
-        <EntityType Name="ProductName">
-          <Key>
-            <PropertyRef Name="PartNum" />
-          </Key>
-          <Property Name="PartNum" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Name/Size" Type="varchar" MaxLength="50" />
+          <Property Name="StatusID" Type="int" />
         </EntityType>
         <EntityType Name="ProductType">
           <Key>
@@ -103,6 +101,13 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
         <Association Name="FK_PartNumber_Manufacturer">
           <End Role="Manufacturer" Type="cathlabModel.Store.Manufacturer" Multiplicity="0..1" />
@@ -152,8 +157,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+        <Association Name="FK_Product_Status">
+          <End Role="Status" Type="cathlabModel.Store.Status" Multiplicity="0..1" />
+          <End Role="Product" Type="cathlabModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cathlabModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -163,7 +179,6 @@
           <EntitySet Name="Manufacturers" EntityType="cathlabModel.Manufacturer" />
           <EntitySet Name="PartNumbers" EntityType="cathlabModel.PartNumber" />
           <EntitySet Name="Products" EntityType="cathlabModel.Product" />
-          <EntitySet Name="ProductNames" EntityType="cathlabModel.ProductName" />
           <EntitySet Name="ProductTypes" EntityType="cathlabModel.ProductType" />
           <AssociationSet Name="FK_Product_Location" Association="cathlabModel.FK_Product_Location">
             <End Role="Location" EntitySet="Locations" />
@@ -179,6 +194,11 @@
           </AssociationSet>
           <AssociationSet Name="FK_Product_PartNumber" Association="cathlabModel.FK_Product_PartNumber">
             <End Role="PartNumber" EntitySet="PartNumbers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Status" EntityType="cathlabModel.Status" />
+          <AssociationSet Name="FK_Product_Status" Association="cathlabModel.FK_Product_Status">
+            <End Role="Status" EntitySet="Status" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
         </EntityContainer>
@@ -239,13 +259,8 @@
           <Property Name="LotNumber" Type="Int32" />
           <NavigationProperty Name="Location" Relationship="cathlabModel.FK_Product_Location" FromRole="Product" ToRole="Location" />
           <NavigationProperty Name="PartNumber1" Relationship="cathlabModel.FK_Product_PartNumber" FromRole="Product" ToRole="PartNumber" />
-        </EntityType>
-        <EntityType Name="ProductName">
-          <Key>
-            <PropertyRef Name="PartNum" />
-          </Key>
-          <Property Name="PartNum" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Name_Size" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Type="Int32" Name="StatusID" />
+          <NavigationProperty Name="Status" Relationship="cathlabModel.FK_Product_Status" FromRole="Product" ToRole="Status" />
         </EntityType>
         <EntityType Name="ProductType">
           <Key>
@@ -303,6 +318,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Status1" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="cathlabModel.FK_Product_Status" FromRole="Status" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Product_Status">
+          <End Type="cathlabModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="cathlabModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -353,6 +388,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="cathlabModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
                 <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
@@ -363,19 +399,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProductNames">
-            <EntityTypeMapping TypeName="cathlabModel.ProductName">
-              <MappingFragment StoreEntitySet="ProductName">
-                <ScalarProperty Name="PartNum" ColumnName="PartNum" />
-                <ScalarProperty Name="Name_Size" ColumnName="Name/Size" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ProductTypes">
             <EntityTypeMapping TypeName="cathlabModel.ProductType">
               <MappingFragment StoreEntitySet="ProductType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="cathlabModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Status1" ColumnName="Status" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

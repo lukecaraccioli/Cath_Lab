@@ -30,7 +30,7 @@ namespace CathLab
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<PartNumber> PartNumbers { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<ProductName> ProductNames { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<Status> Status { get; set; }
     }
 }
