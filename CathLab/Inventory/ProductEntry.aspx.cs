@@ -32,9 +32,7 @@ namespace CathLab
                 else
                 {
                     //RadWindow rw = (RadWindow)Page.FindControl("");
-                    RadWindowManager.Windows.Add(rwNewEntry);                    
-                        
-                    
+                    RadWindowManager.Windows.Add(rwNewEntry);                                                                
                 }
             }
         }
@@ -60,6 +58,7 @@ namespace CathLab
                 prod.LotNumber = (txtLotNumber.Text != null) ? int.Parse(txtLotNumber.Text) : -1;
                 prod.ExpirationDate = rdpExpiration.SelectedDate;
                 prod.LocationID = int.Parse(lbxLoc.SelectedValue);
+                prod.StatusID = 4;  // 4 = 'Scanned'
                 context.Products.Add(prod);
                 context.SaveChanges();
             }
