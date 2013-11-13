@@ -32,7 +32,10 @@ namespace CathLab {
         
         /// <summary>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
         /// rdpStartDate control.
         /// </summary>
         /// <remarks>
@@ -51,6 +54,9 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadDatePicker rdpEndDate;
         
         /// <summary>
+<<<<<<< HEAD
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
+=======
 >>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
         /// btnTest control.
         /// </summary>

@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+using Telerik.ReportViewer;
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
 =======
 using Telerik.ReportViewer;
 >>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
@@ -18,9 +22,15 @@ namespace CathLab
         protected void Page_Load(object sender, EventArgs e)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             UriReportSource rs = new UriReportSource();
             rs.Uri = "Reports\\Manufacturer_Stock.trdx";
             ReportViewer1.ReportSource = rs;
+=======
+            //UriReportSource rs = new UriReportSource();
+            //rs.Uri = "Reports\\Manufacturer_Stock.trdx";
+            //ReportViewer1.ReportSource = rs;
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
 =======
             //UriReportSource rs = new UriReportSource();
             //rs.Uri = "Reports\\Manufacturer_Stock.trdx";
@@ -40,7 +50,10 @@ namespace CathLab
             UriReportSource rs = new UriReportSource();
             rs.Uri = "Reports\\TestReport.trdx";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
 
             Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
             paramStartDate.Name = "StartDate";
@@ -52,6 +65,9 @@ namespace CathLab
             paramEndDate.Value = rdpEndDate.SelectedDate;
             rs.Parameters.Add(paramEndDate);
 
+<<<<<<< HEAD
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
+=======
 >>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
             ReportViewer1.ReportSource = rs;
         }

@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <telerik:ReportViewer ID="ReportViewer1" runat="server" Width="856px">
        <urireportsource uri="Reports\Manufacturer_Stock.trdx"></urireportsource>
     </telerik:ReportViewer>
@@ -28,6 +29,8 @@
 =======
 >>>>>>> f67038ea7ba5cb1b2e845ac1c5861ecea1584865
 =======
+=======
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
         <table>
             <tr>
@@ -43,5 +46,8 @@
         </table>                
         <telerik:ReportViewer ID="ReportViewer1" runat="server" Width="900px" Height="700px"></telerik:ReportViewer>
     </telerik:RadAjaxPanel>
+<<<<<<< HEAD
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
+=======
 >>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
 </asp:Content>
