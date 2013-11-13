@@ -29,10 +29,6 @@ namespace CathLab
                     txtNameSize.Text = temp.NameSize;
                     txtProdType.Text = temp.Type;
                 }
-                //else
-                //{
-                //    Page.ClientScript.RegisterStartupScript(this.GetType(), "Call my function", "show()", true);
-                //}
             }
         }
 
@@ -65,11 +61,6 @@ namespace CathLab
         protected void btnAutopopulate_Click(object sender, EventArgs e)
         {
             autopopulate();
-        }
-
-        protected void rwNewEntry_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }

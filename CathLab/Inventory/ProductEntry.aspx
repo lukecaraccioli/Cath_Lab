@@ -60,7 +60,7 @@
             </asp:TableRow>
         </asp:Table>
 
-        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" OnLoad="rwNewEntry_Load" Width="530px" Height="470px" Title="New Product Entry">
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry">
             <Localization Close="" />
             <ContentTemplate>
                 <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">

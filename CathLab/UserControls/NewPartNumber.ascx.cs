@@ -14,9 +14,6 @@ namespace CathLab.UserControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //txt.Text = Request.QueryString["partNum"];
-            //RadTextBox tb = (RadTextBox)Page.Parent.FindControl("txtPartNum");
-            //int.TryParse(tb.Text, out pnum);
             loadLocations();
             loadManufacturers();
             loadProductTypes();
@@ -129,6 +126,42 @@ namespace CathLab.UserControls
             txtPartNum.Text = string.Empty;
             pnlLotExpLoc.Visible = false;
             pnlNewPart.Visible = false;
+            pnlNewManu.Visible = false;
+            pnlNewProdType.Visible = false;
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            using (var context = new cathlabEntities())
+            {
+                Manufacturer man = new Manufacturer();
+                man.Name = tbManufacturerName.Text;
+                man.Email = tbxEmail.Text;
+                man.PhoneNumber = tbxPhoneNumber.Text;
+                man.Address = tbxAddress.Text;
+                context.Manufacturers.Add(man);
+                context.SaveChanges();
+                loadManufacturers();
+            }
+        }
+
+        protected void btnSubmitPT_Click(object sender, EventArgs e)
+        {
+            using (var context = new cathlabEntities())
+            {
+                ProductType pt = new ProductType();
+                pt.Type = tbType.Text;
+                context.ProductTypes.Add(pt);
+                context.SaveChanges();
+                loadProductTypes();
+            }
+        }
+
+        protected void btnCancel1_Click(object sender, EventArgs e)
+        {
+            pnlNewManu.Visible = false;
+            pnlNewProdType.Visible = false;
+            pnlNewPart.Visible = true;
         }
     }
 }
