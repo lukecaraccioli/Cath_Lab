@@ -30,7 +30,7 @@
             </div>
         </div>
         <telerik:RadGrid runat="server" ID="RadGrid1" AllowPaging="true" PageSize="15" Width="800" Skin="Outlook"
-            AllowSorting="true" AutoGenerateColumns="false" ExportSettings-FileName="ExpiringSpreadsheet">
+            AllowSorting="true" AutoGenerateColumns="false" ExportSettings-FileName="ExpiringSpreadsheet" OnNeedDataSource="RadGrid1_NeedDataSource">
             <AlternatingItemStyle BackColor="LightSteelBlue" />
             <AlternatingItemStyle BorderWidth="1px" />
             <ItemStyle BackColor="WhiteSmoke" />

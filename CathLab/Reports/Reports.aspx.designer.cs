@@ -31,6 +31,27 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadButton btnManuStock;
         
         /// <summary>
+<<<<<<< HEAD
+=======
+        /// rdpStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDatePicker rdpStartDate;
+        
+        /// <summary>
+        /// rdpEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDatePicker rdpEndDate;
+        
+        /// <summary>
+>>>>>>> ee656d7960392f60d3ef2a683c2934346b10cda9
         /// btnTest control.
         /// </summary>
         /// <remarks>

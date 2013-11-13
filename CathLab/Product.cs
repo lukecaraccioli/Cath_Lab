@@ -21,8 +21,10 @@ namespace CathLab
         public Nullable<int> LocationID { get; set; }
         public Nullable<System.DateTime> DateUsed { get; set; }
         public Nullable<int> LotNumber { get; set; }
+        public Nullable<int> StatusID { get; set; }
     
         public virtual Location Location { get; set; }
         public virtual PartNumber PartNumber1 { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

@@ -10,12 +10,13 @@
         <EntityTypeShape EntityType="cathlabModel.Manufacturer" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.PartNumber" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.Product" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="cathlabModel.ProductName" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cathlabModel.ProductType" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <AssociationConnector Association="cathlabModel.FK_Product_Location" ManuallyRouted="false" />
         <AssociationConnector Association="cathlabModel.FK_PartNumber_Manufacturer" ManuallyRouted="false" />
         <AssociationConnector Association="cathlabModel.FK_PartNumber_ProductType" ManuallyRouted="false" />
         <AssociationConnector Association="cathlabModel.FK_Product_PartNumber" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cathlabModel.Status" Width="1.5" PointX="8.125" PointY="2.25" />
+        <AssociationConnector Association="cathlabModel.FK_Product_Status" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

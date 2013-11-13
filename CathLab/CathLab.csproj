@@ -215,9 +215,6 @@
     <Compile Include="Product.cs">
       <DependentUpon>CathLabData.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductName.cs">
-      <DependentUpon>CathLabData.tt</DependentUpon>
-    </Compile>
     <Compile Include="ProductType.cs">
       <DependentUpon>CathLabData.tt</DependentUpon>
     </Compile>
@@ -235,6 +232,9 @@
     </Compile>
     <Compile Include="Inventory\Expiring.aspx.designer.cs">
       <DependentUpon>Expiring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Status.cs">
+      <DependentUpon>CathLabData.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControls\NewPartNumber.ascx.cs">
       <DependentUpon>NewPartNumber.ascx</DependentUpon>

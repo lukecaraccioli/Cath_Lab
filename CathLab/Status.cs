@@ -12,9 +12,16 @@ namespace CathLab
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductName
+    public partial class Status
     {
-        public string PartNum { get; set; }
-        public string Name_Size { get; set; }
+        public Status()
+        {
+            this.Products = new HashSet<Product>();
+        }
+    
+        public int ID { get; set; }
+        public string Status1 { get; set; }
+    
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
