@@ -66,5 +66,10 @@ namespace CathLab
         {
             autopopulate();
         }
+
+        protected void rwNewEntry_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

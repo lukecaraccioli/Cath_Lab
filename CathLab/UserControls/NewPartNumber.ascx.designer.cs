@@ -13,30 +13,57 @@ namespace CathLab.UserControls {
     public partial class NewPartNumber {
         
         /// <summary>
-        /// tbPartNumber control.
+        /// pnlNewPart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox tbPartNumber;
+        protected global::System.Web.UI.WebControls.Panel pnlNewPart;
         
         /// <summary>
-        /// lbxManufacturer control.
+        /// txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadListBox lbxManufacturer;
+        protected global::Telerik.Web.UI.RadTextBox txt;
         
         /// <summary>
-        /// lbxProductType control.
+        /// lblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadListBox lbxProductType;
+        protected global::System.Web.UI.WebControls.Label lblLocation;
+        
+        /// <summary>
+        /// lbxLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadListBox lbxLocation;
+        
+        /// <summary>
+        /// pnlNewManu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNewManu;
+        
+        /// <summary>
+        /// pnlNewProdType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNewProdType;
     }
 }

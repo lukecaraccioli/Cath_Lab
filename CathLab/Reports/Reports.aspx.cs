@@ -14,9 +14,7 @@ namespace CathLab
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //UriReportSource rs = new UriReportSource();
-            //rs.Uri = "Reports\\Manufacturer_Stock.trdx";
-            //ReportViewer1.ReportSource = rs;
+
         }
 
         protected void btnManuStock_Click(object sender, EventArgs e)
@@ -41,6 +39,20 @@ namespace CathLab
             paramEndDate.Value = rdpEndDate.SelectedDate;
             rs.Parameters.Add(paramEndDate);
 
+            ReportViewer1.ReportSource = rs;
+        }
+
+        protected void btnStents_Click(object sender, EventArgs e)
+        {
+            UriReportSource rs = new UriReportSource();
+            rs.Uri = "Reports\\getStents.trdx";
+            ReportViewer1.ReportSource = rs;
+        }
+
+        protected void btnStentsCost_Click(object sender, EventArgs e)
+        {
+            UriReportSource rs = new UriReportSource();
+            rs.Uri = "Reports\\getStentsCost.trdx";
             ReportViewer1.ReportSource = rs;
         }
     }

@@ -9,6 +9,7 @@
             <script type="text/javascript">
                 function show() {
                     var wnd = $find("<%=rwNewEntry.ClientID %>");
+                    var wnd = $find("<%=rwNewEntry.ClientID %>");
                     wnd.show();
                 }
             </script>
@@ -64,17 +65,11 @@
             </asp:TableRow>
         </asp:Table>
 
-        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true">
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" OnLoad="rwNewEntry_Load">
             <Localization Close="" />
             <ContentTemplate>
                 <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">
-                    <asp:Table runat="server">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <telerik:RadTextBox runat="server" ID="RadTextBox1" Label="New Part#:"></telerik:RadTextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
+                    <uc1:NewPartNumber runat="server" ID="uc1" />                    
                 </telerik:RadAjaxPanel>
             </ContentTemplate>
         </telerik:RadWindow>
