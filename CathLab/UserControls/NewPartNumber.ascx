@@ -12,6 +12,16 @@
                 <telerik:RadListBox runat="server" ID="lbxLocation" Height="150" AutoPostBack="True" OnTextChanged="lbxLocation_TextChanged">
                 </telerik:RadListBox>
             </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label runat="server" ID="lblManufacturer" Text="Manufacturer:"></asp:Label><br />
+                <telerik:RadListBox runat="server" ID="lbxManufacturer" Height="150" AutoPostBack="True">
+                </telerik:RadListBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label runat="server" ID="lblProdType" Text="Product Type:"></asp:Label><br />
+                <telerik:RadListBox runat="server" ID="lbxProdType" Height="150" AutoPostBack="True">
+                </telerik:RadListBox>
+            </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
 </asp:Panel>
