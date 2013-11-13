@@ -128,6 +128,8 @@
     <Content Include="Login.aspx" />
     <Content Include="Reports\Reports.aspx" />
     <Content Include="Stylesheets\variant-multi.css" />
+    <Content Include="UserControls\NewManufacturer.ascx" />
+    <Content Include="UserControls\NewProductType.ascx" />
     <Content Include="UserControls\variant-multi.css" />
     <Content Include="UserControls\NewPartNumber.ascx" />
     <Content Include="Web.config">
@@ -236,12 +238,26 @@
     <Compile Include="Status.cs">
       <DependentUpon>CathLabData.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\NewManufacturer.ascx.cs">
+      <DependentUpon>NewManufacturer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\NewManufacturer.ascx.designer.cs">
+      <DependentUpon>NewManufacturer.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\NewPartNumber.ascx.cs">
       <DependentUpon>NewPartNumber.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\NewPartNumber.ascx.designer.cs">
       <DependentUpon>NewPartNumber.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NewProductType.ascx.cs">
+      <DependentUpon>NewProductType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\NewProductType.ascx.designer.cs">
+      <DependentUpon>NewProductType.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -314,7 +330,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

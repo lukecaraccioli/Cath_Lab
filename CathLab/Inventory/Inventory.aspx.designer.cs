@@ -94,6 +94,15 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadListBox lbxLocation;
         
         /// <summary>
+        /// btnNewProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnNewProduct;
+        
+        /// <summary>
         /// rgInventory control.
         /// </summary>
         /// <remarks>

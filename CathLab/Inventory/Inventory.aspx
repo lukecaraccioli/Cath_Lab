@@ -2,25 +2,25 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="main">
-                <div id="sidebar">
-                    <div class="sidebarbox">
-                        <h2>Page Options</h2>
-                        <ul class="sidemenu">
-                            <li><a href="/Reports/Reports.aspx">Reports</a></li>
-                            <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
-                            <li><a href="/Inventory/Inventory.aspx">Re-Order Report</a></li>
-                            <li><a href="/Par.aspx">Explore Inventory</a></li>
-                        </ul>
-                    </div>
+        <div id="sidebar">
+            <div class="sidebarbox">
+                <h2>Page Options</h2>
+                <ul class="sidemenu">
+                    <li><a href="/Reports/Reports.aspx">Reports</a></li>
+                    <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
+                    <li><a href="/Inventory/Inventory.aspx">Re-Order Report</a></li>
+                    <li><a href="/Par.aspx">Explore Inventory</a></li>
+                </ul>
+            </div>
 
-                    <div class="sidebarbox">
-                        <h2>Instruction box</h2>
-                        
-                        <ul>
-                         <li><a href="/Home.aspx">Home</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="sidebarbox">
+                <h2>Instruction box</h2>
+
+                <ul>
+                    <li><a href="/Home.aspx">Home</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
@@ -46,6 +46,9 @@
                     <%--<td>
                         <telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>
                     </td>--%>
+                </tr>
+                <tr>
+                    <telerik:RadButton runat="server" ID="btnNewProduct" OnClick="btnNewProduct_Click" Text="New Product"></telerik:RadButton>
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">

@@ -29,10 +29,10 @@ namespace CathLab
                     txtNameSize.Text = temp.NameSize;
                     txtProdType.Text = temp.Type;
                 }
-                else
-                {
-                    
-                }
+                //else
+                //{
+                //    Page.ClientScript.RegisterStartupScript(this.GetType(), "Call my function", "show()", true);
+                //}
             }
         }
 

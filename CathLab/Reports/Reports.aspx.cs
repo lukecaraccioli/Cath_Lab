@@ -10,16 +10,11 @@ using Telerik.Reporting;
 
 namespace CathLab
 {
-    //SO THIS IS THE COMMENT THAT YOU WANTED BRO!!!!!!!!!!!!!!!!!!!!!!1
-
-
     public partial class Reports : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //UriReportSource rs = new UriReportSource();
-            //rs.Uri = "Reports\\Manufacturer_Stock.trdx";
-            //ReportViewer1.ReportSource = rs;
+
         }
 
         protected void btnManuStock_Click(object sender, EventArgs e)
@@ -45,6 +40,16 @@ namespace CathLab
             rs.Parameters.Add(paramEndDate);
 
             ReportViewer1.ReportSource = rs;
+        }
+
+        protected void btnStents_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnStentsCost_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
