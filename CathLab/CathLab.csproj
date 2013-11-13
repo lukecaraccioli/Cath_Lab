@@ -128,6 +128,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Reports\Reports.aspx" />
     <Content Include="Stylesheets\variant-multi.css" />
+    <Content Include="UserControls\variant-multi.css" />
     <Content Include="UserControls\NewPartNumber.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
