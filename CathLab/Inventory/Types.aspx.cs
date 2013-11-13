@@ -18,7 +18,6 @@ namespace CathLab
         }
 
         #region Data Load
-
         protected void rgManufacturers_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
             using (var context = new cathlabEntities())
@@ -36,12 +35,12 @@ namespace CathLab
             using (var context = new cathlabEntities())
                 rgPartNumbers.DataSource = (from pnum in context.PartNumbers select new { pnum.PartNum, pnum.NameSize, pnum.ProductType.Type, pnum.Cost, pnum.Manufacturer.Name }).ToList();
         }
-
         #endregion Data Load
 
         protected void rgManufacturers_UpdateCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
             GridEditableItem editedItem = e.Item as GridEditableItem;
+            int a = editedItem.Controls.Count;
         }
 
         protected void rgPartNumbers_UpdateCommand(object sender, GridCommandEventArgs e)

@@ -4,54 +4,80 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
-        <table>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblPartNum" Text="Part Numbers: "></asp:Label><br />
-                        <telerik:RadTextBox runat="server" ID="txtPartNum"></telerik:RadTextBox>&nbsp;<br />
-                        <telerik:RadButton runat="server" ID="btnAutopopulate" Text="AutoPopulate" OnClick="btnAutopopulate_Click"></telerik:RadButton>&nbsp
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="lblManu" Text="Manufacturer: "></asp:Label><br />
-                        <telerik:RadTextBox runat="server" ID="txtManufacturer" ReadOnly="true"></telerik:RadTextBox>&nbsp;
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="lblNameSize" Text="Name/Size:"></asp:Label><br />
-                        <telerik:RadTextBox runat="server" ID="txtNameSize" ReadOnly="true"></telerik:RadTextBox>&nbsp;
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="lblType" Text="Product Type:"></asp:Label><br />
-                        <telerik:RadTextBox runat="server" ID="txtProdType" ReadOnly="true"></telerik:RadTextBox>&nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblLotNumber" Text="Lot Number"></asp:Label><br />
-                        <telerik:RadTextBox runat="server" ID="txtLotNumber"></telerik:RadTextBox>&nbsp;
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="lblExpirationDate" Text="Expiration Date"></asp:Label><br />
-                        <telerik:RadDatePicker runat="server" ID="rdpExpiration"></telerik:RadDatePicker>&nbsp;
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="lblLoc" Text ="Location: "></asp:Label><br />
-                        <telerik:RadListBox runat="server" ID="lbxLoc" AutoPostBack="true"></telerik:RadListBox>
-                    </td>
-                    <td>
-                        <telerik:RadButton runat="server" ID="btnInsertProduct" Text="Insert Product" OnClick="btnInsertProduct_Click"></telerik:RadButton>&nbsp;
-                    </td>
-                </tr>
-            </table>
 
-        <telerik:RadWindowManager runat="server" ID="RadWindowManager" Height="500px" Width="600px" Animation="Fade" RenderMode="Classic">
-        <Windows>
-            <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true">
-                <ContentTemplate>
-                    <uc1:NewPartNumber runat="server""></uc1:NewPartNumber>
-                </ContentTemplate>
-            </telerik:RadWindow>
-        </Windows>
-    </telerik:RadWindowManager>
+        <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
+            <script type="text/javascript">
+                function show() {
+                    var wnd = $find("<%=rwNewEntry.ClientID %>");
+                    wnd.show();
+                }
+            </script>
+        </telerik:RadScriptBlock>
+
+        <telerik:RadButton runat="server" Text="Test RadWindow" ID="btnTest" OnClientClicked="show" AutoPostBack="false"></telerik:RadButton>
+        <asp:Table runat="server">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="lblPartNum" Text="Part Numbers: "></asp:Label><br />
+                    <telerik:RadTextBox runat="server" ID="txtPartNum"></telerik:RadTextBox>&nbsp;<br />
+                    <telerik:RadButton runat="server" ID="btnAutopopulate" Text="AutoPopulate" OnClick="btnAutopopulate_Click"></telerik:RadButton>
+                    &nbsp
+                   
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="lblManu" Text="Manufacturer: "></asp:Label><br />
+                    <telerik:RadTextBox runat="server" ID="txtManufacturer" ReadOnly="true"></telerik:RadTextBox>&nbsp;
+                   
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="lblNameSize" Text="Name/Size:"></asp:Label><br />
+                    <telerik:RadTextBox runat="server" ID="txtNameSize" ReadOnly="true"></telerik:RadTextBox>&nbsp;
+                   
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="lblType" Text="Product Type:"></asp:Label><br />
+                    <telerik:RadTextBox runat="server" ID="txtProdType" ReadOnly="true"></telerik:RadTextBox>&nbsp;
+                   
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="lblLotNumber" Text="Lot Number"></asp:Label><br />
+                    <telerik:RadTextBox runat="server" ID="txtLotNumber"></telerik:RadTextBox>&nbsp;
+                   
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="lblExpirationDate" Text="Expiration Date"></asp:Label><br />
+                    <telerik:RadDatePicker runat="server" ID="rdpExpiration"></telerik:RadDatePicker>
+                    &nbsp;
+                   
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label runat="server" ID="lblLoc" Text="Location: "></asp:Label><br />
+                    <telerik:RadListBox runat="server" ID="lbxLoc" AutoPostBack="true"></telerik:RadListBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <telerik:RadButton runat="server" ID="btnInsertProduct" Text="Insert Product" OnClick="btnInsertProduct_Click"></telerik:RadButton>
+                    &nbsp;
+                   
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true">
+            <Localization Close="" />
+            <ContentTemplate>
+                <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">
+                    <asp:Table runat="server">
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <telerik:RadTextBox runat="server" ID="RadTextBox1" Label="New Part#:"></telerik:RadTextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
+                </telerik:RadAjaxPanel>
+            </ContentTemplate>
+        </telerik:RadWindow>
 
     </telerik:RadAjaxPanel>
 </asp:Content>

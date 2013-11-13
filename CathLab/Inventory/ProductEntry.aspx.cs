@@ -31,9 +31,6 @@ namespace CathLab
                 }
                 else
                 {
-                    //RadWindow rw = (RadWindow)Page.FindControl("");
-                    RadWindowManager.Windows.Add(rwNewEntry);                    
-                        
                     
                 }
             }

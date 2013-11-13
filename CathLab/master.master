@@ -29,7 +29,7 @@
             </div>
             <div id="Div1" class="right">
                 <telerik:RadScriptManager runat="server" ID="radScriptManager"></telerik:RadScriptManager>
-                <telerik:RadMenu runat="server" ID="mnuMenu" DataSourceID="SiteMapDataSource" Height="60px">
+                <telerik:RadMenu runat="server" ID="mnuMenu" DataSourceID="SiteMapDataSource" Height="60px" style="z-index:2900">
                 </telerik:RadMenu>
                 <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource" ShowStartingNode="False"/>
             </div>
