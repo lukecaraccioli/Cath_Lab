@@ -13,9 +13,7 @@ namespace CathLab
     public partial class Reports : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        { }
 
         protected void btnManuStock_Click(object sender, EventArgs e)
         {
@@ -46,6 +44,16 @@ namespace CathLab
         {
             UriReportSource rs = new UriReportSource();
             rs.Uri = "Reports\\getStents.trdx";
+
+            Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
+            paramStartDate.Name = "StartDate";
+            paramStartDate.Value = rdpStartDate.SelectedDate;
+            rs.Parameters.Add(paramStartDate);
+
+            Telerik.Reporting.Parameter paramEndDate = new Telerik.Reporting.Parameter();
+            paramEndDate.Name = "EndDate";
+            paramEndDate.Value = rdpEndDate.SelectedDate;
+            rs.Parameters.Add(paramEndDate);
             ReportViewer1.ReportSource = rs;
         }
 

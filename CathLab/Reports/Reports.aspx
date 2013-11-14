@@ -14,7 +14,7 @@
                 <td>
                     <telerik:RadDatePicker runat="server" ID="rdpStartDate" DateInput-Label="Start Date"></telerik:RadDatePicker> <br />
                     <telerik:RadDatePicker runat="server" ID="rdpEndDate" DateInput-Label="End Date"></telerik:RadDatePicker> <br />
-                    <telerik:RadButton runat="server" ID="btnTest" Text="Test" OnClick="btnTest_Click"></telerik:RadButton>                    
+                    <%--<telerik:RadButton runat="server" ID="btnTest" Text="Test" OnClick="btnTest_Click"></telerik:RadButton>--%>                    
                 </td>
                 <td>
                     <telerik:RadButton runat="server" ID="btnStents" Text="Stents" OnClick="btnStents_Click"></telerik:RadButton>&nbsp;
