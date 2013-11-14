@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.master" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="CathLab.Inventory" %>
 
+<%@ Register TagPrefix="uc1" TagName="NewPartNumber" Src="~/UserControls/NewPartNumber.ascx"%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="main">
         <div id="sidebar">
@@ -23,6 +25,14 @@
         </div>
     </div>
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
+                <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
+            <script type="text/javascript">
+                function show() {                    
+                    var wnd = $find("<%=rwNewEntry.ClientID %>");
+                    wnd.show();
+                }
+            </script>
+        </telerik:RadScriptBlock>
         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
         <asp:Panel runat="server" ID="pnlView">
             <table style="width: 100px">
@@ -48,7 +58,7 @@
                     </td>--%>
                 </tr>
                 <tr>
-                    <telerik:RadButton runat="server" ID="btnNewProduct" OnClick="btnNewProduct_Click" Text="New Product"></telerik:RadButton>
+                    <telerik:RadButton runat="server" ID="btnNewProduct" OnClick="btnNewProduct_Click" OnClientClicked="show" Text="New Product"></telerik:RadButton>
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">
@@ -67,5 +77,14 @@
                 </MasterTableView>
             </telerik:RadGrid>
         </asp:Panel>
+                <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry">
+            <Localization Close="" />
+            <ContentTemplate>
+                <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">
+                    <uc1:NewPartNumber runat="server" ID="uc1" />                    
+                </telerik:RadAjaxPanel>
+            </ContentTemplate>
+        </telerik:RadWindow>
+
     </telerik:RadAjaxPanel>
 </asp:Content>

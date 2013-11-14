@@ -24,7 +24,7 @@
                 </td>
             </tr>
         </table>                
-        <telerik:ReportViewer ID="ReportViewer1" runat="server" Width="900px" Height="700px"></telerik:ReportViewer>
+        <telerik:ReportViewer ID="ReportViewer1" runat="server" Width="900px" Height="700px" ParametersAreaVisible="true" ShowParametersButton="true"></telerik:ReportViewer>
     </telerik:RadAjaxPanel>
 
 </asp:Content>

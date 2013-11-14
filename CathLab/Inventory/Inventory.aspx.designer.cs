@@ -22,6 +22,15 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadAjaxPanel ajaxpanel;
         
         /// <summary>
+        /// RadScriptBlock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadScriptBlock RadScriptBlock;
+        
+        /// <summary>
         /// loadingPanel control.
         /// </summary>
         /// <remarks>
@@ -110,5 +119,32 @@ namespace CathLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid rgInventory;
+        
+        /// <summary>
+        /// rwNewEntry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadWindow rwNewEntry;
+        
+        /// <summary>
+        /// rwAJAXPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel rwAJAXPanel;
+        
+        /// <summary>
+        /// uc1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CathLab.UserControls.NewPartNumber uc1;
     }
 }

@@ -42,14 +42,11 @@
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label runat="server" ID="lblLotNumber" Text="Lot Number"></asp:Label><br />
-                        <telerik:RadTextBox runat="server" ID="txtLotNumber"></telerik:RadTextBox>&nbsp;                   
-                   
+                        <telerik:RadTextBox runat="server" ID="txtLotNumber"></telerik:RadTextBox> &nbsp;                                      
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label runat="server" ID="lblExpirationDate" Text="Expiration Date"></asp:Label><br />
-                        <telerik:RadDatePicker runat="server" ID="rdpExpiration"></telerik:RadDatePicker>
-                        &nbsp;                   
-                   
+                        <telerik:RadDatePicker runat="server" ID="rdpExpiration"></telerik:RadDatePicker> &nbsp;                                      
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label runat="server" ID="Label1" Text="Location:"></asp:Label><br />
@@ -57,9 +54,7 @@
                         </telerik:RadListBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <telerik:RadButton runat="server" ID="btnInsertProduct" Text="Insert Product"></telerik:RadButton>
-                        &nbsp;                   
-                   
+                        <telerik:RadButton runat="server" ID="btnInsertProduct" Text="Insert Product"></telerik:RadButton> &nbsp;                                      
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>

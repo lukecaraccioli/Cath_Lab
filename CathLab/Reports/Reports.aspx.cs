@@ -59,7 +59,7 @@ namespace CathLab
             rs.Parameters["EndTime"].Value = rdpEndDate.SelectedDate.Value;
 
             int count = rs.Parameters.Count;
-
+            
             ReportViewer1.ReportSource = rs;
         }
 

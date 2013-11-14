@@ -7,12 +7,11 @@
         <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
             <script type="text/javascript">
                 function show() {
-                    var txtPartNum = $find("<%=txtPartNum.Text %>")
+                    //var txtPartNum = $find("<%=txtPartNum.Text %>")
                     var wnd = $find("<%=rwNewEntry.ClientID %>");
                     //var wnd = $find("<%=rwNewEntry.ClientID %>");
-                    wnd.setUrl("NewPartNumber.ascx?partNum=" + txtPartNum);
+                    //wnd.setUrl("NewPartNumber.ascx?partNum=" + txtPartNum);
                     wnd.show();
-                        //.radopen("NewPartNumber.ascx?partNum=" + txtPartNum) //.show();
                 }
             </script>
         </telerik:RadScriptBlock>
