@@ -28,12 +28,12 @@ namespace CathLab
             rs.Uri = "Reports\\TestReport.trdx";
 
             Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
-            paramStartDate.Name = "StartDate";
+            paramStartDate.Name = "@StartDate";
             paramStartDate.Value = rdpStartDate.SelectedDate;
             rs.Parameters.Add(paramStartDate);
 
             Telerik.Reporting.Parameter paramEndDate = new Telerik.Reporting.Parameter();
-            paramEndDate.Name = "EndDate";
+            paramEndDate.Name = "@EndDate";
             paramEndDate.Value = rdpEndDate.SelectedDate;
             rs.Parameters.Add(paramEndDate);
 
@@ -46,14 +46,20 @@ namespace CathLab
             rs.Uri = "Reports\\getStents.trdx";
 
             Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
-            paramStartDate.Name = "StartDate";
-            paramStartDate.Value = rdpStartDate.SelectedDate;
+            paramStartDate.Name = "StartTime";
+            //paramStartDate.Value = rdpStartDate.SelectedDate.Value;
             rs.Parameters.Add(paramStartDate);
 
             Telerik.Reporting.Parameter paramEndDate = new Telerik.Reporting.Parameter();
-            paramEndDate.Name = "EndDate";
-            paramEndDate.Value = rdpEndDate.SelectedDate;
+            paramEndDate.Name = "EndTime";
+            //paramEndDate.Value = rdpEndDate.SelectedDate.Value;
             rs.Parameters.Add(paramEndDate);
+
+            rs.Parameters["StartTime"].Value = rdpStartDate.SelectedDate.Value;
+            rs.Parameters["EndTime"].Value = rdpEndDate.SelectedDate.Value;
+
+            int count = rs.Parameters.Count;
+
             ReportViewer1.ReportSource = rs;
         }
 
