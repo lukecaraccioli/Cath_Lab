@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report Width="6.5in" Name="getStents" SnapGridSize="0.1in" xmlns="http://schemas.telerik.com/reporting/2012/3">
   <DataSources>
-    <SqlDataSource ConnectionString="cathlab3" SelectCommand="dbo.getStents" SelectCommandType="StoredProcedure" Name="sqlDataSource2">
+    <SqlDataSource ConnectionString="cathlabReport" SelectCommand="dbo.getStents" SelectCommandType="StoredProcedure" Name="sqlDataSource2">
       <Parameters>
         <SqlDataSourceParameter DbType="DateTime" Name="@StartTime">
           <Value>

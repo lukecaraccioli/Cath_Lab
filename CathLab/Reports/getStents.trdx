@@ -4,7 +4,7 @@
     <Font Bold="True" />
   </Style>
   <DataSources>
-    <SqlDataSource ConnectionString="cathlab3" SelectCommand="dbo.getStents" SelectCommandType="StoredProcedure" Name="sqlDataSource1">
+    <SqlDataSource ConnectionString="cathlabReport" SelectCommand="dbo.getStents" SelectCommandType="StoredProcedure" Name="sqlDataSource1">
       <Parameters>
         <SqlDataSourceParameter DbType="DateTime" Name="@StartTime">
           <Value>
