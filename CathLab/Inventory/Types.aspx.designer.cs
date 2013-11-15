@@ -13,40 +13,22 @@ namespace CathLab {
     public partial class Types {
         
         /// <summary>
-        /// RadAJAXPanel control.
+        /// RadScriptBlock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel RadAJAXPanel;
+        protected global::Telerik.Web.UI.RadScriptBlock RadScriptBlock;
         
         /// <summary>
-        /// btnPartNums control.
+        /// pnlAJAXPartNums control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnPartNums;
-        
-        /// <summary>
-        /// btnManufacturers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnManufacturers;
-        
-        /// <summary>
-        /// btnProdTypes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnProdTypes;
+        protected global::Telerik.Web.UI.RadAjaxPanel pnlAJAXPartNums;
         
         /// <summary>
         /// rgPartNumbers control.
@@ -58,6 +40,15 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadGrid rgPartNumbers;
         
         /// <summary>
+        /// pnlAJAXManufacturers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel pnlAJAXManufacturers;
+        
+        /// <summary>
         /// rgManufacturers control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace CathLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid rgManufacturers;
+        
+        /// <summary>
+        /// pnlAJAXProdType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel pnlAJAXProdType;
         
         /// <summary>
         /// rgProdType control.
