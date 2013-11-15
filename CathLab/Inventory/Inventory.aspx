@@ -3,6 +3,7 @@
 <%@ Register TagPrefix="uc1" TagName="NewPartNumber" Src="~/UserControls/NewPartNumber.ascx"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
     <div id="main">
         <div id="sidebar">
             <div class="sidebarbox">
@@ -24,7 +25,7 @@
             </div>
         </div>
     </div>
-    <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
+    
                 <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
             <script type="text/javascript">
                 function show() {                    
@@ -58,7 +59,7 @@
                     </td>--%>
                 </tr>
                 <tr>
-                    <telerik:RadButton runat="server" ID="btnNewProduct" OnClick="btnNewProduct_Click" OnClientClicked="show" Text="New Product"></telerik:RadButton>
+                    <telerik:RadButton runat="server" ID="btnNewProduct" OnClientClicked="show" Text="New Product" AutoPostBack="false"></telerik:RadButton>
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">

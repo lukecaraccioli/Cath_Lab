@@ -138,15 +138,5 @@ namespace CathLab
                 rgInventory.DataSource = temp.ToList();
             }
         }
-
-        protected void btnNewProduct_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //protected void btnApply_Click(object sender, EventArgs e)
-        //{
-        //    rgInventory.Rebind();
-        //}
     }
 }
