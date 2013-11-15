@@ -18,15 +18,16 @@
                             <telerik:RadButton runat="server" ID="btn30" OnClick="btn30_Click" Text="30 Days" Height="35px" Skin="WebBlue" CssClass="rbPrimaryButton"></telerik:RadButton>
                         </li>
                         <br />
+                         <br />
                         <asp:Label runat="server" ID="lblDate" Text="From today until:"></asp:Label><br />
                         <telerik:RadDatePicker runat="server" ID="dpEnd" AutoPostBack="true" OnSelectedDateChanged="dpEnd_SelectedDateChanged"></telerik:RadDatePicker>
                     </ul>
                 </div>
 
-                <div class="sidebarbox">
-                    <h2>Instruction box</h2>
-                    <p>This will be an Instruction/explination box for the buttons located on the side of the rad grid</p>
-                </div>
+                <%--<div class="sidebarbox">
+                    <h2> </h2>
+                   <%-- <p>This will be an Instruction/explination box for the buttons located on the side of the rad grid</p>
+                </div>--%>
             </div>
         </div>
         <telerik:RadGrid runat="server" ID="RadGrid1" AllowPaging="true" PageSize="15" Width="800" Skin="Outlook"
