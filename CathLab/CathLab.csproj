@@ -288,9 +288,6 @@
     <Content Include="Reports\Manufacturer_Stock.trdx">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Reports\TestReport.trdx">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Reports\getStentsCost.trdx">
       <SubType>Designer</SubType>
     </Content>

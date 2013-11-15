@@ -24,20 +24,20 @@ namespace CathLab
 
         protected void btnTest_Click(object sender, EventArgs e)
         {
-            UriReportSource rs = new UriReportSource();
-            rs.Uri = "Reports\\TestReport.trdx";
+            //UriReportSource rs = new UriReportSource();
+            //rs.Uri = "Reports\\TestReport.trdx";
 
-            Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
-            paramStartDate.Name = "@StartDate";
-            paramStartDate.Value = rdpStartDate.SelectedDate;
-            rs.Parameters.Add(paramStartDate);
+            //Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
+            //paramStartDate.Name = "@StartDate";
+            //paramStartDate.Value = rdpStartDate.SelectedDate;
+            //rs.Parameters.Add(paramStartDate);
 
-            Telerik.Reporting.Parameter paramEndDate = new Telerik.Reporting.Parameter();
-            paramEndDate.Name = "@EndDate";
-            paramEndDate.Value = rdpEndDate.SelectedDate;
-            rs.Parameters.Add(paramEndDate);
+            //Telerik.Reporting.Parameter paramEndDate = new Telerik.Reporting.Parameter();
+            //paramEndDate.Name = "@EndDate";
+            //paramEndDate.Value = rdpEndDate.SelectedDate;
+            //rs.Parameters.Add(paramEndDate);
 
-            ReportViewer1.ReportSource = rs;
+            //ReportViewer1.ReportSource = rs;
         }
 
         protected void btnStents_Click(object sender, EventArgs e)
