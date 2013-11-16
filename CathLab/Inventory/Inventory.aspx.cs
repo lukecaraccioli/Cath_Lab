@@ -93,7 +93,6 @@ namespace CathLab
                     lbxLocation.DataBind();
                 }
             }
-            //lbxLocation.SelectedIndex = 0;
         }
 
         protected void loadLocations()

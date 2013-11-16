@@ -14,6 +14,9 @@
             <telerik:RadButton runat="server" ID="btnClear" Text="Clear" OnClick="btnClear_Click"></telerik:RadButton>
             <br />
         </div>
+
+
+        <%-- For a brand new PartNumber --%>
         <asp:Panel runat="server" ID="pnlNewPart" Visible="false">
             <asp:Table runat="server">
                 <asp:TableRow>
@@ -35,6 +38,7 @@
                 </asp:TableRow>
             </asp:Table>
         </asp:Panel>
+
 
         <%-- Selecting from existing Manufacturer, ProductType, and Location --%>
         <asp:Panel runat="server" ID="pnlLotExpLoc" Visible="false">
@@ -60,6 +64,7 @@
             </asp:Table>
         </asp:Panel>
 
+
         <asp:Panel runat="server" ID="pnlNewManu" Visible="false">
             <%-- Inserting New Manufacturer --%>
             <div>
@@ -74,6 +79,7 @@
             </div>
         </asp:Panel>
 
+
         <asp:Panel runat="server" ID="pnlNewProdType" Visible="false">
             <%-- Inserting New Product Type --%>
             <div>
@@ -86,8 +92,8 @@
         </asp:Panel>
 
         <%--<telerik:RadTextBox runat="server" ID="tbPartNumber" Label="New Part Number:" LabelWidth="15px"></telerik:RadTextBox>
-
 <telerik:RadListBox runat="server" ID="lbxManufacturer"></telerik:RadListBox>
 <telerik:RadListBox runat="server" ID="lbxProductType"></telerik:RadListBox>--%>
+
     </div>
 </telerik:RadAjaxPanel>

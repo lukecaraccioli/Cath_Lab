@@ -25,7 +25,7 @@ namespace CathLab.UserControls
             {
                 List<Manufacturer> temp = (from man in context.Manufacturers select man).ToList();
                 Manufacturer a = new Manufacturer();
-                a.ID = 0; a.Name = "<New Manufacturer>";
+                a.ID = 0; a.Name = "New Manufacturer";
                 temp.Insert(0, a);
                 lbxManufacturer.DataValueField = "ID";
                 lbxManufacturer.DataTextField = "Name";
@@ -40,7 +40,7 @@ namespace CathLab.UserControls
             {
                 List<ProductType> temp = (from prodtype in context.ProductTypes select prodtype).ToList();
                 ProductType a = new ProductType();
-                a.ID = 0; a.Type = "<New Type>";
+                a.ID = 0; a.Type = "New Type";
                 temp.Insert(0, a);
                 lbxProdType.DataValueField = "ID";
                 lbxProdType.DataTextField = "Type";
@@ -68,16 +68,27 @@ namespace CathLab.UserControls
 
         protected void lbxManufacturer_TextChanged(object sender, EventArgs e)
         {
-            pnlNewManu.Visible = true;
-            pnlNewPart.Visible = false;
-            pnlNewProdType.Visible = false;
+            if (lbxManufacturer.SelectedIndex.Equals(0))
+            {
+                pnlNewManu.Visible = true;
+                pnlNewPart.Visible = false;
+                pnlNewProdType.Visible = false;
+            }
+            else
+            {
+                RadListBox item = (RadListBox)sender;
+                lbxManufacturer.SelectedItems.Add((RadListBoxItem)item.SelectedItem);
+            }
         }
 
         protected void lbxProdType_TextChanged(object sender, EventArgs e)
         {
-            pnlNewProdType.Visible = true;
-            pnlNewManu.Visible = false;
-            pnlNewPart.Visible = false;            
+            if (lbxProdType.SelectedValue.Equals(0))
+            {
+                pnlNewProdType.Visible = true;
+                pnlNewManu.Visible = false;
+                pnlNewPart.Visible = false;
+            }
         }
 
         protected void txtPartNum_TextChanged(object sender, EventArgs e)
@@ -97,9 +108,9 @@ namespace CathLab.UserControls
                 {
                     pnlLotExpLoc.Visible = true;
                     loadLocs();
-                    //txtManufacturer.Text = temp.Name;
-                    //txtNameSize.Text = temp.NameSize;
-                    //txtProdType.Text = temp.Type;
+                    txtManufacturer.Text = temp.Name;
+                    txtNameSize.Text = temp.NameSize;
+                    txtProdType.Text = temp.Type;
                 }
                 else
                 {

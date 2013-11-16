@@ -4,36 +4,37 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <telerik:RadAjaxPanel ID="ajaxpanel" runat="server">
-    <div id="main">
-        <div id="sidebar">
-            <div class="sidebarbox">
-                <h2>Page Options</h2>
-                <ul class="sidemenu">
-                    <li><a href="/Reports/Reports.aspx">Reports</a></li>
-                    <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
-                    <li><a href="/Inventory/Inventory.aspx">Re-Order Report</a></li>
-                    <li><a href="/Par.aspx">Explore Inventory</a></li>
-                </ul>
-            </div>
+        <div id="main">
+            <div id="sidebar">
+                <div class="sidebarbox">
+                    <h2>Page Options</h2>
+                    <ul class="sidemenu">
+                        <li><a href="/Reports/Reports.aspx">Reports</a></li>
+                        <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
+                        <li><a href="/Inventory/Inventory.aspx">Re-Order Report</a></li>
+                        <li><a href="/Par.aspx">Explore Inventory</a></li>
+                    </ul>
+                </div>
 
-            <div class="sidebarbox">
-                <h2>Instruction box</h2>
+                <div class="sidebarbox">
+                    <h2>Instruction box</h2>
 
-                <ul>
-                    <li><a href="/Home.aspx">Home</a></li>
-                </ul>
+                    <ul>
+                        <li><a href="/Home.aspx">Home</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    
-                <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
+
+        <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
             <script type="text/javascript">
-                function show() {                    
+                function show() {
                     var wnd = $find("<%=rwNewEntry.ClientID %>");
                     wnd.show();
                 }
             </script>
         </telerik:RadScriptBlock>
+
         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
         <asp:Panel runat="server" ID="pnlView">
             <table style="width: 100px">
@@ -78,11 +79,11 @@
                 </MasterTableView>
             </telerik:RadGrid>
         </asp:Panel>
-                <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry">
-            <Localization Close="" />
+
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry" BackColor="Violet">
             <ContentTemplate>
                 <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">
-                    <uc1:NewPartNumber runat="server" ID="uc1" />                    
+                    <uc1:NewPartNumber runat="server" ID="uc1"/>
                 </telerik:RadAjaxPanel>
             </ContentTemplate>
         </telerik:RadWindow>
