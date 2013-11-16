@@ -34,9 +34,8 @@
                 }
             </script>
         </telerik:RadScriptBlock>
-
-        <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
-        <asp:Panel runat="server" ID="pnlView">
+        
+        <asp:Panel runat="server" ID="pnlInventory">
             <table style="width: 100px">
                 <tr>
                     <td>
@@ -55,9 +54,10 @@
                         <telerik:RadListBox runat="server" ID="lbxLocation" Height="150" AutoPostBack="True" OnTextChanged="lbxLocation_TextChanged">
                         </telerik:RadListBox>
                     </td>
-                    <%--<td>
-                        <telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>
-                    </td>--%>
+                    <td>
+                        <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
+                        <%--<telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>--%>
+                    </td>
                 </tr>
                 <tr>
                     <telerik:RadButton runat="server" ID="btnNewProduct" OnClientClicked="show" Text="New Product" AutoPostBack="false"></telerik:RadButton>
@@ -80,7 +80,15 @@
             </telerik:RadGrid>
         </asp:Panel>
 
-        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry" BackColor="Violet">
+        <asp:Panel runat="server" ID="pnlExpiring">
+            <%-- Expiring grid here --%>
+        </asp:Panel>
+
+        <asp:Panel runat="server" ID="pnlScanned">
+            <%-- Scanned, waiting for labels stuff here??? --%>
+        </asp:Panel>
+
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry" BackColor="Violet" DestroyOnClose="true">
             <ContentTemplate>
                 <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">
                     <uc1:NewPartNumber runat="server" ID="uc1"/>

@@ -31,22 +31,13 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadScriptBlock RadScriptBlock;
         
         /// <summary>
-        /// loadingPanel control.
+        /// pnlInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxLoadingPanel loadingPanel;
-        
-        /// <summary>
-        /// pnlView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlView;
+        protected global::System.Web.UI.WebControls.Panel pnlInventory;
         
         /// <summary>
         /// lblProdType control.
@@ -103,6 +94,15 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadListBox lbxLocation;
         
         /// <summary>
+        /// loadingPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxLoadingPanel loadingPanel;
+        
+        /// <summary>
         /// btnNewProduct control.
         /// </summary>
         /// <remarks>
@@ -119,6 +119,24 @@ namespace CathLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid rgInventory;
+        
+        /// <summary>
+        /// pnlExpiring control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlExpiring;
+        
+        /// <summary>
+        /// pnlScanned control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlScanned;
         
         /// <summary>
         /// rwNewEntry control.

@@ -1,8 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NewPartNumber.ascx.cs" Inherits="CathLab.UserControls.NewPartNumber" %>
 
-<%@ Register TagPrefix="uc2" TagName="NewManufacturer" Src="~/UserControls/NewManufacturer.ascx"%>
-<%@ Register TagPrefix="uc2" TagName="NewProductType" Src="~/UserControls/NewProductType.ascx"%>
-
+<%--<%@ Register TagPrefix="uc2" TagName="NewManufacturer" Src="~/UserControls/NewManufacturer.ascx"%>
+<%@ Register TagPrefix="uc2" TagName="NewProductType" Src="~/UserControls/NewProductType.ascx"%>--%>
 
 <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
     <div>
@@ -10,7 +9,7 @@
         <div>
             Please scan the Part Number on the product packaging.       
             <br />
-            <telerik:RadTextBox runat="server" ID="txtPartNum" Label="New Part#:" AutoPostBack="true" OnTextChanged="txtPartNum_TextChanged"></telerik:RadTextBox> &nbsp;           
+            <telerik:RadTextBox runat="server" ID="txtPartNum" Label="New Part#:" AutoPostBack="true" OnTextChanged="txtPartNum_TextChanged" Font-Size="Medium"></telerik:RadTextBox> &nbsp;           
             <telerik:RadButton runat="server" ID="btnClear" Text="Clear" OnClick="btnClear_Click"></telerik:RadButton>
             <br />
         </div>
@@ -22,18 +21,19 @@
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label runat="server" ID="lblManufacturer" Text="Manufacturer:"></asp:Label><br />
-                        <telerik:RadListBox runat="server" ID="lbxManufacturer" Height="150" AutoPostBack="True" OnTextChanged="lbxManufacturer_TextChanged">
+                        <telerik:RadListBox runat="server" ID="lbxManufacturer" Height="180" AutoPostBack="True" OnTextChanged="lbxManufacturer_TextChanged">
                         </telerik:RadListBox>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label runat="server" ID="lblProdType" Text="Product Type:"></asp:Label><br />
-                        <telerik:RadListBox runat="server" ID="lbxProdType" Height="150" AutoPostBack="True" OnTextChanged="lbxProdType_TextChanged">
+                        <telerik:RadListBox runat="server" ID="lbxProdType" Height="180" AutoPostBack="True" OnTextChanged="lbxProdType_TextChanged">
                         </telerik:RadListBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label runat="server" ID="lblLocation" Text="Location:"></asp:Label><br />
+                        <telerik:RadButton runat="server" ID="btnNext" Text="Next" OnClick="btnNext_Click"></telerik:RadButton>
+                        <%--<asp:Label runat="server" ID="lblLocation" Text="Location:"></asp:Label><br />
                         <telerik:RadListBox runat="server" ID="lbxLocation" Height="150" AutoPostBack="True" OnTextChanged="lbxLocation_TextChanged">
-                        </telerik:RadListBox>
+                        </telerik:RadListBox>--%>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
@@ -94,6 +94,5 @@
         <%--<telerik:RadTextBox runat="server" ID="tbPartNumber" Label="New Part Number:" LabelWidth="15px"></telerik:RadTextBox>
 <telerik:RadListBox runat="server" ID="lbxManufacturer"></telerik:RadListBox>
 <telerik:RadListBox runat="server" ID="lbxProductType"></telerik:RadListBox>--%>
-
     </div>
 </telerik:RadAjaxPanel>

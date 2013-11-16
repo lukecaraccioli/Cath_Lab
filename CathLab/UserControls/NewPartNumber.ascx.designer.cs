@@ -85,22 +85,13 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadListBox lbxProdType;
         
         /// <summary>
-        /// lblLocation control.
+        /// btnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocation;
-        
-        /// <summary>
-        /// lbxLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadListBox lbxLocation;
+        protected global::Telerik.Web.UI.RadButton btnNext;
         
         /// <summary>
         /// pnlLotExpLoc control.

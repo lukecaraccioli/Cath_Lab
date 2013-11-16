@@ -14,7 +14,7 @@ namespace CathLab.UserControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadLocations();
+            //loadLocations();
             loadManufacturers();
             loadProductTypes();
         }
@@ -49,17 +49,17 @@ namespace CathLab.UserControls
             }
         }
 
-        protected void loadLocations()
-        {
-            using (var context = new cathlabEntities())
-            {
-                List<Location> temp = (from loc in context.Locations select loc).ToList();
-                lbxLocation.DataValueField = "ID";
-                lbxLocation.DataTextField = "LocationName";
-                lbxLocation.DataSource = temp;
-                lbxLocation.DataBind();
-            }
-        }
+        //protected void loadLocations()
+        //{
+        //    using (var context = new cathlabEntities())
+        //    {
+        //        List<Location> temp = (from loc in context.Locations select loc).ToList();
+        //        lbxLocation.DataValueField = "ID";
+        //        lbxLocation.DataTextField = "LocationName";
+        //        lbxLocation.DataSource = temp;
+        //        lbxLocation.DataBind();
+        //    }
+        //}
 
         protected void lbxLocation_TextChanged(object sender, EventArgs e)
         {
@@ -68,17 +68,17 @@ namespace CathLab.UserControls
 
         protected void lbxManufacturer_TextChanged(object sender, EventArgs e)
         {
-            if (lbxManufacturer.SelectedIndex.Equals(0))
+            if (lbxManufacturer.SelectedValue.Equals(0))
             {
                 pnlNewManu.Visible = true;
                 pnlNewPart.Visible = false;
                 pnlNewProdType.Visible = false;
             }
-            else
-            {
-                RadListBox item = (RadListBox)sender;
-                lbxManufacturer.SelectedItems.Add((RadListBoxItem)item.SelectedItem);
-            }
+            //else
+            //{
+            //    RadListBox item = (RadListBox)sender;
+            //    lbxManufacturer.SelectedItems.Add((RadListBoxItem)item.SelectedItem);
+            //}
         }
 
         protected void lbxProdType_TextChanged(object sender, EventArgs e)
@@ -108,9 +108,9 @@ namespace CathLab.UserControls
                 {
                     pnlLotExpLoc.Visible = true;
                     loadLocs();
-                    txtManufacturer.Text = temp.Name;
-                    txtNameSize.Text = temp.NameSize;
-                    txtProdType.Text = temp.Type;
+                    //txtManufacturer.Text = temp.Name;
+                    //txtNameSize.Text = temp.NameSize;
+                    //txtProdType.Text = temp.Type;
                 }
                 else
                 {
@@ -173,6 +173,11 @@ namespace CathLab.UserControls
             pnlNewManu.Visible = false;
             pnlNewProdType.Visible = false;
             pnlNewPart.Visible = true;
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
