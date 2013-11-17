@@ -286,9 +286,6 @@
       <DependentUpon>CathLabData.edmx</DependentUpon>
       <LastGenOutput>CathLabData.cs</LastGenOutput>
     </Content>
-    <Content Include="Reports\Manufacturer_Stock.trdx">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Reports\getStentsCost.trdx">
       <SubType>Designer</SubType>
     </Content>
@@ -298,6 +295,7 @@
     <Content Include="Reports\getPar.trdx">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Reports\getManufaturerStock.trdx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -335,7 +333,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

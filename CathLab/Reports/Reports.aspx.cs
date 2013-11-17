@@ -72,7 +72,7 @@ namespace CathLab
         protected void btnManuStock_Click(object sender, EventArgs e)
         {
             UriReportSource rs = new UriReportSource();
-            rs.Uri = "Reports\\Manufacturer_Stock.trdx";
+            rs.Uri = "Reports\\getManufacturerStock.trdx";
             ReportViewer1.ReportSource = rs;
         }
 
