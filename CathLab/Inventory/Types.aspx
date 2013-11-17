@@ -21,8 +21,8 @@
 
             <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
                 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-                <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-                <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+                <script src="../Scripts/jquery-1.9.1.js"></script>
+                <script src="../Scripts/jquery-ui.js"></script>
                 <script type="text/javascript">
                     $(function () {
                         $("#tabs").tabs();
@@ -37,7 +37,7 @@
                     <li><a href="#tabProdType">Product Type</a></li>
                 </ul>
 
-                <div id="tabs-1">
+                <div id="tabPartNumbers">
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXPartNums">
                         <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="670px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource" AllowAutomaticInserts="true"
                             OnUpdateCommand="rgPartNumbers_UpdateCommand" OnEditCommand="rgPartNumbers_EditCommand" OnInsertCommand="rgPartNumbers_InsertCommand" OnDeleteCommand="rgPartNumbers_DeleteCommand">
@@ -64,7 +64,7 @@
                     </telerik:RadAjaxPanel>
                 </div>
 
-                <div id="tabs-2">
+                <div id="tabManufacturers">
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXManufacturers">
                         <telerik:RadGrid runat="server" ID="rgManufacturers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgManufacturers_NeedDataSource"
                             OnUpdateCommand="rgManufacturers_UpdateCommand" OnDeleteCommand="rgManufacturers_DeleteCommand">
@@ -86,7 +86,7 @@
                     </telerik:RadAjaxPanel>
                 </div>
 
-                <div id="tabs-3">
+                <div id="tabProdType">
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXProdType">
                         <telerik:RadGrid runat="server" ID="rgProdType" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgProdType_NeedDataSource"
                             OnUpdateCommand="rgProdType_UpdateCommand" OnDeleteCommand="rgProdType_DeleteCommand">
