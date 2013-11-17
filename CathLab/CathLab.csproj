@@ -129,6 +129,7 @@
     <Content Include="Reports\Reports.aspx" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Stylesheets\jquery-ui.css" />
     <Content Include="Stylesheets\variant-multi.css" />
     <Content Include="UserControls\NewManufacturer.ascx" />
     <Content Include="UserControls\NewProductType.ascx" />
@@ -331,7 +332,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

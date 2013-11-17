@@ -18,7 +18,6 @@
 
                 <div class="sidebarbox">
                     <h2>Instruction box</h2>
-
                     <ul>
                         <li><a href="/Home.aspx">Home</a></li>
                     </ul>

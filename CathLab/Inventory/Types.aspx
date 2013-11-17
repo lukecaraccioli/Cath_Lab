@@ -20,9 +20,11 @@
         </telerik:RadScriptManager>--%>
 
             <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
-                <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+                <%-- JQuery scripts --%>
+                <link rel="stylesheet" href="../Stylesheets/jquery-ui.css" />
                 <script src="../Scripts/jquery-1.9.1.js"></script>
                 <script src="../Scripts/jquery-ui.js"></script>
+
                 <script type="text/javascript">
                     $(function () {
                         $("#tabs").tabs();
