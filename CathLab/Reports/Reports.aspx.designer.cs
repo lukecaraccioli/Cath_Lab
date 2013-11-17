@@ -67,6 +67,15 @@ namespace CathLab {
         protected global::Telerik.Web.UI.RadButton btnStentsCost;
         
         /// <summary>
+        /// btnPar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnPar;
+        
+        /// <summary>
         /// ReportViewer1 control.
         /// </summary>
         /// <remarks>

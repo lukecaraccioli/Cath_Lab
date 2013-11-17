@@ -22,6 +22,9 @@
                 <td>
                     <telerik:RadButton runat="server" ID="btnStentsCost" Text="Stents Cost" OnClick="btnStentsCost_Click"></telerik:RadButton>&nbsp;
                 </td>
+                 <td>
+                    <telerik:RadButton runat="server" ID="btnPar" Text="Re-Order Report" OnClick="btnPar_Click"></telerik:RadButton>&nbsp;
+                </td>
             </tr>
         </table>                
         <telerik:ReportViewer ID="ReportViewer1" runat="server" Width="900px" Height="700px" ParametersAreaVisible="true" ShowParametersButton="true"></telerik:ReportViewer>

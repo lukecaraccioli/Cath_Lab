@@ -295,6 +295,9 @@
     <Content Include="Reports\getStents.trdx">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Reports\getPar.trdx">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
