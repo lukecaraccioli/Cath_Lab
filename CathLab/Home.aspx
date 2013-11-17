@@ -6,10 +6,8 @@
             <div class="sidebarbox">
                 <h2>Page Options</h2>
                 <ul class="sidemenu">
-                    <li><a href="/Reports/Reports.aspx">Reports</a></li>
-                    <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
                     <li><a href="/Inventory/Inventory.aspx">Inventory</a></li>
-                    <li><a href="/Home.aspx">Home</a></li>
+                    <li><a href="/Reports/Reports.aspx">Reports</a></li>
                 </ul>
             </div>
 
@@ -17,7 +15,7 @@
 
             <div class="sidebarbox">
                 <h2>Instruction box</h2>
-                <p>This will be an Instruction/explination box for the buttons located on the side of the rad grid</p>
+                <p>This box shows the user how to navigate the current page</p>
 
             </div>
         </div>

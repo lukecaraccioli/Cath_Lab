@@ -9,10 +9,9 @@
                 <div class="sidebarbox">
                     <h2>Page Options</h2>
                     <ul class="sidemenu">
-                        <li><a href="/Reports/Reports.aspx">New Product</a></li>
                         <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
-                        <li><a href="/Reports.aspx/getPar.trdx">Re-Order Report</a></li>
-                        <li><a href="/Par.aspx">Explore Inventory</a></li>
+                         <li><a href="/Inventory/Types.aspx">Types</a></li>
+                        <li><a href="/Reports.aspx">Reports</a></li>
                         <li><a href="/Home.aspx">Home</a></li>
                     </ul>
                 </div>
@@ -20,7 +19,7 @@
                 <div class="sidebarbox">
                     <h2>Instruction box</h2>
                     <ul>
-                        <p>Select from the options to filter the product inventory</p>
+                        <p>Select from the options to filter the product inventory or click New Product to add new inventory</p>
                     </ul>
                 </div>
             </div>

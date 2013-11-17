@@ -8,9 +8,7 @@
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
         <table>
             <tr>
-                <td>
-                    <telerik:RadButton runat="server" ID="btnManuStock" Text="Manufacturer Stock Report" OnClick="btnManuStock_Click"></telerik:RadButton> &nbsp;
-                </td>
+               
                 <td>
                     <telerik:RadDatePicker runat="server" ID="rdpStartDate" DateInput-Label="Start Date"></telerik:RadDatePicker> <br />
                     <telerik:RadDatePicker runat="server" ID="rdpEndDate" DateInput-Label="End Date"></telerik:RadDatePicker> <br />
@@ -21,6 +19,9 @@
                 </td>
                 <td>
                     <telerik:RadButton runat="server" ID="btnStentsCost" Text="Stents Cost" OnClick="btnStentsCost_Click"></telerik:RadButton>&nbsp;
+                </td>
+                 <td>
+                    <telerik:RadButton runat="server" ID="btnManuStock" Text="Manufacturer Stock Report" OnClick="btnManuStock_Click"></telerik:RadButton> &nbsp;
                 </td>
                  <td>
                     <telerik:RadButton runat="server" ID="btnPar" Text="Re-Order Report" OnClick="btnPar_Click"></telerik:RadButton>&nbsp;

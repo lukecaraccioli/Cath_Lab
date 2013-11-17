@@ -35,12 +35,7 @@ namespace CathLab
             //ReportViewer1.ReportSource = rs;
         }
 
-        protected void btnManuStock_Click(object sender, EventArgs e)
-        {
-            UriReportSource rs = new UriReportSource();
-            rs.Uri = "Reports\\Manufacturer_Stock.trdx";
-            ReportViewer1.ReportSource = rs;
-        }
+       
 
         protected void btnStents_Click(object sender, EventArgs e)
         {
@@ -73,6 +68,14 @@ namespace CathLab
             rs.Uri = "Reports\\getStentsCost.trdx";
             ReportViewer1.ReportSource = rs;
         }
+
+        protected void btnManuStock_Click(object sender, EventArgs e)
+        {
+            UriReportSource rs = new UriReportSource();
+            rs.Uri = "Reports\\Manufacturer_Stock.trdx";
+            ReportViewer1.ReportSource = rs;
+        }
+
         protected void btnPar_Click(object sender, EventArgs e)
         {
             UriReportSource rs = new UriReportSource();
