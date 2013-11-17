@@ -27,10 +27,15 @@
                 <h2></h2>
             </div>
             <div id="Div1" class="right">
-                <telerik:RadScriptManager runat="server" ID="radScriptManager"></telerik:RadScriptManager>
-                <telerik:RadMenu runat="server" ID="mnuMenu" DataSourceID="SiteMapDataSource" Height="60px" style="z-index:2900">
+                <telerik:RadScriptManager runat="server" ID="radScriptManager">
+                    <Scripts>
+                        <asp:ScriptReference Path="~/Scripts/jquery-1.9.1.js" />
+                        <asp:ScriptReference Path="~/Scripts/jquery-ui.js" />
+                    </Scripts>
+                </telerik:RadScriptManager>
+                <telerik:RadMenu runat="server" ID="mnuMenu" DataSourceID="SiteMapDataSource" Height="60px" Style="z-index: 2900">
                 </telerik:RadMenu>
-                <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource" ShowStartingNode="False"/>
+                <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource" ShowStartingNode="False" />
             </div>
 
             <div id="feature">

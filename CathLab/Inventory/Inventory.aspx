@@ -27,6 +27,7 @@
         </div>
 
         <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
+
             <script type="text/javascript">
                 function show() {
                     var wnd = $find("<%=rwNewEntry.ClientID %>");
@@ -74,7 +75,7 @@
                         <telerik:GridBoundColumn DataField="NameSize" HeaderText="Name & Size"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="SerialNumber" HeaderText="Serial Number"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="ExpirationDate" HeaderText="Expiration Date"></telerik:GridBoundColumn>
-                        <telerik:GridBoundColumn DataField="Location" HeaderText="Location"></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="LocationName" HeaderText="Location"></telerik:GridBoundColumn>
                     </Columns>
                 </MasterTableView>
             </telerik:RadGrid>
