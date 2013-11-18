@@ -11,7 +11,7 @@
                     <ul class="sidemenu">
                         <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
                          <li><a href="/Inventory/Types.aspx">Types</a></li>
-                        <li><a href="/Reports.aspx">Reports</a></li>
+                        <li><a href="/Reports/Reports.aspx">Reports</a></li>
                         <li><a href="/Home.aspx">Home</a></li>
                     </ul>
                 </div>
