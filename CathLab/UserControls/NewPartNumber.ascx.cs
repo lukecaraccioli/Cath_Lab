@@ -10,15 +10,79 @@ namespace CathLab.UserControls
 {
     public partial class NewPartNumber : System.Web.UI.UserControl
     {
-        public static int pnum;
+        public static string pnum;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //btnRestart_Click(sender, e);
             loadManufacturers();
             loadProductTypes();
         }
 
+        protected void btnRestart_Click(object sender, EventArgs e)
+        {
+            tbPartNum.Text = string.Empty;
+            lblError.Visible = false;
+            pnlScan.Visible = true;
+            pnlExisting.Visible = false;
+            pnlNewPart.Visible = false;
+            pnlNewManu.Visible = false;
+            pnlNewProdType.Visible = false;
+        }
+
+        #region ExistingPartNum
+        protected void tbPartNum_TextChanged(object sender, EventArgs e)
+        {
+            if (tbPartNum.Text != string.Empty)
+            {
+                tbEPartNum.Text = tbPartNum.Text;
+                pnlScan.Visible = false;
+                autopopulate();
+            }
+            else
+            {
+                lblError.Visible = true;
+            }
+        }
+
+        protected void autopopulate()
+        {
+            string part = tbPartNum.Text;
+            using (var context = new cathlabEntities())
+            {
+                var temp = (from pnum in context.PartNumbers
+                            where pnum.PartNum == part
+                            select new { pnum.Manufacturer.Name, pnum.NameSize, pnum.ProductType.Type }).SingleOrDefault();
+                if (temp != null)
+                {
+                    pnlExisting.Visible = true;
+                    loadELocations();
+                    tbEManufacturer.Text = temp.Name;
+                    tbENameSize.Text = temp.NameSize;
+                    tbEProdType.Text = temp.Type;
+                }
+                else
+                {
+                    pnlExisting.Visible = false;
+                    pnlNewPart.Visible = true;
+                }
+            }
+        }
+
+        protected void loadELocations()
+        {
+            using (var context = new cathlabEntities())
+            {
+                List<Location> temp = (from loc in context.Locations select loc).ToList();
+                lbxLoc.DataValueField = "ID";
+                lbxLoc.DataTextField = "LocationName";
+                lbxLoc.DataSource = temp;
+                lbxLoc.DataBind();
+            }
+        }
+        #endregion ExistingPartNum
+
+        #region NewPartNum        
         protected void loadManufacturers()
         {
             using (var context = new cathlabEntities())
@@ -49,23 +113,6 @@ namespace CathLab.UserControls
             }
         }
 
-        //protected void loadLocations()
-        //{
-        //    using (var context = new cathlabEntities())
-        //    {
-        //        List<Location> temp = (from loc in context.Locations select loc).ToList();
-        //        lbxLocation.DataValueField = "ID";
-        //        lbxLocation.DataTextField = "LocationName";
-        //        lbxLocation.DataSource = temp;
-        //        lbxLocation.DataBind();
-        //    }
-        //}
-
-        protected void lbxLocation_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void lbxManufacturer_TextChanged(object sender, EventArgs e)
         {
             if (lbxManufacturer.SelectedValue.Equals(0))
@@ -91,67 +138,49 @@ namespace CathLab.UserControls
             }
         }
 
-        protected void tbPartNum_TextChanged(object sender, EventArgs e)
-        {
-            if (tbPartNum.Text != string.Empty)
-            {
-                tbEPartNum.Text = tbPartNum.Text;
-                pnlScan.Visible = false;
-                autopopulate();
-            }
-            else
-            {
-                lblError.Visible = true;
-            }
-        }
-
-        protected void autopopulate()
-        {
-            string part = tbPartNum.Text;
-            using (var context = new cathlabEntities())
-            {
-                var temp = (from pnum in context.PartNumbers
-                            where pnum.PartNum == part
-                            select new { pnum.Manufacturer.Name, pnum.NameSize, pnum.ProductType.Type }).SingleOrDefault();
-                if (temp != null)
-                {
-                    pnlExisting.Visible = true;
-                    loadLocs();
-                    tbEManufacturer.Text = temp.Name;
-                    tbENameSize.Text = temp.NameSize;
-                    tbEProdType.Text = temp.Type;
-                }
-                else
-                {
-                    pnlExisting.Visible = false;
-                    pnlNewPart.Visible = true;
-                }
-            }
-        }
-
-        protected void loadLocs()
+        protected void btnPTSubmit_Click(object sender, EventArgs e)
         {
             using (var context = new cathlabEntities())
             {
-                List<Location> temp = (from loc in context.Locations select loc).ToList();
-                lbxLoc.DataValueField = "ID";
-                lbxLoc.DataTextField = "LocationName";
-                lbxLoc.DataSource = temp;
-                lbxLoc.DataBind();
+                // Check for existing Prod Type?
+                ProductType pt = new ProductType();
+                pt.Type = tbType.Text;
+                context.ProductTypes.Add(pt);
+                context.SaveChanges();
+                loadProductTypes();
             }
         }
 
-        protected void btnRestart_Click(object sender, EventArgs e)
+        protected void btnPTCancel_Click(object sender, EventArgs e)
         {
-            tbPartNum.Text = string.Empty;
-            pnlScan.Visible = true;
-            pnlExisting.Visible = false;
-            pnlNewPart.Visible = false;
-            pnlNewManu.Visible = false;
-            pnlNewProdType.Visible = false;
+
         }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion New PartNum
+
+        // Why commeted out??
+        //protected void loadLocations()
+        //{
+        //    using (var context = new cathlabEntities())
+        //    {
+        //        List<Location> temp = (from loc in context.Locations select loc).ToList();
+        //        lbxLocation.DataValueField = "ID";
+        //        lbxLocation.DataTextField = "LocationName";
+        //        lbxLocation.DataSource = temp;
+        //        lbxLocation.DataBind();
+        //    }
+        //}
+
+        protected void lbxLocation_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnManSubmit_Click(object sender, EventArgs e)
         {
             using (var context = new cathlabEntities())
             {
@@ -166,28 +195,11 @@ namespace CathLab.UserControls
             }
         }
 
-        protected void btnSubmitPT_Click(object sender, EventArgs e)
-        {
-            using (var context = new cathlabEntities())
-            {
-                ProductType pt = new ProductType();
-                pt.Type = tbType.Text;
-                context.ProductTypes.Add(pt);
-                context.SaveChanges();
-                loadProductTypes();
-            }
-        }
-
-        protected void btnCancel1_Click(object sender, EventArgs e)
+        protected void btnManCancel_Click(object sender, EventArgs e)
         {
             pnlNewManu.Visible = false;
             pnlNewProdType.Visible = false;
             pnlNewPart.Visible = true;
-        }
-
-        protected void btnNext_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

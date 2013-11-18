@@ -301,22 +301,22 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadTextBox tbxAddress;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnManSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnSubmit;
+        protected global::Telerik.Web.UI.RadButton btnManSubmit;
         
         /// <summary>
-        /// btnCancel1 control.
+        /// btnManCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnCancel1;
+        protected global::Telerik.Web.UI.RadButton btnManCancel;
         
         /// <summary>
         /// pnlNewProdType control.
@@ -337,21 +337,21 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadTextBox tbType;
         
         /// <summary>
-        /// btnSubmitPT control.
+        /// btnPTSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnSubmitPT;
+        protected global::Telerik.Web.UI.RadButton btnPTSubmit;
         
         /// <summary>
-        /// btnCancel2 control.
+        /// btnPTCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnCancel2;
+        protected global::Telerik.Web.UI.RadButton btnPTCancel;
     }
 }

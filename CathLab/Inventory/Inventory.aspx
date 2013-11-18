@@ -26,12 +26,20 @@
         </div>
 
         <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
-
             <script type="text/javascript">
+                // To show NewPart window
                 function show() {
+                    //id(reloading window) { Refesh UC?/ Clear UC }
                     var wnd = $find("<%=rwNewEntry.ClientID %>");
                     wnd.show();
-                }
+                };
+
+                // When closing the NewPart window. Clear the user control state?
+                function close() {
+                    var btnReset = $find("<%=btnNewProduct.ClientID %>");
+                };
+
+                // Wait until show() to load UC?
             </script>
         </telerik:RadScriptBlock>
         
@@ -88,7 +96,8 @@
             <%-- Scanned, waiting for labels stuff here??? --%>
         </asp:Panel>
 
-        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry" BackColor="Violet" DestroyOnClose="true">
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry"
+             BackColor="Violet" DestroyOnClose="true" OnClientClose="close">
             <ContentTemplate>
                 <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">
                     <uc1:NewPartNumber runat="server" ID="uc1"/>

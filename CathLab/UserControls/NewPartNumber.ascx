@@ -90,8 +90,8 @@
                 <telerik:RadTextBox runat="server" ID="tbxPhoneNumber" Label="Phone Number: "></telerik:RadTextBox> <br />
                 <telerik:RadTextBox runat="server" ID="tbxEmail" Label="Email:"></telerik:RadTextBox> <br />
                 <telerik:RadTextBox runat="server" ID="tbxAddress" Label="Address"></telerik:RadTextBox> <br />
-                <telerik:RadButton runat="server" ID="btnSubmit" Text="Submit" OnClick="btnSubmit_Click"></telerik:RadButton> &nbsp;
-                <telerik:RadButton runat="server" ID="btnCancel1" Text="Cancel" OnClick="btnCancel1_Click"></telerik:RadButton>
+                <telerik:RadButton runat="server" ID="btnManSubmit" Text="Submit" OnClick="btnManSubmit_Click"></telerik:RadButton> &nbsp;
+                <telerik:RadButton runat="server" ID="btnManCancel" Text="Cancel" OnClick="btnManCancel_Click"></telerik:RadButton>
             </div>
         </asp:Panel>
 
@@ -102,8 +102,8 @@
                 <%--<uc2:NewProductType ID="NewProductType" runat="server"></uc2:NewProductType>--%>
                 <h2>Insert Product Type</h2>
                 <telerik:RadTextBox runat="server" ID="tbType" Label="Type: "></telerik:RadTextBox> <br />
-                <telerik:RadButton runat="server" ID="btnSubmitPT" Text="Submit" OnClick="btnSubmitPT_Click"></telerik:RadButton> &nbsp;
-                <telerik:RadButton runat="server" ID="btnCancel2" Text="Cancel" OnClick="btnCancel1_Click"></telerik:RadButton>
+                <telerik:RadButton runat="server" ID="btnPTSubmit" Text="Submit" OnClick="btnPTSubmit_Click"></telerik:RadButton> &nbsp;
+                <telerik:RadButton runat="server" ID="btnPTCancel" Text="Cancel" OnClick="btnPTCancel_Click"></telerik:RadButton>
             </div>
         </asp:Panel>
 
