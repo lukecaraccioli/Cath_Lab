@@ -19,7 +19,7 @@
                 <div class="sidebarbox">
                     <h2>Instruction box</h2>
                     <ul>
-                        <p>Select from the options to filter the product inventory or click New Product to add new inventory</p>
+                        <li>Select from the options to filter the product inventory or click New Product to add new inventory</li>
                     </ul>
                 </div>
             </div>

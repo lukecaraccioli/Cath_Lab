@@ -14,7 +14,7 @@ namespace CathLab.UserControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //loadLocations();
+            
             loadManufacturers();
             loadProductTypes();
         }
@@ -91,14 +91,23 @@ namespace CathLab.UserControls
             }
         }
 
-        protected void txtPartNum_TextChanged(object sender, EventArgs e)
+        protected void tbPartNum_TextChanged(object sender, EventArgs e)
         {
-            autopopulate();
+            if (tbPartNum.Text != string.Empty)
+            {
+                tbEPartNum.Text = tbPartNum.Text;
+                pnlScan.Visible = false;
+                autopopulate();
+            }
+            else
+            {
+                lblError.Visible = true;
+            }
         }
 
         protected void autopopulate()
         {
-            string part = txtPartNum.Text;
+            string part = tbPartNum.Text;
             using (var context = new cathlabEntities())
             {
                 var temp = (from pnum in context.PartNumbers
@@ -106,15 +115,15 @@ namespace CathLab.UserControls
                             select new { pnum.Manufacturer.Name, pnum.NameSize, pnum.ProductType.Type }).SingleOrDefault();
                 if (temp != null)
                 {
-                    pnlLotExpLoc.Visible = true;
+                    pnlExisting.Visible = true;
                     loadLocs();
-                    //txtManufacturer.Text = temp.Name;
-                    //txtNameSize.Text = temp.NameSize;
-                    //txtProdType.Text = temp.Type;
+                    tbEManufacturer.Text = temp.Name;
+                    tbENameSize.Text = temp.NameSize;
+                    tbEProdType.Text = temp.Type;
                 }
                 else
                 {
-                    pnlLotExpLoc.Visible = false;
+                    pnlExisting.Visible = false;
                     pnlNewPart.Visible = true;
                 }
             }
@@ -132,10 +141,11 @@ namespace CathLab.UserControls
             }
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
+        protected void btnRestart_Click(object sender, EventArgs e)
         {
-            txtPartNum.Text = string.Empty;
-            pnlLotExpLoc.Visible = false;
+            tbPartNum.Text = string.Empty;
+            pnlScan.Visible = true;
+            pnlExisting.Visible = false;
             pnlNewPart.Visible = false;
             pnlNewManu.Visible = false;
             pnlNewProdType.Visible = false;
