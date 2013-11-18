@@ -157,6 +157,15 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadTextBox tbENameSize;
         
         /// <summary>
+        /// lblLotNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLotNumber;
+        
+        /// <summary>
         /// tbLotNumber control.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,15 @@ namespace CathLab.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox tbLotNumber;
+        
+        /// <summary>
+        /// lblExpirationDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExpirationDate;
         
         /// <summary>
         /// rdpExpiration control.
@@ -184,13 +202,13 @@ namespace CathLab.UserControls {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// lbxLoc control.
+        /// lbxELocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadListBox lbxLoc;
+        protected global::Telerik.Web.UI.RadListBox lbxELocation;
         
         /// <summary>
         /// btnInsertProduct control.
@@ -247,13 +265,67 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadListBox lbxProdType;
         
         /// <summary>
-        /// btnNext control.
+        /// lblNNameSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnNext;
+        protected global::System.Web.UI.WebControls.Label lblNNameSize;
+        
+        /// <summary>
+        /// lblNCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNCost;
+        
+        /// <summary>
+        /// lblNPar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNPar;
+        
+        /// <summary>
+        /// tbNNameSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox tbNNameSize;
+        
+        /// <summary>
+        /// tbNCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox tbNCost;
+        
+        /// <summary>
+        /// tbNPar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadNumericTextBox tbNPar;
+        
+        /// <summary>
+        /// btnPNSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnPNSubmit;
         
         /// <summary>
         /// pnlNewManu control.
@@ -328,13 +400,13 @@ namespace CathLab.UserControls {
         protected global::System.Web.UI.WebControls.Panel pnlNewProdType;
         
         /// <summary>
-        /// tbType control.
+        /// tbNProdType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox tbType;
+        protected global::Telerik.Web.UI.RadTextBox tbNProdType;
         
         /// <summary>
         /// btnPTSubmit control.

@@ -57,7 +57,8 @@ namespace CathLab
             }
             lbxLocation.DataSource = null;
             lbxLocation.DataBind();
-            //lbxManufacturer.SelectedIndex = 0;
+            lbxManufacturer.SelectedValue = "0";
+            lbxLocation.SelectedValue = "0";
         }
 
         protected void loadManufacturers()
@@ -93,6 +94,7 @@ namespace CathLab
                     lbxLocation.DataBind();
                 }
             }
+            lbxLocation.SelectedValue = "0";
         }
 
         protected void loadLocations()

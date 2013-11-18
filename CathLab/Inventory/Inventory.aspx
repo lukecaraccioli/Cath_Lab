@@ -48,12 +48,12 @@
                 <tr>
                     <td>
                         <%-- Select multiple of each attribute in easch list box??? --%>
-                        <asp:Label runat="server" ID="lblProdType" Text="Product Type:"></asp:Label><br />
+                        <asp:Label runat="server" ID="lblProdType" Text="Product Type:" AssociatedControlID="lbxProdType"></asp:Label><br />
                         <telerik:RadListBox runat="server" ID="lbxProdType" Height="150" AutoPostBack="True" OnTextChanged="lbxProdType_TextChanged">
                         </telerik:RadListBox>
                     </td>
                     <td>
-                        <asp:Label runat="server" ID="lblManufacturer" Text="Manufacturer:"></asp:Label><br />
+                        <asp:Label runat="server" ID="lblManufacturer" Text="Manufacturer:" AssociatedControlID="lbxManufacturer"></asp:Label><br />
                         <telerik:RadListBox runat="server" ID="lbxManufacturer" Height="150" AutoPostBack="True" OnTextChanged="lbxManufacturer_TextChanged">
                         </telerik:RadListBox>
                     </td>
@@ -96,7 +96,7 @@
             <%-- Scanned, waiting for labels stuff here??? --%>
         </asp:Panel>
 
-        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry"
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="830px" Height="470px" Title="New Product Entry"
              BackColor="Violet" DestroyOnClose="true" OnClientClose="close">
             <ContentTemplate>
                 <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">

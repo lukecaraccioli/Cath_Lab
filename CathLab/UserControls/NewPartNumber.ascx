@@ -4,6 +4,19 @@
 <%@ Register TagPrefix="uc2" TagName="NewProductType" Src="~/UserControls/NewProductType.ascx"%>--%>
 
 <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
+
+    <%-- To align New Part Number Labels and TB's. Not working right  --%>
+    <style>
+        .searchLabel
+        {
+            display: block
+        }
+        .textBoxes
+        {
+            display: block;
+        }
+    </style>
+
     <div>
         <div style="align-items:center; height:73px">
             <h1>New Product</h1> &nbsp;
@@ -40,18 +53,18 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <%--<asp:Label runat="server" ID="lblLotNumber" Text="Lot Number"></asp:Label><br />--%>
-                        <telerik:RadTextBox runat="server" ID="tbLotNumber" Label="Lot Number:" InputType="Number" LabelWidth="70px"></telerik:RadTextBox>
+                        <asp:Label runat="server" ID="lblLotNumber" Text="Lot Number: " AssociatedControlID="tbLotNumber"></asp:Label><br />
+                        <telerik:RadTextBox runat="server" ID="tbLotNumber" InputType="Number" LabelWidth="70px"></telerik:RadTextBox>
                         <%--<telerik:RadTextBox runat="server" ID="tbLotNumber"></telerik:RadTextBox>--%> <br />                                      
-                        <%--<asp:Label runat="server" ID="lblExpirationDate" Text="Expiration Date"></asp:Label><br />--%>
-                        <telerik:RadDatePicker runat="server" ID="rdpExpiration" DateInput-Label="Expiration Date: " DateInput-LabelWidth="70px"></telerik:RadDatePicker> &nbsp;                                      
+                        <asp:Label runat="server" ID="lblExpirationDate" Text="Expiration Date: " AssociatedControlID="rdpExpiration"></asp:Label><br />
+                        <telerik:RadDatePicker runat="server" ID="rdpExpiration" DateInput-LabelWidth="70px"></telerik:RadDatePicker> &nbsp;                                      
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label runat="server" ID="Label1" Text="Location:"></asp:Label><br />
-                        <telerik:RadListBox runat="server" ID="lbxLoc" Height="150" AutoPostBack="True" OnTextChanged="lbxLocation_TextChanged">
+                        <telerik:RadListBox runat="server" ID="lbxELocation" Height="150" AutoPostBack="True" OnTextChanged="lbxELocation_TextChanged">
                         </telerik:RadListBox>
                         <br />
-                        <telerik:RadButton runat="server" ID="btnInsertProduct" Text="Insert Product"></telerik:RadButton> &nbsp;                                      
+                        <telerik:RadButton runat="server" ID="btnInsertProduct" Text="Insert Product" OnClick="btnInsertProduct_Click"></telerik:RadButton> &nbsp;                                      
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
@@ -61,32 +74,42 @@
         <asp:Panel runat="server" ID="pnlNewPart" Visible="false">
             <asp:Table runat="server">
                 <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label runat="server" ID="lblManufacturer" Text="Manufacturer:"></asp:Label><br />
+                    <asp:TableCell Text="Manufacturer">
+                        <asp:Label runat="server" ID="lblManufacturer" Text="Manufacturer:" AssociatedControlID="lbxManufacturer"></asp:Label><br />
                         <telerik:RadListBox runat="server" ID="lbxManufacturer" Height="180" AutoPostBack="True" OnTextChanged="lbxManufacturer_TextChanged">
-                        </telerik:RadListBox>
+                        </telerik:RadListBox> &nbsp; 
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label runat="server" ID="lblProdType" Text="Product Type:"></asp:Label><br />
+                        <asp:Label runat="server" ID="lblProdType" Text="Product Type:" AssociatedControlID="lbxProdType"></asp:Label><br />
                         <telerik:RadListBox runat="server" ID="lbxProdType" Height="180" AutoPostBack="True" OnTextChanged="lbxProdType_TextChanged">
                         </telerik:RadListBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <telerik:RadButton runat="server" ID="btnNext" Text="Next" OnClick="btnNext_Click"></telerik:RadButton>
-                        <%--<asp:Label runat="server" ID="lblLocation" Text="Location:"></asp:Label><br />
-                        <telerik:RadListBox runat="server" ID="lbxLocation" Height="150" AutoPostBack="True" OnTextChanged="lbxLocation_TextChanged">
-                        </telerik:RadListBox>--%>
+                        <div style="display:block; float: left; text-align: right;">
+                            <asp:Label runat="server" ID="lblNNameSize" Text="Name/Size: " AssociatedControlID="tbNNameSize" CssClass="searchLabel"></asp:Label>
+                            <asp:Label runat="server" ID="lblNCost" Text="Cost: " AssociatedControlID="" CssClass="searchLabel"></asp:Label>
+                            <asp:Label runat="server" ID="lblNPar" Text="Par: " AssociatedControlID="tbNPar" CssClass="searchLabel"></asp:Label>
+                        </div>
+                        <div style="display:block; float: left; margin-left: 10px; text-align: left;">
+                            <telerik:RadTextBox runat="server" ID="tbNNameSize" CssClass="textBoxes" ></telerik:RadTextBox><br />
+                            <telerik:RadTextBox runat="server" ID="tbNCost" InputType="Number" CssClass="textBoxes" ></telerik:RadTextBox><br />
+                            <telerik:RadNumericTextBox runat="server" ID="tbNPar" IncrementSettings-Step="1" IncrementSettings-InterceptArrowKeys="true" 
+                                CssClass="textBoxes" ></telerik:RadNumericTextBox><br />
+                        </div>
+                        <div>
+                            <telerik:RadButton runat="server" ID="btnPNSubmit" Text="Submit" OnClick="btnPNSubmit_Click"></telerik:RadButton>
+                        </div>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
         </asp:Panel>
 
-        <asp:Panel runat="server" ID="pnlNewManu" Visible="false">
-            <%-- Inserting New Manufacturer --%>
+        <%-- Inserting New Manufacturer --%>
+        <asp:Panel runat="server" ID="pnlNewManu" Visible="false">            
             <div>
                 <%--<uc2:NewManufacturer runat="server" ID="ucNewManufacturer"></uc2:NewManufacturer>--%>
                 <h2>Insert New Manufacturer</h2>
-                <telerik:RadTextBox runat="server" ID="tbManufacturerName" Label="Name: "></telerik:RadTextBox> <br />
+                <telerik:RadTextBox runat="server" ID="tbManufacturerName" Label="Name: " LabelWidth="80px"></telerik:RadTextBox> <br />
                 <telerik:RadTextBox runat="server" ID="tbxPhoneNumber" Label="Phone Number: "></telerik:RadTextBox> <br />
                 <telerik:RadTextBox runat="server" ID="tbxEmail" Label="Email:"></telerik:RadTextBox> <br />
                 <telerik:RadTextBox runat="server" ID="tbxAddress" Label="Address"></telerik:RadTextBox> <br />
@@ -95,20 +118,16 @@
             </div>
         </asp:Panel>
 
-
-        <asp:Panel runat="server" ID="pnlNewProdType" Visible="false">
-            <%-- Inserting New Product Type --%>
+        <%-- Inserting New Product Type --%>
+        <asp:Panel runat="server" ID="pnlNewProdType" Visible="false">            
             <div>
                 <%--<uc2:NewProductType ID="NewProductType" runat="server"></uc2:NewProductType>--%>
                 <h2>Insert Product Type</h2>
-                <telerik:RadTextBox runat="server" ID="tbType" Label="Type: "></telerik:RadTextBox> <br />
+                <telerik:RadTextBox runat="server" ID="tbNProdType" Label="Type: "></telerik:RadTextBox> <br />
                 <telerik:RadButton runat="server" ID="btnPTSubmit" Text="Submit" OnClick="btnPTSubmit_Click"></telerik:RadButton> &nbsp;
                 <telerik:RadButton runat="server" ID="btnPTCancel" Text="Cancel" OnClick="btnPTCancel_Click"></telerik:RadButton>
             </div>
         </asp:Panel>
 
-        <%--<telerik:RadTextBox runat="server" ID="tbPartNumber" Label="New Part Number:" LabelWidth="15px"></telerik:RadTextBox>
-<telerik:RadListBox runat="server" ID="lbxManufacturer"></telerik:RadListBox>
-<telerik:RadListBox runat="server" ID="lbxProductType"></telerik:RadListBox>--%>
     </div>
 </telerik:RadAjaxPanel>
