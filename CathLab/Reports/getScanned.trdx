@@ -4,10 +4,10 @@
     <SqlDataSource ConnectionString="cathlab3" SelectCommand="dbo.getScanned" SelectCommandType="StoredProcedure" Name="sqlDataSource1" />
   </DataSources>
   <Items>
-    <DetailSection Height="23.69mm" Name="detail">
+    <DetailSection Height="27.94mm" Name="detail">
       <Items>
-        <Barcode Width="2.9in" Height="0.5in" Left="0.02in" Top="0.43in" Value="= Fields.ID + Fields.PartNumber" Name="barcode1" />
-        <TextBox Width="2.92in" Height="0.4in" Left="0in" Top="0.03in" Value="= Fields.Name +&quot; &quot;+ Fields.NameSize+&quot; &quot; + Fields.ExpirationDate" Name="textBox1" />
+        <Barcode Width="2.9in" Height="0.5in" Left="0.02in" Top="0.5in" Value="= Fields.ID + Fields.PartNumber" Name="barcode1" />
+        <TextBox Width="2.92in" Height="0.47in" Left="0in" Top="0.03in" Value="= Fields.Name +&quot; &quot;+ Fields.NameSize+&quot; &quot; + Fields.ExpirationDate" Name="textBox1" />
       </Items>
     </DetailSection>
     <PageHeaderSection Height="1in" Name="pageHeaderSection1">
