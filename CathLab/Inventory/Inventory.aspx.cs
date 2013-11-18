@@ -18,7 +18,6 @@ namespace CathLab
             if (!Page.IsPostBack)
             {
                 loadProductTypes();                
-                //rgInventory.Rebind();
             }
         }
 
@@ -138,6 +137,16 @@ namespace CathLab
                     temp = temp.Where(a => a.LocationID == locId);
                 rgInventory.DataSource = temp.ToList();
             }
+        }
+
+        protected void btnHidden_Click(object sender, EventArgs e)
+        {
+            //uc1.Dispose();
+            rwNewEntry.Controls.Clear();
+            UserControl uc = (UserControl)Page.LoadControl("~//UserControls//NewPartNumber.ascx");
+            uc.Visible = true;
+            uc1.Controls.Add(uc);
+            //rwNewEntry.Controls.Add(uc);
         }
     }
 }

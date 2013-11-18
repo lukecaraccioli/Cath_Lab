@@ -30,13 +30,19 @@
                 // To show NewPart window
                 function show() {
                     //id(reloading window) { Refesh UC?/ Clear UC }
-                    var wnd = $find("<%=rwNewEntry.ClientID %>");
-                    wnd.show();
+                    var rw = $find("<%=rwNewEntry.ClientID %>");
+                    //if (rw != null) {
+                        rw.show();
+                    //}
+                    //else
+                    //{
+                        //var btnHid = $find("<%=btnHidden.ClientID %>");
+                        //btnHid.click();
+                    //}
                 };
-
                 // When closing the NewPart window. Clear the user control state?
-                function close() {
-                    var btnReset = $find("<%=btnNewProduct.ClientID %>");
+                function close(sender, e) {
+                    sender.dispose();
                 };
 
                 // Wait until show() to load UC?
@@ -44,7 +50,10 @@
         </telerik:RadScriptBlock>
         
         <asp:Panel runat="server" ID="pnlInventory">
-            <table style="width: 100px">
+            <div style="visibility: hidden">
+                <telerik:RadButton runat="server" ID="btnHidden" OnClick="btnHidden_Click" EnableBrowserButtonStyle="true"></telerik:RadButton>
+            </div>
+            <table>
                 <tr>
                     <td>
                         <%-- Select multiple of each attribute in easch list box??? --%>
@@ -58,7 +67,7 @@
                         </telerik:RadListBox>
                     </td>
                     <td>
-                        <asp:Label runat="server" ID="lblLocation" Text="Location:"></asp:Label><br />
+                        <asp:Label runat="server" ID="lblLocation" Text="Location:" AssociatedControlID="lbxLocation"></asp:Label><br />
                         <telerik:RadListBox runat="server" ID="lbxLocation" Height="150" AutoPostBack="True" OnTextChanged="lbxLocation_TextChanged">
                         </telerik:RadListBox>
                     </td>
@@ -69,6 +78,7 @@
                 </tr>
                 <tr>
                     <telerik:RadButton runat="server" ID="btnNewProduct" OnClientClicked="show" Text="New Product" AutoPostBack="false"></telerik:RadButton>
+                    <%--<telerik:RadButton runat="server" ID="btnNewProduct" Text="New Product" OnClick="btnNewProduct_Click1"></telerik:RadButton>--%>
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" AutoGenerateColumns="false">
@@ -96,12 +106,13 @@
             <%-- Scanned, waiting for labels stuff here??? --%>
         </asp:Panel>
 
-        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="830px" Height="470px" Title="New Product Entry"
-             BackColor="Violet" DestroyOnClose="true" OnClientClose="close">
+        <telerik:RadWindow runat="server" ID="rwNewEntry" Modal="true" Width="530px" Height="470px" Title="New Product Entry"
+            BackColor="Violet" DestroyOnClose="true">
             <ContentTemplate>
-                <telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">
-                    <uc1:NewPartNumber runat="server" ID="uc1"/>
-                </telerik:RadAjaxPanel>
+                <%--<telerik:RadAjaxPanel runat="server" ID="rwAJAXPanel">--%>
+                <%--<telerik:RadButton runat="server" ID="btnStartScan" Text="Start Scanning" OnClick="btnStartScan_Click"></telerik:RadButton>--%>
+                <uc1:NewPartNumber runat="server" ID="uc1" ClientIDMode="AutoID" />
+                <%--</telerik:RadAjaxPanel>--%>
             </ContentTemplate>
         </telerik:RadWindow>
 

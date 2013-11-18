@@ -22,15 +22,6 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadAjaxPanel RadAJAXPanel;
         
         /// <summary>
-        /// btnRestart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnRestart;
-        
-        /// <summary>
         /// pnlScan control.
         /// </summary>
         /// <remarks>
@@ -58,22 +49,22 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadButton btnPopulate;
         
         /// <summary>
-        /// lblError control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
-        /// pnlExisting control.
+        /// pnlNewProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlExisting;
+        protected global::System.Web.UI.WebControls.Panel pnlNewProduct;
         
         /// <summary>
         /// Table1 control.
@@ -193,6 +184,24 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadDatePicker rdpExpiration;
         
         /// <summary>
+        /// lblSerial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSerial;
+        
+        /// <summary>
+        /// tbSerial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox tbSerial;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -220,13 +229,13 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadButton btnInsertProduct;
         
         /// <summary>
-        /// pnlNewPart control.
+        /// pnlNewPartNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlNewPart;
+        protected global::System.Web.UI.WebControls.Panel pnlNewPartNumber;
         
         /// <summary>
         /// lblManufacturer control.
@@ -328,13 +337,13 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadButton btnPNSubmit;
         
         /// <summary>
-        /// pnlNewManu control.
+        /// pnlNewManufacturer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlNewManu;
+        protected global::System.Web.UI.WebControls.Panel pnlNewManufacturer;
         
         /// <summary>
         /// tbManufacturerName control.
@@ -425,5 +434,14 @@ namespace CathLab.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btnPTCancel;
+        
+        /// <summary>
+        /// btnRestart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnRestart;
     }
 }
