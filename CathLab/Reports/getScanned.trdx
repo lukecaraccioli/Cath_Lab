@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report DataSourceName="sqlDataSource1" Width="90.73mm" Name="getScanned" SnapGridSize="0.1in" xmlns="http://schemas.telerik.com/reporting/2012/3">
   <DataSources>
-    <SqlDataSource ConnectionString="cathlab3" SelectCommand="dbo.getScanned" SelectCommandType="StoredProcedure" Name="sqlDataSource1" />
+    <SqlDataSource ConnectionString="cathlabReport" SelectCommand="dbo.getScanned" SelectCommandType="StoredProcedure" Name="sqlDataSource1" />
   </DataSources>
   <Items>
     <DetailSection Height="27.94mm" Name="detail">

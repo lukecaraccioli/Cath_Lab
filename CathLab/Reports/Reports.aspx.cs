@@ -82,5 +82,12 @@ namespace CathLab
             rs.Uri = "Reports\\getPar.trdx";
             ReportViewer1.ReportSource = rs;
         }
+
+        protected void btnScanned_Click(object sender, EventArgs e)
+        {
+            UriReportSource rs = new UriReportSource();
+            rs.Uri = "Reports\\getScanned.trdx";
+            ReportViewer1.ReportSource = rs;
+        }
     }
 }
