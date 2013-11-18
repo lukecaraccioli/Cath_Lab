@@ -74,42 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\RadCaptcha\0.wav" />
-    <Content Include="App_Data\RadCaptcha\1.wav" />
-    <Content Include="App_Data\RadCaptcha\2.wav" />
-    <Content Include="App_Data\RadCaptcha\3.wav" />
-    <Content Include="App_Data\RadCaptcha\4.wav" />
-    <Content Include="App_Data\RadCaptcha\5.wav" />
-    <Content Include="App_Data\RadCaptcha\6.wav" />
-    <Content Include="App_Data\RadCaptcha\7.wav" />
-    <Content Include="App_Data\RadCaptcha\8.wav" />
-    <Content Include="App_Data\RadCaptcha\9.wav" />
-    <Content Include="App_Data\RadCaptcha\A.wav" />
-    <Content Include="App_Data\RadCaptcha\B.wav" />
-    <Content Include="App_Data\RadCaptcha\C.wav" />
-    <Content Include="App_Data\RadCaptcha\D.wav" />
-    <Content Include="App_Data\RadCaptcha\E.wav" />
-    <Content Include="App_Data\RadCaptcha\F.wav" />
-    <Content Include="App_Data\RadCaptcha\G.wav" />
-    <Content Include="App_Data\RadCaptcha\H.wav" />
-    <Content Include="App_Data\RadCaptcha\I.wav" />
-    <Content Include="App_Data\RadCaptcha\J.wav" />
-    <Content Include="App_Data\RadCaptcha\K.wav" />
-    <Content Include="App_Data\RadCaptcha\L.wav" />
-    <Content Include="App_Data\RadCaptcha\M.wav" />
-    <Content Include="App_Data\RadCaptcha\N.wav" />
-    <Content Include="App_Data\RadCaptcha\O.wav" />
-    <Content Include="App_Data\RadCaptcha\P.wav" />
-    <Content Include="App_Data\RadCaptcha\Q.wav" />
-    <Content Include="App_Data\RadCaptcha\R.wav" />
-    <Content Include="App_Data\RadCaptcha\S.wav" />
-    <Content Include="App_Data\RadCaptcha\T.wav" />
-    <Content Include="App_Data\RadCaptcha\U.wav" />
-    <Content Include="App_Data\RadCaptcha\V.wav" />
-    <Content Include="App_Data\RadCaptcha\W.wav" />
-    <Content Include="App_Data\RadCaptcha\X.wav" />
-    <Content Include="App_Data\RadCaptcha\Y.wav" />
-    <Content Include="App_Data\RadCaptcha\Z.wav" />
     <Content Include="Home.aspx" />
     <Content Include="images\CancerCen.jpg" />
     <Content Include="images\CathLab.jpg" />
@@ -122,7 +86,6 @@
     <Content Include="images\sjchLOGO.png" />
     <Content Include="images\WELCOME_Banner.jpg" />
     <Content Include="Inventory\Inventory.aspx" />
-    <Content Include="Inventory\Par.aspx" />
     <Content Include="Inventory\ProductEntry.aspx" />
     <Content Include="Inventory\Types.aspx" />
     <Content Include="Login.aspx" />
@@ -133,7 +96,6 @@
     <Content Include="Stylesheets\variant-multi.css" />
     <Content Include="UserControls\NewManufacturer.ascx" />
     <Content Include="UserControls\NewProductType.ascx" />
-    <Content Include="UserControls\variant-multi.css" />
     <Content Include="UserControls\NewPartNumber.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -169,13 +131,6 @@
     </Compile>
     <Compile Include="Inventory\Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory\Par.aspx.cs">
-      <DependentUpon>Par.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inventory\Par.aspx.designer.cs">
-      <DependentUpon>Par.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory\ProductEntry.aspx.cs">
       <DependentUpon>ProductEntry.aspx</DependentUpon>
@@ -264,9 +219,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\RadSpell\de-DE.tdf" />
-    <Content Include="App_Data\RadSpell\en-US.tdf" />
-    <Content Include="App_Data\RadSpell\fr-FR.tdf" />
     <Content Include="packages.config" />
     <Content Include="master.master" />
     <EntityDeploy Include="CathLabData.edmx">
@@ -335,7 +287,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
