@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 
 namespace CathLab
 {
@@ -127,15 +128,37 @@ namespace CathLab
             using (var context = new cathlabEntities())
             {
                 var temp = (from prod in context.Products
-                            select new { prod.ID, prod.PartNumber, prod.PartNumber1, prod.SerialNumber, 
-                                prod.ExpirationDate, prod.Location.LocationName, prod.LocationID, prod.PartNumber1.NameSize });
+                            select new
+                            {
+                                prod.ID,
+                                prod.PartNumber,
+                                prod.PartNumber1,
+                                prod.Location.LocationName,
+                                prod.PartNumber1.Manufacturer.Name,
+                                prod.LocationID,
+                                //prod.SerialNumber,
+                                //prod.ExpirationDate,
+                                //prod.PartNumber1.NameSize
+                            }).Distinct()
+                                .Select(prod => new
+                                {
+                                    prod.ID,
+                                    prod.PartNumber,
+                                    Manufacturer = prod.Name,
+                                    prod.PartNumber1.NameSize,
+                                    Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
+                                    prod.PartNumber1.ProductType.Type,
+                                    prod.PartNumber1,
+                                    prod.LocationID,                                    
+                                });
+
                 if (typeId != 0)
                     temp = temp.Where(a => a.PartNumber1.ProductTypeID == typeId);
                 if (manId != 0)
                     temp = temp.Where(a => a.PartNumber1.ManufacturerID == manId);
                 if (locId != 0)
                     temp = temp.Where(a => a.LocationID == locId);
-                rgInventory.DataSource = temp.ToList();
+                rgInventory.MasterTableView.DataSource = temp.ToList();
             }
         }
 
@@ -147,6 +170,21 @@ namespace CathLab
             uc.Visible = true;
             uc1.Controls.Add(uc);
             //rwNewEntry.Controls.Add(uc);
+        }
+
+        protected void rgInventory_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
+        {
+            if (e.Item is GridItem)
+            {
+                GridItem item = (GridItem)e.Item;
+                string PartNum  = item.DataItem.ToString();
+                using (var context = new cathlabEntities())
+                {
+                    var temp = (from prod in context.Products
+                                where prod.PartNumber == PartNum
+                                select new { prod.Location.LocationName, prod.LotNumber, prod.SerialNumber, prod.ExpirationDate });
+                }
+            }
         }
     }
 }

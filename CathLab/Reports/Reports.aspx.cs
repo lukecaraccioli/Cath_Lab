@@ -42,8 +42,8 @@ namespace CathLab
             UriReportSource rs = new UriReportSource();
             rs.Uri = "Reports\\getStents.trdx";
 
-            rs.Parameters.Add(new Telerik.Reporting.Parameter("StartTime", rdpStartDate.SelectedDate.Value.ToShortDateString()));
-            rs.Parameters.Add(new Telerik.Reporting.Parameter("EndTime", rdpEndDate.SelectedDate.Value.ToShortDateString()));
+            //rs.Parameters.Add(new Telerik.Reporting.Parameter("StartTime", rdpStartDate.SelectedDate.Value.ToShortDateString()));
+            //rs.Parameters.Add(new Telerik.Reporting.Parameter("EndTime", rdpEndDate.SelectedDate.Value.ToShortDateString()));
 
             //Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
             //paramStartDate.Name = "StartTime";
