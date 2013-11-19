@@ -82,14 +82,13 @@
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" 
-                OnItemCommand="rgInventory_ItemCommand" AutoGenerateColumns="false">
+                OnItemCommand="rgInventory_ItemCommand" AutoGenerateColumns="false" OnDetailTableDataBind="rgInventory_DetailTableDataBind">
                 <AlternatingItemStyle BackColor="LightSteelBlue" />
                 <AlternatingItemStyle BorderWidth="1px" />
                 <ItemStyle BackColor="WhiteSmoke" />
                 <ItemStyle BorderWidth="1px" />
                 <MasterTableView DataKeyNames="PartNumber">
                     <Columns>
-                        <telerik:GridExpandColumn ButtonType="PushButton"></telerik:GridExpandColumn>
                         <telerik:GridBoundColumn DataField="PartNumber" HeaderText="Part Number"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="NameSize" HeaderText="Name & Size"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="Manufacturer" HeaderText="Manufacturer"></telerik:GridBoundColumn>
@@ -98,10 +97,11 @@
                     </Columns>
                     <DetailTables>
                         <telerik:GridTableView runat="server">
-                            <Columns>
-                                <telerik:GridBoundColumn DataField="SerialNumber" HeaderText="Serial Number"></telerik:GridBoundColumn>
+                            <Columns>                                
                                 <telerik:GridBoundColumn DataField="ExpirationDate" HeaderText="Expiration Date"></telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn DataField="LocationName" HeaderText="Location"></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="LotNumber" HeaderText="Lot Number"></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="SerialNumber" HeaderText="Serial Number"></telerik:GridBoundColumn>
                             </Columns>
                         </telerik:GridTableView>
                     </DetailTables>

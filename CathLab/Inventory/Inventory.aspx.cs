@@ -151,7 +151,6 @@ namespace CathLab
                                     prod.PartNumber1,
                                     prod.LocationID,                                    
                                 });
-
                 if (typeId != 0)
                     temp = temp.Where(a => a.PartNumber1.ProductTypeID == typeId);
                 if (manId != 0)
@@ -174,16 +173,19 @@ namespace CathLab
 
         protected void rgInventory_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-            if (e.Item is GridItem)
+
+        }
+
+        protected void rgInventory_DetailTableDataBind(object sender, GridDetailTableDataBindEventArgs e)
+        {
+            GridDataItem dataItem = (GridDataItem)e.DetailTableView.ParentItem;
+            using (var context = new cathlabEntities())
             {
-                GridItem item = (GridItem)e.Item;
-                string PartNum  = item.DataItem.ToString();
-                using (var context = new cathlabEntities())
-                {
-                    var temp = (from prod in context.Products
-                                where prod.PartNumber == PartNum
-                                select new { prod.Location.LocationName, prod.LotNumber, prod.SerialNumber, prod.ExpirationDate });
-                }
+                string PartNum = dataItem.GetDataKeyValue("PartNumber").ToString();
+                var temp = (from prod in context.Products
+                            where prod.PartNumber == PartNum
+                            select new { prod.Location.LocationName, prod.LotNumber, prod.SerialNumber, prod.ExpirationDate });
+                e.DetailTableView.DataSource = temp.ToList();
             }
         }
     }
