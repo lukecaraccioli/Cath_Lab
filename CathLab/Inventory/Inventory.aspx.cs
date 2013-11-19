@@ -146,7 +146,8 @@ namespace CathLab
                                     prod.PartNumber,
                                     Manufacturer = prod.Name,
                                     prod.PartNumber1.NameSize,
-                                    Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
+                                    //Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
+                                    Count = 8,
                                     prod.PartNumber1.ProductType.Type,
                                     prod.PartNumber1,
                                     prod.LocationID,                                    
@@ -169,11 +170,6 @@ namespace CathLab
             uc.Visible = true;
             uc1.Controls.Add(uc);
             //rwNewEntry.Controls.Add(uc);
-        }
-
-        protected void rgInventory_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
-        {
-
         }
 
         protected void rgInventory_DetailTableDataBind(object sender, GridDetailTableDataBindEventArgs e)

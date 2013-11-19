@@ -82,7 +82,7 @@
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" 
-                OnItemCommand="rgInventory_ItemCommand" AutoGenerateColumns="false" OnDetailTableDataBind="rgInventory_DetailTableDataBind">
+                AutoGenerateColumns="false" OnDetailTableDataBind="rgInventory_DetailTableDataBind">
                 <AlternatingItemStyle BackColor="LightSteelBlue" />
                 <AlternatingItemStyle BorderWidth="1px" />
                 <ItemStyle BackColor="WhiteSmoke" />
