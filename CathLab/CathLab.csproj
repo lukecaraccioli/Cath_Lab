@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="images\CancerCen.jpg" />
     <Content Include="images\CathLab.jpg" />
@@ -88,7 +89,6 @@
     <Content Include="Inventory\Inventory.aspx" />
     <Content Include="Inventory\ProductEntry.aspx" />
     <Content Include="Inventory\Types.aspx" />
-    <Content Include="Login.aspx" />
     <Content Include="Reports\Reports.aspx" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-ui.js" />
@@ -117,6 +117,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CathLabData.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -148,13 +151,6 @@
     </Compile>
     <Compile Include="Location.cs">
       <DependentUpon>CathLabData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <DependentUpon>CathLabData.tt</DependentUpon>
@@ -286,7 +282,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

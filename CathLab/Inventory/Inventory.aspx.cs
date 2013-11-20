@@ -22,6 +22,7 @@ namespace CathLab
             }
         }
 
+        #region PopulateListboxes
         protected void loadProductTypes()
         {
             using (var context = new cathlabEntities())
@@ -117,6 +118,7 @@ namespace CathLab
             int.TryParse(lbxLocation.SelectedValue, out locId);
             rgInventory.Rebind();
         }
+#endregion PopulateListboxes
 
         protected void rgInventory_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
@@ -133,25 +135,27 @@ namespace CathLab
                                 prod.ID,
                                 prod.PartNumber,
                                 prod.PartNumber1,
+                                prod.PartNumber1.NameSize,
+                                prod.PartNumber1.ProductType.Type,
                                 prod.Location.LocationName,
                                 prod.PartNumber1.Manufacturer.Name,
                                 prod.LocationID,
                                 //prod.SerialNumber,
                                 //prod.ExpirationDate,
                                 //prod.PartNumber1.NameSize
-                            }).Distinct()
-                                .Select(prod => new
-                                {
-                                    prod.ID,
-                                    prod.PartNumber,
-                                    Manufacturer = prod.Name,
-                                    prod.PartNumber1.NameSize,
-                                    //Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
-                                    Count = 8,
-                                    prod.PartNumber1.ProductType.Type,
-                                    prod.PartNumber1,
-                                    prod.LocationID,                                    
-                                });
+                            }).Distinct();
+                                //.Select(prod => new
+                                //{
+                                //    prod.ID,
+                                //    prod.PartNumber,
+                                //    Manufacturer = prod.Name,
+                                //    prod.PartNumber1.NameSize,
+                                //    //Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
+                                //    Count = 8,
+                                //    prod.PartNumber1.ProductType.Type,
+                                //    prod.PartNumber1,
+                                //    prod.LocationID,                                    
+                                //});
                 if (typeId != 0)
                     temp = temp.Where(a => a.PartNumber1.ProductTypeID == typeId);
                 if (manId != 0)
@@ -161,17 +165,7 @@ namespace CathLab
                 rgInventory.MasterTableView.DataSource = temp.ToList();
             }
         }
-
-        protected void btnHidden_Click(object sender, EventArgs e)
-        {
-            //uc1.Dispose();
-            rwNewEntry.Controls.Clear();
-            UserControl uc = (UserControl)Page.LoadControl("~//UserControls//NewPartNumber.ascx");
-            uc.Visible = true;
-            uc1.Controls.Add(uc);
-            //rwNewEntry.Controls.Add(uc);
-        }
-
+        
         protected void rgInventory_DetailTableDataBind(object sender, GridDetailTableDataBindEventArgs e)
         {
             GridDataItem dataItem = (GridDataItem)e.DetailTableView.ParentItem;
@@ -183,6 +177,16 @@ namespace CathLab
                             select new { prod.Location.LocationName, prod.LotNumber, prod.SerialNumber, prod.ExpirationDate });
                 e.DetailTableView.DataSource = temp.ToList();
             }
+        }
+
+        protected void btnHidden_Click(object sender, EventArgs e)
+        {
+            //uc1.Dispose();
+            rwNewEntry.Controls.Clear();
+            UserControl uc = (UserControl)Page.LoadControl("~//UserControls//NewPartNumber.ascx");
+            uc.Visible = true;
+            uc1.Controls.Add(uc);
+            //rwNewEntry.Controls.Add(uc);
         }
     }
 }

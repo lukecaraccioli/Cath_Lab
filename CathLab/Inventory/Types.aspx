@@ -41,6 +41,10 @@
 
                 <div id="tabPartNumbers">
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXPartNums">
+                    <span>
+                    <asp:label runat="server" ID="lblPNSearch" Text="Part Number Search: " AssociatedControlID="tbPNSearch"></asp:label>
+                    <telerik:RadTextBox runat="server" ID="tbPNSearch" OnTextChanged="tbPNSearch_TextChanged" />
+                        </span>                    
                         <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="670px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource" AllowAutomaticInserts="true"
                             OnUpdateCommand="rgPartNumbers_UpdateCommand" OnEditCommand="rgPartNumbers_EditCommand" OnInsertCommand="rgPartNumbers_InsertCommand" OnDeleteCommand="rgPartNumbers_DeleteCommand">
                             <PagerStyle Mode="NextPrevAndNumeric" />
@@ -52,6 +56,7 @@
                                     <telerik:GridBoundColumn DataField="Name" HeaderText="Manufacturer"></telerik:GridBoundColumn>
                                     <telerik:GridBoundColumn DataField="Type" HeaderText="Product Type"></telerik:GridBoundColumn>
                                     <telerik:GridBoundColumn DataField="Cost" HeaderText="Cost"></telerik:GridBoundColumn>
+                                    <telerik:GridBoundColumn DataField="Par" HeaderText="Par"></telerik:GridBoundColumn>
                                     <telerik:GridButtonColumn Text="Delete" CommandName="Delete" CommandArgument="PartNum" ButtonType="ImageButton" ConfirmDialogType="RadWindow"
                                         ConfirmText="Permanently delete Part Number?">
                                     </telerik:GridButtonColumn>
@@ -109,14 +114,14 @@
                 </div>
             </div>
 
+        <telerik:RadWindowManager runat="server" ID="rwManager"></telerik:RadWindowManager>
+
             <telerik:RadNotification runat="server" ID="RadNotification" AutoCloseDelay="2500" Height="300px" Width="400px" Title="ERROR!">
                 <ContentTemplate>
                     <asp:Label runat="server" ID="rnLabel"></asp:Label>
                 </ContentTemplate>
             </telerik:RadNotification>
 
-            <telerik:RadWindow runat="server" ID="twAlert">
-            </telerik:RadWindow>
 
             <telerik:RadWindow runat="server" ID="windowNotification" Title="WARNING">
                 <ContentTemplate>

@@ -33,7 +33,7 @@ namespace CathLab
         protected void rgPartNumbers_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
             using (var context = new cathlabEntities())
-                rgPartNumbers.DataSource = (from pnum in context.PartNumbers select new { pnum.PartNum, pnum.NameSize, pnum.ProductType.Type, pnum.Cost, pnum.Manufacturer.Name }).ToList();
+                rgPartNumbers.DataSource = (from pnum in context.PartNumbers select new { pnum.PartNum, pnum.NameSize, pnum.ProductType.Type, pnum.Cost, pnum.Manufacturer.Name, pnum.Par }).ToList();
         }
         #endregion Data Load
 
@@ -153,5 +153,12 @@ namespace CathLab
         }
 
         #endregion Visibility
+
+        protected void tbPNSearch_TextChanged(object sender, EventArgs e)
+        {
+            using (var context = new cathlabEntities())          
+                rgPartNumbers.DataSource = (from pnum in context.PartNumbers select new { pnum.PartNum, pnum.NameSize, pnum.ProductType.Type, pnum.Cost, pnum.Manufacturer.Name, pnum.Par })
+                    .Where(a => a.PartNum.Contains(tbPNSearch.Text)).ToList();            
+        }
     }
 }

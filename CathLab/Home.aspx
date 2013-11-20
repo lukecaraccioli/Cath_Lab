@@ -20,6 +20,10 @@
             </div>
         </div>
     </div>
+   
+    <asp:Login runat="server" ID="loginControl" OnLoggedIn="aspLogin_LoggedIn" OnLoggingIn="aspLogin_LoggingIn" Visible="false" 
+        BorderColor="Black" BorderWidth="1px" DestinationPageUrl="~/Inventory/Inventory.aspx" >        
+    </asp:Login>
 
     <%--This section is the code for the slide show --%>
     <div class="rotatorBackground">

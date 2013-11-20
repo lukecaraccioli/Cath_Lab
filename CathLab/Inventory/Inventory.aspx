@@ -77,7 +77,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <telerik:RadButton runat="server" ID="btnNewProduct" OnClientClicked="show" Text="New Product" AutoPostBack="false"></telerik:RadButton>
+                    <telerik:RadButton runat="server" ID="btnNewProduct" OnClientClicked="show" Text="New Product" AutoPostBack="false"></telerik:RadButton>   
                     <%--<telerik:RadButton runat="server" ID="btnNewProduct" Text="New Product" OnClick="btnNewProduct_Click1"></telerik:RadButton>--%>
                 </tr>
             </table>
@@ -91,9 +91,9 @@
                     <Columns>
                         <telerik:GridBoundColumn DataField="PartNumber" HeaderText="Part Number"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="NameSize" HeaderText="Name & Size"></telerik:GridBoundColumn>
-                        <telerik:GridBoundColumn DataField="Manufacturer" HeaderText="Manufacturer"></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="Name" HeaderText="Manufacturer"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="Type" HeaderText="Product Type"></telerik:GridBoundColumn>
-                        <telerik:GridBoundColumn DataField="Count" HeaderText="Count"></telerik:GridBoundColumn>
+                        <%--<telerik:GridBoundColumn DataField="Count" HeaderText="Count"></telerik:GridBoundColumn>--%>
                     </Columns>
                     <DetailTables>
                         <telerik:GridTableView runat="server">
