@@ -66,7 +66,15 @@ namespace CathLab
         {
             UriReportSource rs = new UriReportSource();
             rs.Uri = "Reports\\getStentsCost.trdx";
-            ReportViewer1.ReportSource = rs;
+            string startDate = rdpStartDate.SelectedDate.Value.Date.ToShortDateString().Replace('/', '-');
+            string endDate = rdpEndDate.SelectedDate.Value.Date.ToShortDateString().Replace('/', '-');
+            DateTime start = rdpStartDate.SelectedDate.Value.Date;
+            DateTime end = rdpEndDate.SelectedDate.Value.Date;
+            rs.Parameters.Add(new Telerik.Reporting.Parameter("StartTime", start));
+            rs.Parameters.Add(new Telerik.Reporting.Parameter("EndTime", end));
+            //rs.Parameters["StartTime"].Value = rdpStartDate.SelectedDate.Value.Date;
+            //rs.Parameters["EndTime"].Value = rdpEndDate.SelectedDate.Value.Date;
+            ReportViewer1.ReportSource = rs;            
         }
 
         protected void btnManuStock_Click(object sender, EventArgs e)
