@@ -169,6 +169,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetProds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetProductCounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -201,6 +203,8 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
+          <FunctionImport Name="GetProductCounts" ReturnType="Collection(cathlabModel.GetProductCounts_Result)" />
+          <FunctionImport Name="GetProds" ReturnType="Collection(cathlabModel.GetProds_Result)" />
         </EntityContainer>
         <EntityType Name="Location">
           <Key>
@@ -338,6 +342,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="GetProductCounts_Result">
+          <Property Type="String" Name="PartNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NameSize" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ManufacturerName" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Count" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetProds_Result">
+          <Property Type="String" Name="PartNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NameSize" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ManufacturerName" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Count" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -415,6 +433,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetProductCounts" FunctionName="cathlabModel.Store.GetProductCounts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cathlabModel.GetProductCounts_Result">
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="NameSize" ColumnName="NameSize" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetProds" FunctionName="cathlabModel.Store.GetProds">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cathlabModel.GetProds_Result">
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="NameSize" ColumnName="NameSize" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

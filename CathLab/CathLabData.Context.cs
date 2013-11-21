@@ -12,6 +12,9 @@ namespace CathLab
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class cathlabEntities : DbContext
     {
@@ -32,5 +35,15 @@ namespace CathLab
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Status> Status { get; set; }
+    
+        public virtual ObjectResult<GetProductCounts_Result> GetProductCounts()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProductCounts_Result>("GetProductCounts");
+        }
+    
+        public virtual ObjectResult<GetProds_Result> GetProds()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProds_Result>("GetProds");
+        }
     }
 }
