@@ -49,6 +49,7 @@
                             OnUpdateCommand="rgPartNumbers_UpdateCommand" OnEditCommand="rgPartNumbers_EditCommand" OnInsertCommand="rgPartNumbers_InsertCommand" OnDeleteCommand="rgPartNumbers_DeleteCommand">
                             <PagerStyle Mode="NextPrevAndNumeric" />
                             <MasterTableView AutoGenerateColumns="False" DataKeyNames="PartNum">
+                                <%--<EditFormSettings InsertCaption="Insert PN" PopUpSettings-Modal="true" EditFormType="Template" --%>
                                 <Columns>
                                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="PartNum" ButtonType="ImageButton"></telerik:GridButtonColumn>
                                     <telerik:GridBoundColumn DataField="PartNum" HeaderText="Part Number"></telerik:GridBoundColumn>
@@ -105,7 +106,10 @@
                                         ConfirmText="Permanently delete Product Type?">
                                     </telerik:GridButtonColumn>
                                 </Columns>
-                                <EditFormSettings>
+                                <EditFormSettings EditFormType="Template" >
+                                    <FormTemplate>
+                                        <telerik:RadTextBox runat="server" ID="tbType" Label="Type: "></telerik:RadTextBox>
+                                    </FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
                                 </EditFormSettings>
                             </MasterTableView>

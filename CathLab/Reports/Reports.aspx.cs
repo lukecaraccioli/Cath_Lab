@@ -71,8 +71,8 @@ namespace CathLab
             string endDate = rdpEndDate.SelectedDate.Value.Date.ToShortDateString().Replace('/', '-');
             DateTime start = rdpStartDate.SelectedDate.Value.Date;
             DateTime end = rdpEndDate.SelectedDate.Value.Date;
-            rs.Parameters.Add(new Telerik.Reporting.Parameter("StartTime", startDate));
-            rs.Parameters.Add(new Telerik.Reporting.Parameter("EndTime", endDate));
+            rs.Parameters.Add(new Telerik.Reporting.Parameter("@StartTime", startDate));
+            rs.Parameters.Add(new Telerik.Reporting.Parameter("@EndTime", endDate));
             //rs.Parameters["StartTime"].Value = rdpStartDate.SelectedDate.Value.Date;
             //rs.Parameters["EndTime"].Value = rdpEndDate.SelectedDate.Value.Date;
 
