@@ -129,37 +129,38 @@ namespace CathLab
         {
             using (var context = new cathlabEntities())
             {
-                var temp = (from prod in context.Products
-                            select new
-                            {
-                                prod.ID,
-                                prod.PartNumber,
-                                prod.PartNumber1,
-                                prod.PartNumber1.NameSize,
-                                prod.PartNumber1.ProductType.Type,
-                                prod.Location.LocationName,
-                                prod.PartNumber1.Manufacturer.Name,
-                                prod.LocationID,
-                                //prod.SerialNumber,
-                                //prod.ExpirationDate,
-                                //prod.PartNumber1.NameSize
-                            }).Distinct();
-                                //.Select(prod => new
-                                //{
-                                //    prod.ID,
-                                //    prod.PartNumber,
-                                //    Manufacturer = prod.Name,
-                                //    prod.PartNumber1.NameSize,
-                                //    //Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
-                                //    Count = 8,
-                                //    prod.PartNumber1.ProductType.Type,
-                                //    prod.PartNumber1,
-                                //    prod.LocationID,                                    
-                                //});
+                var temp = context.GetProductCounts().AsEnumerable();
+                    //(from prod in context.Products
+                    //        select new
+                    //        {
+                    //            prod.ID,
+                    //            prod.PartNumber,
+                    //            prod.PartNumber1,
+                    //            prod.PartNumber1.NameSize,
+                    //            prod.PartNumber1.ProductType.Type,
+                    //            prod.Location.LocationName,
+                    //            prod.PartNumber1.Manufacturer.Name,
+                    //            prod.LocationID,
+                    //            //prod.SerialNumber,
+                    //            //prod.ExpirationDate,
+                    //            //prod.PartNumber1.NameSize
+                    //        }).Distinct();
+                    //            //.Select(prod => new
+                    //            //{
+                    //            //    prod.ID,
+                    //            //    prod.PartNumber,
+                    //            //    Manufacturer = prod.Name,
+                    //            //    prod.PartNumber1.NameSize,
+                    //            //    //Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
+                    //            //    Count = 8,
+                    //            //    prod.PartNumber1.ProductType.Type,
+                    //            //    prod.PartNumber1,
+                    //            //    prod.LocationID,                                    
+                    //            //});
                 if (typeId != 0)
-                    temp = temp.Where(a => a.PartNumber1.ProductTypeID == typeId);
+                    temp = temp.Where(a => a.ProductTypeID == typeId);
                 if (manId != 0)
-                    temp = temp.Where(a => a.PartNumber1.ManufacturerID == manId);
+                    temp = temp.Where(a => a.ManufacturerID == manId);
                 if (locId != 0)
                     temp = temp.Where(a => a.LocationID == locId);
                 rgInventory.MasterTableView.DataSource = temp.ToList();

@@ -17,6 +17,10 @@ namespace CathLab
         public string NameSize { get; set; }
         public string Type { get; set; }
         public string ManufacturerName { get; set; }
+        public string LocationName { get; set; }
         public Nullable<int> Count { get; set; }
+        public Nullable<int> LocationID { get; set; }
+        public int ManufacturerID { get; set; }
+        public int ProductTypeID { get; set; }
     }
 }

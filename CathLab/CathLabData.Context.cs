@@ -40,10 +40,5 @@ namespace CathLab
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProductCounts_Result>("GetProductCounts");
         }
-    
-        public virtual ObjectResult<GetProds_Result> GetProds()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProds_Result>("GetProds");
-        }
     }
 }

@@ -91,9 +91,10 @@
                     <Columns>
                         <telerik:GridBoundColumn DataField="PartNumber" HeaderText="Part Number"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="NameSize" HeaderText="Name & Size"></telerik:GridBoundColumn>
-                        <telerik:GridBoundColumn DataField="Name" HeaderText="Manufacturer"></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="ManufacturerName" HeaderText="Manufacturer"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="Type" HeaderText="Product Type"></telerik:GridBoundColumn>
-                        <%--<telerik:GridBoundColumn DataField="Count" HeaderText="Count"></telerik:GridBoundColumn>--%>
+                        <telerik:GridBoundColumn DataField="LocationName" HeaderText="Location" ></telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="Count" HeaderText="Count"></telerik:GridBoundColumn>
                     </Columns>
                     <DetailTables>
                         <telerik:GridTableView runat="server">
