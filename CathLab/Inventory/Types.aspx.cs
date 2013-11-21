@@ -60,18 +60,7 @@ namespace CathLab
             }
         }
 
-        protected void rgPartNumbers_EditCommand(object sender, GridCommandEventArgs e)
-        {
-
-        }
-
-        protected void rgPartNumbers_InsertCommand(object sender, GridCommandEventArgs e)
-        {
-
-        }
-
         #region Delete
-
         protected void rgPartNumbers_DeleteCommand(object sender, GridCommandEventArgs e)
         {
             GridDataItem item = (GridDataItem)e.Item;
@@ -131,35 +120,7 @@ namespace CathLab
                 }
             }
         }
-
-        #endregion Delete
-
-        #region Visibility
-        protected void btnPartNums_Click(object sender, EventArgs e)
-        {
-            rgPartNumbers.Visible = true;
-            rgProdType.Visible = false;
-            rgManufacturers.Visible = false;
-            rgPartNumbers.Rebind();
-        }
-
-        protected void btnProdTypes_Click(object sender, EventArgs e)
-        {
-            rgProdType.Visible = true;
-            rgManufacturers.Visible = false;
-            rgPartNumbers.Visible = false;
-            rgProdType.Rebind();
-        }
-
-        protected void btnManufacturers_Click(object sender, EventArgs e)
-        {
-            rgManufacturers.Visible = true;
-            rgPartNumbers.Visible = false;
-            rgProdType.Visible = false;
-            rgManufacturers.Rebind();
-        }
-
-        #endregion Visibility
+        #endregion Delete       
 
         protected void tbPNSearch_TextChanged(object sender, EventArgs e)
         {

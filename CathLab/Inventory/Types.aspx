@@ -2,13 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="content">
-
             <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
                 <%-- JQuery scripts --%>
+                <link rel="stylesheet" href="../Stylesheets/Tabs.css"/>
                 <link rel="stylesheet" href="../Stylesheets/jquery-ui.css" />
                 <script src="../Scripts/jquery-1.9.1.js"></script>
-                <script src="../Scripts/jquery-ui.js"></script>
-                <link rel="stylesheet" href="../Stylesheets/Tabs.css"/>
+                <script src="../Scripts/jquery-ui.js"></script>                
 
                 <script type="text/javascript">
                     $(function () {
@@ -30,10 +29,10 @@
                     <asp:label runat="server" ID="lblPNSearch" Text="Part Number Search: " AssociatedControlID="tbPNSearch"></asp:label>
                     <telerik:RadTextBox runat="server" ID="tbPNSearch" OnTextChanged="tbPNSearch_TextChanged" />
                         </span>                    
-                        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="670px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource" AllowAutomaticInserts="true"
-                            OnUpdateCommand="rgPartNumbers_UpdateCommand" OnEditCommand="rgPartNumbers_EditCommand" OnInsertCommand="rgPartNumbers_InsertCommand" OnDeleteCommand="rgPartNumbers_DeleteCommand">
+                        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="670px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource"
+                            OnUpdateCommand="rgPartNumbers_UpdateCommand" OnDeleteCommand="rgPartNumbers_DeleteCommand">
                             <PagerStyle Mode="NextPrevAndNumeric" />
-                            <MasterTableView AutoGenerateColumns="False" DataKeyNames="PartNum">
+                            <MasterTableView AutoGenerateColumns="False" DataKeyNames="PartNum" EditMode="EditForms">
                                 <%--<EditFormSettings InsertCaption="Insert PN" PopUpSettings-Modal="true" EditFormType="Template" --%>
                                 <Columns>
                                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="PartNum" ButtonType="ImageButton"></telerik:GridButtonColumn>
@@ -49,6 +48,11 @@
                                 </Columns>
                                 <EditFormSettings>
                                     <FormTemplate>
+                                        <telerik:RadTextBox runat="server" ID="tb"></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="RadTextBox1"></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="RadTextBox2"></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="RadTextBox3"></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="RadTextBox4"></telerik:RadTextBox>
                                     </FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
                                 </EditFormSettings>
@@ -61,7 +65,7 @@
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXManufacturers">
                         <telerik:RadGrid runat="server" ID="rgManufacturers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgManufacturers_NeedDataSource"
                             OnUpdateCommand="rgManufacturers_UpdateCommand" OnDeleteCommand="rgManufacturers_DeleteCommand">
-                            <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
+                            <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID" EditMode="EditForms">
                                 <Columns>
                                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
                                     <telerik:GridBoundColumn DataField="Name" HeaderText="Name"></telerik:GridBoundColumn>
@@ -72,6 +76,7 @@
                                     </telerik:GridButtonColumn>
                                 </Columns>
                                 <EditFormSettings>
+                                    <FormTemplate></FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
                                 </EditFormSettings>
                             </MasterTableView>
