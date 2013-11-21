@@ -50,7 +50,14 @@ namespace CathLab
 
         protected void rgProdType_UpdateCommand(object sender, GridCommandEventArgs e)
         {
-            GridEditableItem editedItem = e.Item as GridEditableItem;
+            using (var context = new cathlabEntities())
+            {
+                //GridEditableItem editedItem = e.Item as GridEditableItem;
+                int ID = int.Parse(e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["ID"].ToString());
+                ProductType pt = context.ProductTypes.Find(ID);
+                pt.Type = (e.Item.FindControl("tbType") as RadTextBox).Text;
+                context.SaveChanges();
+            }
         }
 
         protected void rgPartNumbers_EditCommand(object sender, GridCommandEventArgs e)

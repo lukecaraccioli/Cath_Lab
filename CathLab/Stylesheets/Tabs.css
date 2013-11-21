@@ -1,0 +1,25 @@
+﻿#tabs {
+    background: transparent;
+    border: none;
+}
+
+/*UI tabs styling...*/
+#tabs .ui-widget-header {
+    background: transparent;
+    border: none;
+    border-bottom: 0px solid #c0c0c0;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+
+}
+
+#tabs .ui-tabs-nav .ui-state-default {
+    background: transparent;
+    border: none;
+}
+
+#tabs .ui-tabs-nav .ui-state-active {
+    background: transparent;
+    border: none;
+}

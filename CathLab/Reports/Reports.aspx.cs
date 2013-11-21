@@ -15,8 +15,6 @@ namespace CathLab
         protected void Page_Load(object sender, EventArgs e)
         { }
 
-       
-
         protected void btnTest_Click(object sender, EventArgs e)
         {
             //UriReportSource rs = new UriReportSource();
@@ -34,8 +32,6 @@ namespace CathLab
 
             //ReportViewer1.ReportSource = rs;
         }
-
-       
 
         protected void btnStents_Click(object sender, EventArgs e)
         {
@@ -71,8 +67,8 @@ namespace CathLab
             string endDate = rdpEndDate.SelectedDate.Value.Date.ToShortDateString().Replace('/', '-');
             DateTime start = rdpStartDate.SelectedDate.Value.Date;
             DateTime end = rdpEndDate.SelectedDate.Value.Date;
-            rs.Parameters.Add(new Telerik.Reporting.Parameter("@StartTime", startDate));
-            rs.Parameters.Add(new Telerik.Reporting.Parameter("@EndTime", endDate));
+            rs.Parameters.Add(new Telerik.Reporting.Parameter("@StartTime", start));
+            rs.Parameters.Add(new Telerik.Reporting.Parameter("@EndTime", end));
             //rs.Parameters["StartTime"].Value = rdpStartDate.SelectedDate.Value.Date;
             //rs.Parameters["EndTime"].Value = rdpEndDate.SelectedDate.Value.Date;
 
