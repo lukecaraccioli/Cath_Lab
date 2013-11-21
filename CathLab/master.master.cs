@@ -14,8 +14,9 @@ namespace CathLab
             if ((int)Session["LoggedIn"] <= 0)
             {
                 mnuMenu.Visible = false;
-                string temp = Server.UrlEncode(Request.Url.ToString());
-                Response.Redirect("~/Home.aspx?ReturnPath=" + temp);
+                // NEED TO REDIRECT SOMEHOW........
+                //string temp = Server.UrlEncode(Request.Url.ToString());
+                ////Response.Redirect("~/Home.aspx?ReturnPath=" + temp);
                 //Response.Redirect("/Home.aspx", false);
             }
         }
