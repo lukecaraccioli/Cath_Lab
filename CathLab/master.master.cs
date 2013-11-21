@@ -11,12 +11,18 @@ namespace CathLab
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-
+            if ((int)Session["LoggedIn"] <= 0)
+            {
+                mnuMenu.Visible = false;
+                string temp = Server.UrlEncode(Request.Url.ToString());
+                Response.Redirect("~/Home.aspx?ReturnPath=" + temp);
+                //Response.Redirect("/Home.aspx", false);
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

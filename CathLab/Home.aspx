@@ -4,11 +4,20 @@
     <div id="main">
         <div id="sidebar">
             <div class="sidebarbox">
+                <asp:Panel runat="server" ID="pnlSide" Visible="false">
                 <h2>Page Options</h2>
                 <ul class="sidemenu">
                     <li><a href="/Inventory/Inventory.aspx">Inventory</a></li>
                     <li><a href="/Reports/Reports.aspx">Reports</a></li>
                 </ul>
+                    </asp:Panel>
+                <asp:Panel runat="server" ID="pnlLogin">                       
+                    <asp:Login runat="server" ID="loginControl" OnLoggedIn="aspLogin_LoggedIn" OnLoggingIn="aspLogin_LoggingIn" Visible="false" 
+                        BorderColor="Black" BorderWidth="1px" DestinationPageUrl="~/Inventory/Inventory.aspx" >        
+                    </asp:Login>
+                    <br />
+                    <asp:Label runat="server" ID="lblLoginStatus" Text="Login Failed" ForeColor="Red" Visible="false"></asp:Label>
+                </asp:Panel>
             </div>
 
 
@@ -20,10 +29,6 @@
             </div>
         </div>
     </div>
-   
-    <asp:Login runat="server" ID="loginControl" OnLoggedIn="aspLogin_LoggedIn" OnLoggingIn="aspLogin_LoggingIn" Visible="false" 
-        BorderColor="Black" BorderWidth="1px" DestinationPageUrl="~/Inventory/Inventory.aspx" >        
-    </asp:Login>
 
     <%--This section is the code for the slide show --%>
     <div class="rotatorBackground">
