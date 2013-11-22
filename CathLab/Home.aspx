@@ -20,8 +20,6 @@
                 </asp:Panel>
             </div>
 
-
-
             <div class="sidebarbox">
                 <h2>Instruction box</h2>
                 <p>This box shows the user how to navigate the current page</p>

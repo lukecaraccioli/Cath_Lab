@@ -46,13 +46,17 @@
                                         ConfirmText="Permanently delete Part Number?">
                                     </telerik:GridButtonColumn>
                                 </Columns>
-                                <EditFormSettings>
+                                <EditFormSettings EditFormType="Template">
                                     <FormTemplate>
-                                        <telerik:RadTextBox runat="server" ID="tb"></telerik:RadTextBox>
-                                        <telerik:RadTextBox runat="server" ID="RadTextBox1"></telerik:RadTextBox>
-                                        <telerik:RadTextBox runat="server" ID="RadTextBox2"></telerik:RadTextBox>
-                                        <telerik:RadTextBox runat="server" ID="RadTextBox3"></telerik:RadTextBox>
-                                        <telerik:RadTextBox runat="server" ID="RadTextBox4"></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="tbPartNum" Text='<%# DataBinder.Eval(Container, "DataItem.PartNum") %>'></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="tbNameSize" Text='<%# DataBinder.Eval(Container, "DataItem.NameSize") %>'></telerik:RadTextBox>
+                                        <telerik:RadListBox runat="server" ID="lbxManufacturer" ></telerik:RadListBox>
+                                        <telerik:RadListBox runat="server" ID="lbxProductType" ></telerik:RadListBox>
+                                        <telerik:RadTextBox runat="server" ID="tbCost" Text='<%# DataBinder.Eval(Container, "DataItem.Cost") %>'></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="tbPar" Text='<%# DataBinder.Eval(Container, "DataItem.Par") %>'></telerik:RadTextBox>
+                                        <telerik:RadButton runat="server" ID="btnSavePartNum" Text='<%# Container is GridEditFormItem ? "Insert" : "Update" %>' 
+                                            CausesValidation="true" CommandName="Update"></telerik:RadButton>
+                                        <telerik:RadButton runat="server" ID="btnCancelPartNum" Text="Cancel" CausesValidation="false" CommandName="Cancel"></telerik:RadButton>
                                     </FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
                                 </EditFormSettings>
@@ -75,7 +79,7 @@
                                         ConfirmText="Permanently delete Manufacturer?">
                                     </telerik:GridButtonColumn>
                                 </Columns>
-                                <EditFormSettings>
+                                <EditFormSettings EditFormType="Template">
                                     <FormTemplate></FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
                                 </EditFormSettings>

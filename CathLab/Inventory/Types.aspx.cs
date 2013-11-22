@@ -39,13 +39,17 @@ namespace CathLab
 
         protected void rgManufacturers_UpdateCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-            GridEditableItem editedItem = e.Item as GridEditableItem;
-            int a = editedItem.Controls.Count;
+            using (var context = new cathlabEntities())
+            {
+                int pnum = int.Parse(e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["ID"].ToString());
+                ProductType pt = context.ProductTypes.Find(ID);
+            }
+            
         }
 
         protected void rgPartNumbers_UpdateCommand(object sender, GridCommandEventArgs e)
         {
-            GridEditableItem editedItem = e.Item as GridEditableItem;
+
         }
 
         protected void rgProdType_UpdateCommand(object sender, GridCommandEventArgs e)
