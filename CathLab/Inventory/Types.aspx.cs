@@ -49,14 +49,17 @@ namespace CathLab
 
         protected void rgPartNumbers_UpdateCommand(object sender, GridCommandEventArgs e)
         {
+            using (var context = new cathlabEntities())
+            {
+                int PNum = int.Parse(e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["PartNum"].ToString());
 
+            }
         }
 
         protected void rgProdType_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             using (var context = new cathlabEntities())
             {
-                //GridEditableItem editedItem = e.Item as GridEditableItem;
                 int ID = int.Parse(e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["ID"].ToString());
                 ProductType pt = context.ProductTypes.Find(ID);
                 pt.Type = (e.Item.FindControl("tbType") as RadTextBox).Text;

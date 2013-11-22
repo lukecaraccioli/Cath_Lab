@@ -10,6 +10,17 @@ namespace CathLab
 {
     public partial class Inventory : System.Web.UI.Page
     {
+        //public class all
+        //{
+        //    int ID { get; set; }
+        //    string Name { get; set; }
+
+        //    public all(int id, string name)
+        //    {
+        //        ID = id;
+        //        Name = name;
+        //    }
+        //}
         public static int typeId;
         public static int manId;
         public static int locId;
@@ -42,20 +53,27 @@ namespace CathLab
         {
             int.TryParse(lbxProdType.SelectedValue, out typeId);
             if (typeId == 0)
+            {
                 loadManufacturers();
+                lbxManufacturer.SelectedIndex = 0;
+            }
             else
             {
                 using (var context = new cathlabEntities())
                 {
-                    var temp = (from prod in context.Products
-                                where prod.PartNumber1.ProductTypeID == typeId
-                                select new { ID = prod.PartNumber1.ManufacturerID, prod.PartNumber1.Manufacturer.Name }).Distinct();
+                    List<Manufacturer> temp = (from prod in context.Products
+                                               where prod.PartNumber1.ProductTypeID == typeId
+                                               select prod.PartNumber1.Manufacturer).Distinct().ToList();
+                    Manufacturer a = new Manufacturer();
+                    a.ID = 0; a.Name = "All";
+                    temp.Insert(0, a);
                     lbxManufacturer.DataTextField = "Name";
                     lbxManufacturer.DataValueField = "ID";
-                    lbxManufacturer.DataSource = temp.ToList();
+                    lbxManufacturer.DataSource = temp;
                     lbxManufacturer.DataBind();
                 }
             }
+            rgInventory.Rebind();
             lbxLocation.DataSource = null;
             lbxLocation.DataBind();
             lbxManufacturer.SelectedValue = "0";
@@ -81,20 +99,24 @@ namespace CathLab
         {
             int.TryParse(lbxManufacturer.SelectedValue, out manId);
             if (manId == 0)
+            {
                 loadLocations();
+                lbxLocation.SelectedIndex = 0;
+            }
             else
             {
                 using (var context = new cathlabEntities())
                 {
                     var temp = (from prod in context.Products
                                 where prod.PartNumber1.ManufacturerID == manId && prod.PartNumber1.ProductTypeID == typeId
-                                select new { ID = prod.LocationID, Name = prod.Location.LocationName }).Distinct().ToList();                   
+                                select new { ID = prod.LocationID, Name = prod.Location.LocationName }).Distinct().ToList();
                     lbxLocation.DataTextField = "Name";
                     lbxLocation.DataValueField = "ID";
                     lbxLocation.DataSource = temp;
                     lbxLocation.DataBind();
                 }
             }
+            rgInventory.Rebind();
             lbxLocation.SelectedValue = "0";
         }
 
@@ -122,41 +144,36 @@ namespace CathLab
 
         protected void rgInventory_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            LoadData();
-        }
-
-        protected void LoadData()
-        {
             using (var context = new cathlabEntities())
             {
                 var temp = context.GetProductCounts().AsEnumerable();
-                    //(from prod in context.Products
-                    //        select new
-                    //        {
-                    //            prod.ID,
-                    //            prod.PartNumber,
-                    //            prod.PartNumber1,
-                    //            prod.PartNumber1.NameSize,
-                    //            prod.PartNumber1.ProductType.Type,
-                    //            prod.Location.LocationName,
-                    //            prod.PartNumber1.Manufacturer.Name,
-                    //            prod.LocationID,
-                    //            //prod.SerialNumber,
-                    //            //prod.ExpirationDate,
-                    //            //prod.PartNumber1.NameSize
-                    //        }).Distinct();
-                    //            //.Select(prod => new
-                    //            //{
-                    //            //    prod.ID,
-                    //            //    prod.PartNumber,
-                    //            //    Manufacturer = prod.Name,
-                    //            //    prod.PartNumber1.NameSize,
-                    //            //    //Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
-                    //            //    Count = 8,
-                    //            //    prod.PartNumber1.ProductType.Type,
-                    //            //    prod.PartNumber1,
-                    //            //    prod.LocationID,                                    
-                    //            //});
+                //(from prod in context.Products
+                //        select new
+                //        {
+                //            prod.ID,
+                //            prod.PartNumber,
+                //            prod.PartNumber1,
+                //            prod.PartNumber1.NameSize,
+                //            prod.PartNumber1.ProductType.Type,
+                //            prod.Location.LocationName,
+                //            prod.PartNumber1.Manufacturer.Name,
+                //            prod.LocationID,
+                //            //prod.SerialNumber,
+                //            //prod.ExpirationDate,
+                //            //prod.PartNumber1.NameSize
+                //        }).Distinct();
+                //            //.Select(prod => new
+                //            //{
+                //            //    prod.ID,
+                //            //    prod.PartNumber,
+                //            //    Manufacturer = prod.Name,
+                //            //    prod.PartNumber1.NameSize,
+                //            //    //Count = (from p in context.Products where p.PartNumber == prod.PartNumber select p).Count(),
+                //            //    Count = 8,
+                //            //    prod.PartNumber1.ProductType.Type,
+                //            //    prod.PartNumber1,
+                //            //    prod.LocationID,                                    
+                //            //});
                 if (typeId != 0)
                     temp = temp.Where(a => a.ProductTypeID == typeId);
                 if (manId != 0)
@@ -173,21 +190,22 @@ namespace CathLab
             using (var context = new cathlabEntities())
             {
                 string PartNum = dataItem.GetDataKeyValue("PartNumber").ToString();
+                int LocationID = (int)dataItem.GetDataKeyValue("LocationID");
                 var temp = (from prod in context.Products
-                            where prod.PartNumber == PartNum
+                            where prod.PartNumber == PartNum && prod.LocationID == LocationID
                             select new { prod.Location.LocationName, prod.LotNumber, prod.SerialNumber, prod.ExpirationDate });
                 e.DetailTableView.DataSource = temp.ToList();
             }
         }
 
-        protected void btnHidden_Click(object sender, EventArgs e)
-        {
-            //uc1.Dispose();
-            rwNewEntry.Controls.Clear();
-            UserControl uc = (UserControl)Page.LoadControl("~//UserControls//NewPartNumber.ascx");
-            uc.Visible = true;
-            uc1.Controls.Add(uc);
-            //rwNewEntry.Controls.Add(uc);
-        }
+        //protected void btnHidden_Click(object sender, EventArgs e)
+        //{
+        //    //uc1.Dispose();
+        //    rwNewEntry.Controls.Clear();
+        //    UserControl uc = (UserControl)Page.LoadControl("~//UserControls//NewPartNumber.ascx");
+        //    uc.Visible = true;
+        //    uc1.Controls.Add(uc);
+        //    //rwNewEntry.Controls.Add(uc);
+        //}
     }
 }

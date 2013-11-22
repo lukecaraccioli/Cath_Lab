@@ -31,14 +31,7 @@
                 function show() {
                     //id(reloading window) { Refesh UC?/ Clear UC }
                     var rw = $find("<%=rwNewEntry.ClientID %>");
-                    //if (rw != null) {
                         rw.show();
-                    //}
-                    //else
-                    //{
-                        //var btnHid = $find("<%=btnHidden.ClientID %>");
-                        //btnHid.click();
-                    //}
                 };
                 // When closing the NewPart window. Clear the user control state?
                 function close(sender, e) {
@@ -50,9 +43,9 @@
         </telerik:RadScriptBlock>
         
         <asp:Panel runat="server" ID="pnlInventory">
-            <div style="visibility: hidden">
+            <%--<div style="visibility: hidden">
                 <telerik:RadButton runat="server" ID="btnHidden" OnClick="btnHidden_Click" EnableBrowserButtonStyle="true"></telerik:RadButton>
-            </div>
+            </div>--%>
             <table>
                 <tr>
                     <td>
@@ -72,7 +65,7 @@
                         </telerik:RadListBox>
                     </td>
                     <td>
-                        <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel"></telerik:RadAjaxLoadingPanel>
+                        <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel" ></telerik:RadAjaxLoadingPanel>
                         <%--<telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>--%>
                     </td>
                 </tr>
@@ -81,13 +74,13 @@
                     <%--<telerik:RadButton runat="server" ID="btnNewProduct" Text="New Product" OnClick="btnNewProduct_Click1"></telerik:RadButton>--%>
                 </tr>
             </table>
-            <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" Width="850" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" 
+            <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" MasterTableView-PageSize="15" Width="750" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" 
                 AutoGenerateColumns="false" OnDetailTableDataBind="rgInventory_DetailTableDataBind">
                 <AlternatingItemStyle BackColor="LightSteelBlue" />
                 <AlternatingItemStyle BorderWidth="1px" />
                 <ItemStyle BackColor="WhiteSmoke" />
                 <ItemStyle BorderWidth="1px" />
-                <MasterTableView DataKeyNames="PartNumber">
+                <MasterTableView DataKeyNames="PartNumber, LocationID">
                     <Columns>
                         <telerik:GridBoundColumn DataField="PartNumber" HeaderText="Part Number"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="NameSize" HeaderText="Name & Size"></telerik:GridBoundColumn>
