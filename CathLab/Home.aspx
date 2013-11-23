@@ -32,8 +32,8 @@
     <div class="rotatorBackground">
 
         <%-- ItemWidth and ItemHeight include 2x5(pixels) margin and 1x2(pixels) border --%>
-        <telerik:RadRotator ID="RadRotator1" runat="server" Width="800px" Height="650px"
-            CssClass="rotatorStyle" ItemHeight="650" ItemWidth="800" ScrollDuration="1200">
+        <%--<telerik:RadRotator ID="RadRotator1" runat="server" Width="600px" Height="650px"
+            CssClass="rotatorStyle" ItemHeight="650" ItemWidth="600" ScrollDuration="1200">
 
             <Items>
                 <telerik:RadRotatorItem>
@@ -71,9 +71,9 @@
                         <asp:Image runat="server" ID="Image5" ImageUrl="~/images/inventory.png"
                             CssClass="RotatorItem" AlternateText="Customer Image"></asp:Image>
                     </ItemTemplate>
-                </telerik:RadRotatorItem>
+                </telerik:RadRotatorItem>--%>
 
-            </Items>
-        </telerik:RadRotator>
+          <%--  </Items>
+        </telerik:RadRotator>--%>
     </div>
 </asp:Content>

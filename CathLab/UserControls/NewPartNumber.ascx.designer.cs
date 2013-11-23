@@ -49,6 +49,15 @@ namespace CathLab.UserControls {
         protected global::Telerik.Web.UI.RadButton btnPopulate;
         
         /// <summary>
+        /// btnFinished control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnFinished;
+        
+        /// <summary>
         /// lblStatus control.
         /// </summary>
         /// <remarks>
@@ -335,6 +344,15 @@ namespace CathLab.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btnPNSubmit;
+        
+        /// <summary>
+        /// lblMissing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMissing;
         
         /// <summary>
         /// pnlNewManufacturer control.

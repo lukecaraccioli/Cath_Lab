@@ -13,26 +13,18 @@ namespace CathLab
     public partial class Reports : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        { }
-
-        protected void btnTest_Click(object sender, EventArgs e)
         {
-            //UriReportSource rs = new UriReportSource();
-            //rs.Uri = "Reports\\TestReport.trdx";
-
-            //Telerik.Reporting.Parameter paramStartDate = new Telerik.Reporting.Parameter();
-            //paramStartDate.Name = "@StartDate";
-            //paramStartDate.Value = rdpStartDate.SelectedDate;
-            //rs.Parameters.Add(paramStartDate);
-
-            //Telerik.Reporting.Parameter paramEndDate = new Telerik.Reporting.Parameter();
-            //paramEndDate.Name = "@EndDate";
-            //paramEndDate.Value = rdpEndDate.SelectedDate;
-            //rs.Parameters.Add(paramEndDate);
-
-            //ReportViewer1.ReportSource = rs;
+            if (Request.QueryString["ReportName"] != null)
+            {
+                if (Request.QueryString["ReportName"] == "Scanned")
+                {
+                    UriReportSource rs = new UriReportSource();
+                    rs.Uri = "Reports\\getScanned.trdx";
+                    ReportViewer1.ReportSource = rs;
+                }
+            }
         }
-
+       
         protected void btnStents_Click(object sender, EventArgs e)
         {
             UriReportSource rs = new UriReportSource();

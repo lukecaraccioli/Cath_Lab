@@ -10,17 +10,6 @@ namespace CathLab
 {
     public partial class Inventory : System.Web.UI.Page
     {
-        //public class all
-        //{
-        //    int ID { get; set; }
-        //    string Name { get; set; }
-
-        //    public all(int id, string name)
-        //    {
-        //        ID = id;
-        //        Name = name;
-        //    }
-        //}
         public static int typeId;
         public static int manId;
         public static int locId;
@@ -55,7 +44,7 @@ namespace CathLab
             if (typeId == 0)
             {
                 loadManufacturers();
-                lbxManufacturer.SelectedIndex = 0;
+                //lbxManufacturer.SelectedValue = "0";
             }
             else
             {
@@ -76,8 +65,8 @@ namespace CathLab
             rgInventory.Rebind();
             lbxLocation.DataSource = null;
             lbxLocation.DataBind();
-            lbxManufacturer.SelectedValue = "0";
-            lbxLocation.SelectedValue = "0";
+            //lbxManufacturer.SelectedValue = "0";
+            //lbxLocation.SelectedValue = "0";
         }
 
         protected void loadManufacturers()
@@ -101,7 +90,7 @@ namespace CathLab
             if (manId == 0)
             {
                 loadLocations();
-                lbxLocation.SelectedIndex = 0;
+                //lbxLocation.SelectedValue = "0";
             }
             else
             {
@@ -117,7 +106,7 @@ namespace CathLab
                 }
             }
             rgInventory.Rebind();
-            lbxLocation.SelectedValue = "0";
+            //lbxLocation.SelectedValue = "0";
         }
 
         protected void loadLocations()
@@ -140,7 +129,7 @@ namespace CathLab
             int.TryParse(lbxLocation.SelectedValue, out locId);
             rgInventory.Rebind();
         }
-#endregion PopulateListboxes
+        #endregion PopulateListboxes
 
         protected void rgInventory_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
@@ -197,15 +186,5 @@ namespace CathLab
                 e.DetailTableView.DataSource = temp.ToList();
             }
         }
-
-        //protected void btnHidden_Click(object sender, EventArgs e)
-        //{
-        //    //uc1.Dispose();
-        //    rwNewEntry.Controls.Clear();
-        //    UserControl uc = (UserControl)Page.LoadControl("~//UserControls//NewPartNumber.ascx");
-        //    uc.Visible = true;
-        //    uc1.Controls.Add(uc);
-        //    //rwNewEntry.Controls.Add(uc);
-        //}
     }
 }

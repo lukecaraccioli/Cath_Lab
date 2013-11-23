@@ -31,7 +31,8 @@
                 <h3>Please scan the Part Number on the product packaging.</h3>
                 <br />
                 <telerik:RadTextBox runat="server" ID="tbPartNum" Label="New Part#:" AutoPostBack="true" OnTextChanged="tbPartNum_TextChanged" Font-Size="Medium"></telerik:RadTextBox>&nbsp;           
-            <telerik:RadButton runat="server" ID="btnPopulate" Text="Submit" OnClick="tbPartNum_TextChanged"></telerik:RadButton>
+            <telerik:RadButton runat="server" ID="btnPopulate" Text="Submit" OnClick="tbPartNum_TextChanged"></telerik:RadButton> &nbsp;
+                <telerik:RadButton runat="server" ID="btnFinished" Text="Done" OnClick="btnFinished_Click" />
                 <br />
                 <asp:Label runat="server" ID="lblStatus" Font-Size="Medium" Visible="false"></asp:Label>
                 <br />
@@ -121,6 +122,7 @@
                 </div>
                 <div>
                     <telerik:RadButton runat="server" ID="btnPNSubmit" Text="Submit" OnClick="btnPNSubmit_Click"></telerik:RadButton>
+                    <asp:Label runat="server" ID="lblMissing" Text="ERROR! Missing required fields." ForeColor="Red" Visible="false" />
                 </div>
             </div>
         </asp:Panel>
@@ -131,13 +133,13 @@
                 <%--<uc2:NewManufacturer runat="server" ID="ucNewManufacturer"></uc2:NewManufacturer>--%>
                 <h2>Insert a New Manufacturer</h2>
                 <div>
-                    <telerik:RadTextBox runat="server" ID="tbManufacturerName" Label="Name: " ></telerik:RadTextBox>
+                    <telerik:RadTextBox runat="server" ID="tbManufacturerName" Label="Name: " LabelWidth="87px"></telerik:RadTextBox>
                     <br />
-                    <telerik:RadTextBox runat="server" ID="tbxPhoneNumber" Label="Phone Number: "></telerik:RadTextBox>
+                    <telerik:RadTextBox runat="server" ID="tbxPhoneNumber" Label="Phone Number: " LabelWidth="87px"></telerik:RadTextBox>
                     <br />
-                    <telerik:RadTextBox runat="server" ID="tbxEmail" Label="Email:"></telerik:RadTextBox>
+                    <telerik:RadTextBox runat="server" ID="tbxEmail" Label="Email:" LabelWidth="87px"></telerik:RadTextBox>
                     <br />
-                    <telerik:RadTextBox runat="server" ID="tbxAddress" Label="Address"></telerik:RadTextBox>
+                    <telerik:RadTextBox runat="server" ID="tbxAddress" Label="Address" LabelWidth="87px"></telerik:RadTextBox>
                     <br />
                     <telerik:RadButton runat="server" ID="btnManSubmit" Text="Submit" OnClick="btnManSubmit_Click"></telerik:RadButton>
                     &nbsp;

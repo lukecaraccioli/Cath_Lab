@@ -2,28 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="content">
-        <%--<telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">--%>
-            <%--<div style="height: 40px">
-            <telerik:RadButton runat="server" ID="btnPartNums" OnClick="btnPartNums_Click" Text="Edit Part Numbers"></telerik:RadButton>
-            &nbsp;
-        <telerik:RadButton runat="server" ID="btnManufacturers" OnClick="btnManufacturers_Click" Text="Edit Manufacturers"></telerik:RadButton>
-            &nbsp;
-        <telerik:RadButton runat="server" ID="btnProdTypes" OnClick="btnProdTypes_Click" Text="Edit Product Types"></telerik:RadButton>
-            &nbsp;
-        </div>--%>          
-
-        <%--<telerik:RadScriptManager runat="server" ID="ScriptManager">
-            <Scripts>
-                <asp:ScriptReference Path="~/Scripts/jquery-1.9.1.js" />
-                <asp:ScriptReference Path="~/Scripts/jquery-ui.js" />
-            </Scripts>
-        </telerik:RadScriptManager>--%>
-
-            <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
+        <telerik:RadAjaxPanel runat="server" ID="radajaxglobbal">
+        <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
                 <%-- JQuery scripts --%>
+                <link rel="stylesheet" href="../Stylesheets/Tabs.css"/>
                 <link rel="stylesheet" href="../Stylesheets/jquery-ui.css" />
                 <script src="../Scripts/jquery-1.9.1.js"></script>
-                <script src="../Scripts/jquery-ui.js"></script>
+                <script src="../Scripts/jquery-ui.js"></script>                
 
                 <script type="text/javascript">
                     $(function () {
@@ -40,15 +25,17 @@
                 </ul>
 
                 <div id="tabPartNumbers">
-                    <telerik:RadAjaxPanel runat="server" ID="pnlAJAXPartNums">
+                   <%-- <telerik:RadAjaxPanel runat="server" ID="pnlAJAXPartNums">--%>
                     <span>
-                    <asp:label runat="server" ID="lblPNSearch" Text="Part Number Search: " AssociatedControlID="tbPNSearch"></asp:label>
-                    <telerik:RadTextBox runat="server" ID="tbPNSearch" OnTextChanged="tbPNSearch_TextChanged" />
+                            <telerik:RadButton runat="server" ID="btnNewPartNum" Text="New Part Number" OnClientClicked="show" AutoPostBack="false"/>
+                            <asp:Label runat="server" ID="lblPNSearch" Text="Part Number Search: " AssociatedControlID="tbPNSearch"></asp:Label>
+                            <telerik:RadTextBox runat="server" ID="tbPNSearch" OnTextChanged="tbPNSearch_TextChanged" />
                         </span>                    
-                        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="670px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource" AllowAutomaticInserts="true"
+                        <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="670px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource"
                             OnUpdateCommand="rgPartNumbers_UpdateCommand" OnDeleteCommand="rgPartNumbers_DeleteCommand">
                             <PagerStyle Mode="NextPrevAndNumeric" />
-                            <MasterTableView AutoGenerateColumns="False" DataKeyNames="PartNum">
+                            <MasterTableView AutoGenerateColumns="False" DataKeyNames="PartNum" EditMode="EditForms">
+                                <%--<EditFormSettings InsertCaption="Insert PN" PopUpSettings-Modal="true" EditFormType="Template" --%>
                                 <Columns>
                                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="PartNum" ButtonType="ImageButton"></telerik:GridButtonColumn>
                                     <telerik:GridBoundColumn DataField="PartNum" HeaderText="Part Number"></telerik:GridBoundColumn>
@@ -61,21 +48,32 @@
                                         ConfirmText="Permanently delete Part Number?">
                                     </telerik:GridButtonColumn>
                                 </Columns>
-                                <EditFormSettings>
+                                <EditFormSettings EditFormType="Template">
                                     <FormTemplate>
+                                        <telerik:RadTextBox runat="server" ID="tbPartNum" Text='<%# DataBinder.Eval(Container, "DataItem.PartNum") %>'></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="tbNameSize" Text='<%# DataBinder.Eval(Container, "DataItem.NameSize") %>'></telerik:RadTextBox>
+                                        <telerik:RadListBox runat="server" ID="lbxManufacturer" ></telerik:RadListBox>
+                                        <telerik:RadListBox runat="server" ID="lbxProductType" ></telerik:RadListBox>
+                                        <telerik:RadTextBox runat="server" ID="tbCost" Text='<%# DataBinder.Eval(Container, "DataItem.Cost") %>'></telerik:RadTextBox>
+                                        <telerik:RadTextBox runat="server" ID="tbPar" Text='<%# DataBinder.Eval(Container, "DataItem.Par") %>'></telerik:RadTextBox>
+                                        <telerik:RadButton runat="server" ID="btnSavePartNum" Text='<%# Container is GridEditFormItem ? "Insert" : "Update" %>' 
+                                            CausesValidation="true" CommandName="Update"></telerik:RadButton>
+                                        <telerik:RadButton runat="server" ID="btnUpdate" Text="Update" CausesValidation="false" CommandName="Cancel"></telerik:RadButton>
+                                        <telerik:RadButton runat="server" ID="btnCancelPartNum" Text="Cancel" CausesValidation="false" CommandName="Cancel"></telerik:RadButton>
                                     </FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
                                 </EditFormSettings>
                             </MasterTableView>
                         </telerik:RadGrid>
-                    </telerik:RadAjaxPanel>
+                    <%--</telerik:RadAjaxPanel>--%>
                 </div>
 
                 <div id="tabManufacturers">
-                    <telerik:RadAjaxPanel runat="server" ID="pnlAJAXManufacturers">
+                   <%-- <telerik:RadAjaxPanel runat="server" ID="pnlAJAXManufacturers">--%>
+                        <telerik:RadButton runat="server" ID="btnManufacturer" Text="New Manufacturer" OnClientClicked="show()" OnClick="btnManufacturer_Click" />
                         <telerik:RadGrid runat="server" ID="rgManufacturers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgManufacturers_NeedDataSource"
                             OnUpdateCommand="rgManufacturers_UpdateCommand" OnDeleteCommand="rgManufacturers_DeleteCommand">
-                            <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
+                            <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID" EditMode="EditForms">
                                 <Columns>
                                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
                                     <telerik:GridBoundColumn DataField="Name" HeaderText="Name"></telerik:GridBoundColumn>
@@ -85,19 +83,21 @@
                                         ConfirmText="Permanently delete Manufacturer?">
                                     </telerik:GridButtonColumn>
                                 </Columns>
-                                <EditFormSettings>
+                                <EditFormSettings EditFormType="Template">
+                                    <FormTemplate></FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
                                 </EditFormSettings>
                             </MasterTableView>
                         </telerik:RadGrid>
-                    </telerik:RadAjaxPanel>
+                    <%--</telerik:RadAjaxPanel>--%>
                 </div>
 
                 <div id="tabProdType">
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXProdType">
+                        <telerik:RadButton runat="server" ID="btnProductType" Text="New Pruduct Type" OnClientClicked="show()" OnClick="btnProductType_Click" />
                         <telerik:RadGrid runat="server" ID="rgProdType" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgProdType_NeedDataSource"
                             OnUpdateCommand="rgProdType_UpdateCommand" OnDeleteCommand="rgProdType_DeleteCommand">
-                            <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID">
+                            <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID" EditMode="EditForms">
                                 <Columns>
                                     <telerik:GridButtonColumn Text="Edit" CommandName="Edit" CommandArgument="ID" ButtonType="ImageButton"></telerik:GridButtonColumn>
                                     <telerik:GridBoundColumn DataField="Type" HeaderText="Product Type"></telerik:GridBoundColumn>
@@ -105,7 +105,16 @@
                                         ConfirmText="Permanently delete Product Type?">
                                     </telerik:GridButtonColumn>
                                 </Columns>
-                                <EditFormSettings>
+                                <EditFormSettings EditFormType="Template" >
+                                    <FormTemplate>
+                                        <telerik:RadTextBox runat="server" ID="tbType" Label="Type: " Text='<%# DataBinder.Eval(Container, "DataItem.Type") %>'></telerik:RadTextBox> 
+                                        &nbsp;
+                                        <telerik:RadButton runat="server" ID="btnSaveTypes" Text='<%# Container is GridEditFormItem ? "Insert" : "Update" %>' 
+                                            CausesValidation="true" CommandName="Update"></telerik:RadButton> 
+                                        <%-- '<%# Container is GridEditFormItem ? "PerformInsert" : "Update" %>' --%>
+                                        &nbsp;
+                                        <telerik:RadButton runat="server" ID="btnCancelTypes" Text="Cancel" CausesValidation="false" CommandName="Cancel"></telerik:RadButton>
+                                    </FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
                                 </EditFormSettings>
                             </MasterTableView>
@@ -123,12 +132,23 @@
             </telerik:RadNotification>
 
 
-            <telerik:RadWindow runat="server" ID="windowNotification" Title="WARNING">
-                <ContentTemplate>
-                    <asp:Label runat="server" ID="rwLabel"></asp:Label>
-                </ContentTemplate>
-            </telerik:RadWindow>
+            <%--<telerik:RadWindow runat="server" ID="rwEntry" Modal="true"  Width="530px" Height="470px" Title="New Product Entry"
+            DestroyOnClose="true">
+        <ContentTemplate>
+            <asp:Label runat="server" ID="rwLabel" Text="Test Text for window"></asp:Label>
 
-      <%--  </telerik:RadAjaxPanel>--%>
+        </ContentTemplate>
+    </telerik:RadWindow>--%>
+
+        <%--<telerik:RadScriptBlock runat="server" ID="RadScriptBlock1">
+                <script type="text/javascript">
+                    function show() {
+                        var rw = $find("<%= rwEntry.ClientID %>");
+                        rw.show();
+                    };
+                </script>
+            </telerik:RadScriptBlock>--%>
+
+        </telerik:RadAjaxPanel>
     </div>
 </asp:Content>

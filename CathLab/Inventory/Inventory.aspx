@@ -10,7 +10,7 @@
                     <h2>Page Options</h2>
                     <ul class="sidemenu">
                         <li><a href="/Inventory/Expiring.aspx">Expiring</a></li>
-                         <li><a href="/Inventory/Types.aspx">Types</a></li>
+                        <li><a href="/Inventory/Types.aspx">Types</a></li>
                         <li><a href="/Reports/Reports.aspx">Reports</a></li>
                         <li><a href="/Home.aspx">Home</a></li>
                     </ul>
@@ -33,19 +33,10 @@
                     var rw = $find("<%=rwNewEntry.ClientID %>");
                         rw.show();
                 };
-                // When closing the NewPart window. Clear the user control state?
-                //function close(sender, e) {
-                 //   sender.dispose();
-               // };
-
-                // Wait until show() to load UC?
             </script>
         </telerik:RadScriptBlock>
         
         <asp:Panel runat="server" ID="pnlInventory">
-            <%--<div style="visibility: hidden">
-                <telerik:RadButton runat="server" ID="btnHidden" OnClick="btnHidden_Click" EnableBrowserButtonStyle="true"></telerik:RadButton>
-            </div>--%>
             <table>
                 <tr>
                     <td>
@@ -66,12 +57,10 @@
                     </td>
                     <td>
                         <telerik:RadAjaxLoadingPanel runat="server" ID="loadingPanel" ></telerik:RadAjaxLoadingPanel>
-                        <%--<telerik:RadButton runat="server" ID="btnApply" Text="Apply Filters" OnClick="btnApply_Click"></telerik:RadButton>--%>
                     </td>
                 </tr>
                 <tr>
                     <telerik:RadButton runat="server" ID="btnNewProduct" OnClientClicked="show" Text="New Product" AutoPostBack="false"></telerik:RadButton>   
-                    <%--<telerik:RadButton runat="server" ID="btnNewProduct" Text="New Product" OnClick="btnNewProduct_Click1"></telerik:RadButton>--%>
                 </tr>
             </table>
             <telerik:RadGrid runat="server" ID="rgInventory" Visible="true" AllowPaging="true" MasterTableView-PageSize="15" Width="750" Skin="Outlook" OnNeedDataSource="rgInventory_NeedDataSource" 

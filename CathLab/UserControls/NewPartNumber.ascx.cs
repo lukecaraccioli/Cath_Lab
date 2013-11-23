@@ -25,6 +25,7 @@ namespace CathLab.UserControls
             pnlNewPartNumber.Visible = false;
             pnlNewManufacturer.Visible = false;
             pnlNewProdType.Visible = false;
+            lblMissing.Visible = false;
         }
 
         #region NewProduct
@@ -111,23 +112,31 @@ namespace CathLab.UserControls
         #region NewPartNum
         protected void btnPNSubmit_Click(object sender, EventArgs e)
         {
-            using (var context = new cathlabEntities())
+            if (lbxManufacturer.SelectedItem == null || lbxProdType.SelectedItem == null || tbNNameSize.Text == string.Empty)
             {
-                int cost, par;
-                int.TryParse(tbNCost.Text, out cost);
-                int.TryParse(tbNPar.Text, out par);
-                PartNumber pn = new PartNumber();
-                pn.PartNum = pnum;
-                pn.NameSize = tbNNameSize.Text;
-                pn.ManufacturerID = int.Parse(lbxManufacturer.SelectedValue);   //
-                pn.ProductTypeID = int.Parse(lbxProdType.SelectedValue);        //                
-                pn.Cost = cost;
-                pn.Par = par;
-                context.PartNumbers.Add(pn);
-                context.SaveChanges();
-                pnlNewPartNumber.Visible = true;
-                pnlNewPartNumber.Visible = false;
-                autopopulate();
+                lblMissing.Visible = true;
+            }
+            else
+            {
+                using (var context = new cathlabEntities())
+                {
+                    int cost, par;
+                    int.TryParse(tbNCost.Text, out cost);
+                    int.TryParse(tbNPar.Text, out par);
+                    PartNumber pn = new PartNumber();
+                    pn.PartNum = pnum;
+                    pn.NameSize = tbNNameSize.Text;
+                    pn.ManufacturerID = int.Parse(lbxManufacturer.SelectedValue);   //
+                    pn.ProductTypeID = int.Parse(lbxProdType.SelectedValue);        //                
+                    pn.Cost = cost;
+                    pn.Par = par;
+                    context.PartNumbers.Add(pn);
+                    context.SaveChanges();
+                    pnlNewPartNumber.Visible = true;
+                    pnlNewPartNumber.Visible = false;
+                    lblMissing.Visible = false;
+                    autopopulate();
+                }
             }
         }
 
@@ -245,5 +254,10 @@ namespace CathLab.UserControls
             pnlNewProdType.Visible = false;
         }
         #endregion ProdType
+
+        protected void btnFinished_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reports/Reports.aspx?ReportName=Scanned", true);
+        }
     }
 }

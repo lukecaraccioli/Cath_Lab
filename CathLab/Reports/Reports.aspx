@@ -6,13 +6,14 @@
 
   
     <telerik:RadAjaxPanel runat="server" ID="RadAJAXPanel">
+          <h3>Select a date range for the Stents Cost ot Stent usage reports</h3>
         <table>
             <tr>
-               
+             
                 <td>
+                    
                     <telerik:RadDatePicker runat="server" ID="rdpStartDate" DateInput-Label="Start Date"></telerik:RadDatePicker> <br />
-                    <telerik:RadDatePicker runat="server" ID="rdpEndDate" DateInput-Label="End Date"></telerik:RadDatePicker> <br />
-                    <%--<telerik:RadButton runat="server" ID="btnTest" Text="Test" OnClick="btnTest_Click"></telerik:RadButton>--%>                    
+                    <telerik:RadDatePicker runat="server" ID="rdpEndDate" DateInput-Label="End Date"></telerik:RadDatePicker> <br />                  
                 </td>
                 <td>
                     <telerik:RadButton runat="server" ID="btnStents" Text="Stents" OnClick="btnStents_Click"></telerik:RadButton>&nbsp;
