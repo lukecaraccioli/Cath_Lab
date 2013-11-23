@@ -131,7 +131,7 @@
                 <%--<uc2:NewManufacturer runat="server" ID="ucNewManufacturer"></uc2:NewManufacturer>--%>
                 <h2>Insert a New Manufacturer</h2>
                 <div>
-                    <telerik:RadTextBox runat="server" ID="tbManufacturerName" Label="Name: " LabelWidth="80px"></telerik:RadTextBox>
+                    <telerik:RadTextBox runat="server" ID="tbManufacturerName" Label="Name: " ></telerik:RadTextBox>
                     <br />
                     <telerik:RadTextBox runat="server" ID="tbxPhoneNumber" Label="Phone Number: "></telerik:RadTextBox>
                     <br />
