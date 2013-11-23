@@ -34,9 +34,9 @@
                         rw.show();
                 };
                 // When closing the NewPart window. Clear the user control state?
-                function close(sender, e) {
-                    sender.dispose();
-                };
+                //function close(sender, e) {
+                 //   sender.dispose();
+               // };
 
                 // Wait until show() to load UC?
             </script>

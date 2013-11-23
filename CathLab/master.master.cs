@@ -19,6 +19,10 @@ namespace CathLab
                 ////Response.Redirect("~/Home.aspx?ReturnPath=" + temp);
                 //Response.Redirect("/Home.aspx", false);
             }
+            else
+            {
+                mnuMenu.Visible = true;
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)

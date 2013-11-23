@@ -10,20 +10,24 @@ namespace CathLab
     public partial class Home : System.Web.UI.Page
     {
         protected void Page_Init(object sender, EventArgs e)
-        {            
+        {
             if ((int)Session["LoggedIn"] <= 0)
-                loginControl.Visible = true;            
+            {
+                loginControl.Visible = true;
+                pnlSide.Visible = false;
+            }
             else
+            {
+                pnlSide.Visible = true;
                 loginControl.Visible = false;
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         { }
 
         protected void aspLogin_LoggedIn(object sender, EventArgs e)
-        {
-            
-        }
+        { }
 
         protected void aspLogin_LoggingIn(object sender, LoginCancelEventArgs e)
         {            
@@ -38,6 +42,7 @@ namespace CathLab
                 else
                 {
                     e.Cancel = true;
+                    lblLoginStatus.Visible = true;
                     loginControl.FailureText = "Invalid Login";
                 }
             }

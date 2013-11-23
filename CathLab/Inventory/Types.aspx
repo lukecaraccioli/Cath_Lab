@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="content">
-            <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
+        <telerik:RadScriptBlock runat="server" ID="RadScriptBlock">
                 <%-- JQuery scripts --%>
                 <link rel="stylesheet" href="../Stylesheets/Tabs.css"/>
                 <link rel="stylesheet" href="../Stylesheets/jquery-ui.css" />
@@ -13,6 +13,10 @@
                     $(function () {
                         $("#tabs").tabs();
                     });
+                    //function show() {
+                    //    var rw = $find("<%=rwEntry.ClientID %>");
+                    //    rw.show();
+                    //};
                 </script>
             </telerik:RadScriptBlock>
 
@@ -26,8 +30,9 @@
                 <div id="tabPartNumbers">
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXPartNums">
                     <span>
-                    <asp:label runat="server" ID="lblPNSearch" Text="Part Number Search: " AssociatedControlID="tbPNSearch"></asp:label>
-                    <telerik:RadTextBox runat="server" ID="tbPNSearch" OnTextChanged="tbPNSearch_TextChanged" />
+                            <telerik:RadButton runat="server" ID="btnNewPartNum" Text="New Part Number" OnClientClicked="show" AutoPostBack="false" OnClick="btnNewPartNum_Click" />
+                            <asp:Label runat="server" ID="lblPNSearch" Text="Part Number Search: " AssociatedControlID="tbPNSearch"></asp:Label>
+                            <telerik:RadTextBox runat="server" ID="tbPNSearch" OnTextChanged="tbPNSearch_TextChanged" />
                         </span>                    
                         <telerik:RadGrid runat="server" ID="rgPartNumbers" AllowPaging="true" Width="670px" PageSize="20" OnNeedDataSource="rgPartNumbers_NeedDataSource"
                             OnUpdateCommand="rgPartNumbers_UpdateCommand" OnDeleteCommand="rgPartNumbers_DeleteCommand">
@@ -56,6 +61,7 @@
                                         <telerik:RadTextBox runat="server" ID="tbPar" Text='<%# DataBinder.Eval(Container, "DataItem.Par") %>'></telerik:RadTextBox>
                                         <telerik:RadButton runat="server" ID="btnSavePartNum" Text='<%# Container is GridEditFormItem ? "Insert" : "Update" %>' 
                                             CausesValidation="true" CommandName="Update"></telerik:RadButton>
+                                        <telerik:RadButton runat="server" ID="btnUpdate" Text="Update" CausesValidation="false" CommandName="Cancel"></telerik:RadButton>
                                         <telerik:RadButton runat="server" ID="btnCancelPartNum" Text="Cancel" CausesValidation="false" CommandName="Cancel"></telerik:RadButton>
                                     </FormTemplate>
                                     <EditColumn ButtonType="ImageButton"></EditColumn>
@@ -67,6 +73,7 @@
 
                 <div id="tabManufacturers">
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXManufacturers">
+                        <telerik:RadButton runat="server" ID="btnManufacturer" Text="New Manufacturer" OnClientClicked="show()" OnClick="btnManufacturer_Click" />
                         <telerik:RadGrid runat="server" ID="rgManufacturers" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgManufacturers_NeedDataSource"
                             OnUpdateCommand="rgManufacturers_UpdateCommand" OnDeleteCommand="rgManufacturers_DeleteCommand">
                             <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID" EditMode="EditForms">
@@ -90,6 +97,7 @@
 
                 <div id="tabProdType">
                     <telerik:RadAjaxPanel runat="server" ID="pnlAJAXProdType">
+                        <telerik:RadButton runat="server" ID="btnProductType" Text="New Pruduct Type" OnClientClicked="show()" OnClick="btnProductType_Click" />
                         <telerik:RadGrid runat="server" ID="rgProdType" AllowPaging="true" Width="500px" PageSize="20" OnNeedDataSource="rgProdType_NeedDataSource"
                             OnUpdateCommand="rgProdType_UpdateCommand" OnDeleteCommand="rgProdType_DeleteCommand">
                             <MasterTableView AutoGenerateColumns="false" DataKeyNames="ID" EditMode="EditForms">
@@ -118,7 +126,7 @@
                 </div>
             </div>
 
-        <telerik:RadWindowManager runat="server" ID="rwManager"></telerik:RadWindowManager>
+        <%--<telerik:RadWindowManager runat="server" ID="rwManager"></telerik:RadWindowManager>--%>
 
             <telerik:RadNotification runat="server" ID="RadNotification" AutoCloseDelay="2500" Height="300px" Width="400px" Title="ERROR!">
                 <ContentTemplate>
@@ -127,11 +135,24 @@
             </telerik:RadNotification>
 
 
-            <telerik:RadWindow runat="server" ID="windowNotification" Title="WARNING">
-                <ContentTemplate>
-                    <asp:Label runat="server" ID="rwLabel"></asp:Label>
-                </ContentTemplate>
-            </telerik:RadWindow>
+            <telerik:RadWindow runat="server" ID="rwEntry" Modal="true"  Width="530px" Height="470px" Title="New Product Entry"
+            DestroyOnClose="true">
+        <ContentTemplate>
+            <asp:Label runat="server" ID="rwLabel" Text="Test Text for window"></asp:Label>
+
+        </ContentTemplate>
+    </telerik:RadWindow>
+
+        <telerik:RadScriptBlock runat="server" ID="RadScriptBlock1">
+                <script type="text/javascript">
+                    function show() {
+                        var rw = $find("<%=rwEntry.ClientID %>");
+                        //var lbl = $find("<%=rwLabel.ClientID %>")
+                        //lbl.Text = entry;
+                        rw.show();
+                    };
+                </script>
+            </telerik:RadScriptBlock>
 
       <%--  </telerik:RadAjaxPanel>--%>
     </div>

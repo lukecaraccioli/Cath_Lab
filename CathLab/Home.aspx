@@ -10,7 +10,7 @@
                     <li><a href="/Inventory/Inventory.aspx">Inventory</a></li>
                     <li><a href="/Reports/Reports.aspx">Reports</a></li>
                 </ul>
-                    </asp:Panel>
+                    </asp:Panel>                
                 <asp:Panel runat="server" ID="pnlLogin">                       
                     <asp:Login runat="server" ID="loginControl" OnLoggedIn="aspLogin_LoggedIn" OnLoggingIn="aspLogin_LoggingIn" Visible="false" 
                         BorderColor="Black" BorderWidth="1px" DestinationPageUrl="~/Inventory/Inventory.aspx" >        
