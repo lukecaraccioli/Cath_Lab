@@ -54,6 +54,7 @@ namespace CathLab
         {
             UriReportSource rs = new UriReportSource();
             rs.Uri = "Reports\\getStentsCost.trdx";
+            
 
             //string startDate = rdpStartDate.SelectedDate.Value.Date.ToShortDateString().Replace('/', '-');
             //string endDate = rdpEndDate.SelectedDate.Value.Date.ToShortDateString().Replace('/', '-');
